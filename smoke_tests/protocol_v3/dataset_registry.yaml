@@ -1,0 +1,29 @@
+protocol_id: MEDSEG_TEXT_V3_20260710
+defaults:
+  mask_mode: threshold_127
+  nsd_tolerance_px: 2.0
+  spacing_px: [1.0, 1.0]
+datasets:
+  medclipseg_busi:
+    mask_mode: threshold_127
+  medclipseg_clinicdb:
+    mask_mode: threshold_127
+  medclipseg_busbra:
+    mask_mode: threshold_127
+  medclipseg_brisc:
+    mask_mode: threshold_127
+    duplicate_image_policy: drop_conflicting_groups_preserve_holdout_exact
+  medclipseg_covid19:
+    mask_mode: threshold_127
+  busi_hf:
+    mask_mode: threshold_127
+    evidence_tier: internal_development_only
+  busi:
+    mask_mode: threshold_127
+    evidence_tier: legacy_exploratory
+  cvc:
+    mask_mode: threshold_127
+    evidence_tier: legacy_exploratory
+  glas:
+    mask_mode: nonzero_label
+    evidence_tier: legacy_exploratory

@@ -1,0 +1,54 @@
+protocol_id: MEDSEG_TEXT_V3_20260710
+claim_tier: confirmatory_after_gate
+dataset_registry: smoke_tests/protocol_v3/dataset_registry.yaml
+seeds: [123, 456, 789]
+training_epochs: 100
+selection_split: val
+final_split: test
+prediction_threshold: 0.5
+metrics:
+  - dice
+  - iou
+  - nsd
+  - hd95
+  - assd
+nsd_tolerance_px: 2.0
+empty_case_policy:
+  both_empty:
+    overlap: 1.0
+    distance: 0.0
+  one_empty:
+    overlap: 0.0
+    distance: inf
+statistics:
+  bootstrap_repetitions: 10000
+  bootstrap_seed: 12345
+  case_seed_reduction: mean
+  multiplicity_correction: holm
+datasets:
+  medclipseg_busi:
+    manifest: smoke_tests/protocol_v3/manifests/medclipseg_busi_full.csv
+    prompt_source: official_medclipseg
+  medclipseg_clinicdb:
+    manifest: smoke_tests/protocol_v3/manifests/medclipseg_clinicdb_full.csv
+    prompt_source: official_medclipseg
+  medclipseg_busbra:
+    manifest: smoke_tests/protocol_v3/manifests/medclipseg_busbra_full.csv
+    prompt_source: official_medclipseg
+  medclipseg_brisc:
+    manifest: smoke_tests/protocol_v3/manifests/medclipseg_brisc_full.csv
+    prompt_source: official_medclipseg
+  medclipseg_covid19:
+    manifest: smoke_tests/protocol_v3/manifests/medclipseg_covid19_full.csv
+    prompt_source: official_medclipseg
+promotion_gate:
+  minimum_dataset_wins: 3
+  minimum_dice_gain: 0.003
+  maximum_dataset_drop: 0.003
+  require_r8_over_no_rewrite: true
+  semantic_control_minimum_datasets: 3
+legacy_artifacts:
+  track_a: legacy_exploratory
+  r7_pre_v3: legacy_exploratory
+  r8_pre_v3: legacy_exploratory
+  busi_hf_pre_v3: legacy_exploratory

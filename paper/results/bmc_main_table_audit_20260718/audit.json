@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "canonical_source": "paper/results/protocol_v3_boundary_20260715/boundary_aggregate.csv",
+  "canonical_sha256": "35b1187f26eb6d6b1c7e430ea987c114531934fd410e071aaa90f89d41ecffa7",
+  "strict_medequiseg_source": "paper/results/medequiseg_factorial_public5_20260715/seed_metrics.csv",
+  "strict_medequiseg_sha256": "597ecca46f0a00ee1988012dfa6f72898f626bf95227b07246cb310e57330ce2",
+  "latex_source": "paper/latex/bmc_work/bmc_tables.tex",
+  "latex_sha256": "c8d5de78fc446160208764c2fe4c9cf1b13462f4f59e5ddb80ce3f0a0ed1c951",
+  "expected_cells": 120,
+  "numeric_checks": 240,
+  "ranking_checks": 240,
+  "errors": [],
+  "legacy_snapshot": "paper/tables/protocol_v3/protocol_v3_model_comparison_3seed.csv",
+  "legacy_mismatch_count": 0,
+  "legacy_mismatches": []
+}

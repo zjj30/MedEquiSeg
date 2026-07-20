@@ -1,0 +1,137 @@
+{
+  "control_id": "STRATIFIED_DERANGEMENT_V1_20260719",
+  "construction": "within-presence-and-class prompt-multiset-preserving maximal text derangement",
+  "mask_or_image_pixels_read": false,
+  "manifest_dir": "<PROJECT_ROOT>/smoke_tests/protocol_v3/manifests",
+  "mapping_sha256": {
+    "medclipseg_busi": "493b7718d631bc946a74e0defa4bc3424bdf3ebcbca0c29aff9cd372d2b769a2",
+    "medclipseg_clinicdb": "2fd39dd4de4dcd08505230fcb709d90651534bc0d7da3ec5b06284375bd29dee",
+    "medclipseg_busbra": "ed643a3f957bf66af26725dfe7c8f5ec2deed88c01181e70ea207610315c403d",
+    "medclipseg_brisc": "90de93f6e020f99773b18dd3fce930c26b74d7c4d41eb648469bbeb9bb02ad09",
+    "medclipseg_covid19": "6a6b0a0b522fd7d1384ec3169c60d64fb81133926e85045a7b7cdc0fc9e9b7dd"
+  },
+  "summary_sha256": "fc3ebaa33e31dd500c7390d70aa7fca8eba94a1ee9e4c9ece5f11245e85fb099",
+  "strata": [
+    {
+      "dataset": "medclipseg_busi",
+      "presence_stratum": "absent",
+      "class_stratum": "normal",
+      "n_cases": 13,
+      "n_unique_texts": 1,
+      "max_text_frequency": 13,
+      "n_text_changed": 0,
+      "text_changed_rate": 0.0,
+      "strict_full_derangement_feasible": 0
+    },
+    {
+      "dataset": "medclipseg_busi",
+      "presence_stratum": "present",
+      "class_stratum": "benign",
+      "n_cases": 44,
+      "n_unique_texts": 34,
+      "max_text_frequency": 4,
+      "n_text_changed": 44,
+      "text_changed_rate": 1.0,
+      "strict_full_derangement_feasible": 1
+    },
+    {
+      "dataset": "medclipseg_busi",
+      "presence_stratum": "present",
+      "class_stratum": "malignant",
+      "n_cases": 21,
+      "n_unique_texts": 21,
+      "max_text_frequency": 1,
+      "n_text_changed": 21,
+      "text_changed_rate": 1.0,
+      "strict_full_derangement_feasible": 1
+    },
+    {
+      "dataset": "medclipseg_clinicdb",
+      "presence_stratum": "present",
+      "class_stratum": "polyp",
+      "n_cases": 61,
+      "n_unique_texts": 48,
+      "max_text_frequency": 5,
+      "n_text_changed": 61,
+      "text_changed_rate": 1.0,
+      "strict_full_derangement_feasible": 1
+    },
+    {
+      "dataset": "medclipseg_busbra",
+      "presence_stratum": "present",
+      "class_stratum": "benign",
+      "n_cases": 191,
+      "n_unique_texts": 27,
+      "max_text_frequency": 15,
+      "n_text_changed": 191,
+      "text_changed_rate": 1.0,
+      "strict_full_derangement_feasible": 1
+    },
+    {
+      "dataset": "medclipseg_busbra",
+      "presence_stratum": "present",
+      "class_stratum": "malignant",
+      "n_cases": 91,
+      "n_unique_texts": 24,
+      "max_text_frequency": 10,
+      "n_text_changed": 91,
+      "text_changed_rate": 1.0,
+      "strict_full_derangement_feasible": 1
+    },
+    {
+      "dataset": "medclipseg_brisc",
+      "presence_stratum": "absent",
+      "class_stratum": "no_tumor",
+      "n_cases": 139,
+      "n_unique_texts": 29,
+      "max_text_frequency": 9,
+      "n_text_changed": 139,
+      "text_changed_rate": 1.0,
+      "strict_full_derangement_feasible": 1
+    },
+    {
+      "dataset": "medclipseg_brisc",
+      "presence_stratum": "present",
+      "class_stratum": "glioma",
+      "n_cases": 253,
+      "n_unique_texts": 91,
+      "max_text_frequency": 11,
+      "n_text_changed": 253,
+      "text_changed_rate": 1.0,
+      "strict_full_derangement_feasible": 1
+    },
+    {
+      "dataset": "medclipseg_brisc",
+      "presence_stratum": "present",
+      "class_stratum": "meningioma",
+      "n_cases": 205,
+      "n_unique_texts": 94,
+      "max_text_frequency": 8,
+      "n_text_changed": 205,
+      "text_changed_rate": 1.0,
+      "strict_full_derangement_feasible": 1
+    },
+    {
+      "dataset": "medclipseg_brisc",
+      "presence_stratum": "present",
+      "class_stratum": "pituitary",
+      "n_cases": 295,
+      "n_unique_texts": 32,
+      "max_text_frequency": 16,
+      "n_text_changed": 295,
+      "text_changed_rate": 1.0,
+      "strict_full_derangement_feasible": 1
+    },
+    {
+      "dataset": "medclipseg_covid19",
+      "presence_stratum": "present",
+      "class_stratum": "infection",
+      "n_cases": 2113,
+      "n_unique_texts": 190,
+      "max_text_frequency": 640,
+      "n_text_changed": 2113,
+      "text_changed_rate": 1.0,
+      "strict_full_derangement_feasible": 1
+    }
+  ]
+}

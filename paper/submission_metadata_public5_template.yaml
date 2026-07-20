@@ -1,0 +1,48 @@
+submission:
+  date: ""
+  journal: "BMC Medical Imaging"
+  repository_url: ""
+  repository_is_permanent: false
+  originality_confirmed: false
+  not_under_consideration_elsewhere: false
+  all_authors_approved: false
+  equal_contribution_statement: ""
+
+authors:
+  - given_names: ""
+    family_name: ""
+    initials: ""
+    degree: ""
+    email: ""
+    phone: ""
+    corresponding: true
+    equal_contribution: false
+    affiliations: [1]
+    orcid: ""
+  - given_names: ""
+    family_name: ""
+    initials: ""
+    degree: ""
+    email: ""
+    phone: ""
+    corresponding: false
+    equal_contribution: false
+    affiliations: [1]
+    orcid: ""
+
+affiliations:
+  - id: 1
+    department: ""
+    institution: ""
+    city: ""
+    postal_code: ""
+    country: ""
+
+declarations:
+  ethics_approval: ""
+  consent_for_publication: "Not applicable. The manuscript contains no identifiable participant information."
+  competing_interests: ""
+  funding: ""
+  contributions: ""
+  acknowledgements: ""
+  ai_use: "OpenAI Codex was used for code-assisted reproducibility checks and English language editing during manuscript preparation. The authors reviewed and take responsibility for the experimental code, numerical results, citations, and final text. No generative model was treated as an author."

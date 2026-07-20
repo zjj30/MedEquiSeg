@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\centering
+\caption{Attribution-oriented Public-5 macro contrasts. Deltas are percentage
+points with 95\% dataset-stratified paired-case bootstrap confidence intervals
+after averaging each case across the three training seeds. The first two rows belong to the same 90-cell code
+snapshot; the remaining rows are post hoc sensitivity controls completed after
+that matrix and are not treated as prospectively controlled endpoints.}
+\label{tab:attribution_controls}
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Comparison & Dice $\Delta$ [95\% CI] & IoU $\Delta$ [95\% CI] \\
+\midrule
+\methodname{} $-$ Base reference & $+1.46$ [$+0.95,+1.99$] & $+1.74$ [$+1.13,+2.34$] \\
+\methodname{} $-$ w/o Rewrite & $-0.09$ [$-0.30,+0.10$] & $-0.13$ [$-0.39,+0.10$] \\
+Base $+$ shared plan $-$ Base reference & $+1.42$ [$+0.81,+2.13$] & $+1.70$ [$+1.05,+2.40$] \\
+\methodname{} $-$ Base $+$ shared plan & $+0.04$ [$-0.40,+0.41$] & $+0.05$ [$-0.39,+0.45$] \\
+\methodname{} $-$ constant-text full model & $+1.90$ [$+1.16,+2.75$] & $+2.10$ [$+1.34,+2.98$] \\
+\bottomrule
+\end{tabular}
+\end{table}

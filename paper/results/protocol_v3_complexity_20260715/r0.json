@@ -1,0 +1,12 @@
+{
+  "protocol": "single-image synchronized wall-clock forward latency",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "torch": "2.5.1+cu121",
+  "cuda": "12.1",
+  "warmup": 20,
+  "repeats": 100,
+  "data_loading_included": false,
+  "postprocessing_included": false,
+  "cached_text_lookup_included": true,
+  "output": "<PROJECT_ROOT>/paper/results/protocol_v3_complexity_20260715/r0.csv"
+}

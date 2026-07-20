@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "audit_type": "single_real_test_case_forward_hooks",
+  "device": "cuda:0",
+  "dataset": "medclipseg_busi",
+  "case_id": "medclipseg_busi:102_malignant",
+  "protocol_hash": "abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718",
+  "checkpoint": "<PROJECT_ROOT>/outputs/training/CausalCLIPSegRN50DiceBCE_lcaug_v2_dynamic_shared_plan_dataset_cosine_seed123_split123_20260715_203740_430573_best.pt",
+  "checkpoint_sha256": "df18874b8e55782401046a79e70be6b118e1f104310e0a0618534cc3ffb10e8d",
+  "registered_atconv_count": 4,
+  "forward_active_count": 2,
+  "forward_inactive_count": 2,
+  "active_targets": [
+    "base_model.proj.vis.1.0",
+    "base_model.proj_ad.vis.1.0"
+  ],
+  "inactive_targets": [
+    "base_model.neck_ad.coordconv.1.0",
+    "base_model.neck_ad.f4_proj3.0"
+  ],
+  "calls": {
+    "base_model.neck_ad.f4_proj3.0": {
+      "calls": 0,
+      "output_abs_mean": 0.0,
+      "output_abs_max": 0.0
+    },
+    "base_model.neck_ad.coordconv.1.0": {
+      "calls": 0,
+      "output_abs_mean": 0.0,
+      "output_abs_max": 0.0
+    },
+    "base_model.proj.vis.1.0": {
+      "calls": 1,
+      "output_abs_mean": 0.07432518899440765,
+      "output_abs_max": 0.9670242071151733
+    },
+    "base_model.proj_ad.vis.1.0": {
+      "calls": 1,
+      "output_abs_mean": 0.11863201856613159,
+      "output_abs_max": 0.9988033175468445
+    }
+  },
+  "prediction_shape": [
+    1,
+    1,
+    224,
+    224
+  ],
+  "prediction_abs_mean": 9.440031051635742
+}

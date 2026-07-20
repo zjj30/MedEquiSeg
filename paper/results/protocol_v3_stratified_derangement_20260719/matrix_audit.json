@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "protocol_hash": "abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718",
+  "tasks": 15,
+  "failures": 0,
+  "runner_code_sha256": "5a26c8807da9d548405e196ca5859001f2a5acd3527015b7861f5dbf61df7abc",
+  "predictor_code_sha256": "d6184d574dd52e2aa9d53b6ade2254595388ecf2806c5027f6c1b20ad328d9f7",
+  "gpu": 3,
+  "rows": [
+    {
+      "dataset": "medclipseg_busi",
+      "seed": 123,
+      "status": "PASS",
+      "seconds": "16.127",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_busi",
+      "seed": 456,
+      "status": "PASS",
+      "seconds": "19.201",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_busi",
+      "seed": 789,
+      "status": "PASS",
+      "seconds": "17.656",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_clinicdb",
+      "seed": 123,
+      "status": "PASS",
+      "seconds": "14.626",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_clinicdb",
+      "seed": 456,
+      "status": "PASS",
+      "seconds": "14.563",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_clinicdb",
+      "seed": 789,
+      "status": "PASS",
+      "seconds": "14.604",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_busbra",
+      "seed": 123,
+      "status": "PASS",
+      "seconds": "25.456",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_busbra",
+      "seed": 456,
+      "status": "PASS",
+      "seconds": "23.731",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_busbra",
+      "seed": 789,
+      "status": "PASS",
+      "seconds": "23.756",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_brisc",
+      "seed": 123,
+      "status": "PASS",
+      "seconds": "71.676",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_brisc",
+      "seed": 456,
+      "status": "PASS",
+      "seconds": "74.745",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_brisc",
+      "seed": 789,
+      "status": "PASS",
+      "seconds": "70.348",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_covid19",
+      "seed": 123,
+      "status": "PASS",
+      "seconds": "56.435",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_covid19",
+      "seed": 456,
+      "status": "PASS",
+      "seconds": "60.720",
+      "message": "complete"
+    },
+    {
+      "dataset": "medclipseg_covid19",
+      "seed": 789,
+      "status": "PASS",
+      "seconds": "54.303",
+      "message": "complete"
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+% Protocol V3 tables for the BMC Medical Imaging manuscript.
+% Ordered by the frozen evidence hierarchy: activation, mechanism,
+% semantic controls, contextual model comparison, and exploratory diagnostics.
+
+\ifnum\BmcTableSelection=1
+\begin{table}[htbp]
+\centering
+\caption{Locked image-level split and realized training-prompt audit. Unique and
+spatial coverage are computed on training prompts. Realized change enumerates
+all case--epoch events under the frozen follow-up \methodname{} plan for 100 epochs and reports the
+mean$\pm$sample standard deviation across seeds 123, 456, and 789. Public
+prompts are target-derived synthetic captions rather than clinical text.}
+\label{tab:bspc_dataset_audit}
+\scriptsize
+\setlength{\tabcolsep}{2.0pt}
+\begin{tabular}{@{}lrrrlrrr@{}}
+\toprule
+Dataset & Train & Val. & Test & Prompt & Unique & Spatial (\%) & Change (\%) \\
+\midrule
+BUSI     & 624  & 78  & 78   & Target-derived & 198 & 82.85 & $20.27\pm0.10$ \\
+ClinicDB & 490  & 61  & 61   & Target-derived & 202 & 100.00 & $28.48\pm0.21$ \\
+BUS-BRA  & 1311 & 282 & 282  & Target-derived & 75  & 100.00 & $12.44\pm0.12$ \\
+BRISC    & 3881 & 974 & 892  & Target-derived & 359 & 78.23 & $5.75\pm0.04$ \\
+COVID-19 & 5716 & 1429& 2113 & Target-derived & 269 & 100.00 & $45.75\pm0.06$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+\fi
+
+\ifnum\BmcTableSelection=2
+\begin{table}[htbp]
+\centering
+\caption{Strict three-seed exact-plan rewrite control on the five public
+datasets. \methodname{} and
+\norewrite{} receive identical online image--mask transforms; only \methodname{}
+rewrites directional
+text. Method values are mean$\pm$sample standard deviation. Deltas and 95\%
+confidence intervals are percentage points from a paired-case bootstrap after
+averaging each case across the three training seeds. $p_{W,H}$ and $p_{t,H}$ are two-sided
+Wilcoxon and paired $t$-test $p$-values with Holm correction across the five datasets,
+separately by metric.}
+\label{tab:bspc_r11nr}
+\scriptsize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+Dataset & Metric (\%) & \methodname{} & w/o Rewrite & $\Delta$ pp [95\% CI] & $p_{W,H}$ & $p_{t,H}$ \\
+\midrule
+BUSI & Dice & $85.78\pm0.45$ & $85.60\pm0.58$ & $+0.19$ [$-0.24,0.63$] & .640 & 1.000 \\
+     & IoU  & $79.49\pm0.23$ & $79.36\pm0.63$ & $+0.13$ [$-0.41,0.70$] & .805 & 1.000 \\
+ClinicDB & Dice & $92.07\pm0.71$ & $92.37\pm0.93$ & $-0.30$ [$-1.14,0.46$] & .184 & 1.000 \\
+         & IoU  & $86.36\pm0.61$ & $86.82\pm1.11$ & $-0.46$ [$-1.47,0.50$] & .182 & 1.000 \\
+BUS-BRA & Dice & $90.24\pm0.14$ & $90.14\pm0.16$ & $+0.10$ [$-0.17,0.36$] & .184 & 1.000 \\
+        & IoU  & $83.15\pm0.10$ & $83.03\pm0.18$ & $+0.13$ [$-0.20,0.45$] & .182 & 1.000 \\
+BRISC & Dice & $87.18\pm0.14$ & $87.46\pm0.20$ & $-0.28$ [$-0.51,-0.07$] & $<.001$ & .076 \\
+      & IoU  & $80.32\pm0.13$ & $80.59\pm0.20$ & $-0.27$ [$-0.50,-0.05$] & $<.001$ & .076 \\
+COVID-19 & Dice & $84.08\pm0.13$ & $84.24\pm0.13$ & $-0.16$ [$-0.33,0.02$] & .003 & .315 \\
+         & IoU  & $75.51\pm0.14$ & $75.69\pm0.13$ & $-0.18$ [$-0.38,0.01$] & .005 & .294 \\
+\midrule
+Public-5 & Dice & $87.87\pm0.17$ & $87.96\pm0.05$ & $-0.09$ [$-0.30,0.10$] & -- & -- \\
+         & IoU  & $80.97\pm0.13$ & $81.10\pm0.08$ & $-0.13$ [$-0.39,0.10$] & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+\fi
+
+\ifnum\BmcTableSelection=3
+\begin{table}[htbp]
+\centering
+\caption{Strict inference-time semantic controls for trained \methodname{}
+checkpoints on the five public datasets. No model is retrained; only the test prompt changes. Dice is
+mean$\pm$sample standard deviation over three seeds. The last column is true
+minus shuffled Dice with a paired-case bootstrap 95\% interval after
+three-seed averaging. Holm-adjusted Wilcoxon tests and the bootstrap intervals
+support a positive true--shuffled difference on all five datasets.}
+\label{tab:bspc_semantic_controls}
+\scriptsize
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Dataset & True Dice & Shuffled Dice & Fixed Dice & Empty Dice & $\Delta$ pp [95\% CI] \\
+\midrule
+BUSI     & $85.78\pm0.45$ & $46.73\pm1.41$ & $16.69\pm0.02$ & $13.22\pm5.35$ & $+39.05$ [$29.85,48.49$] \\
+ClinicDB & $92.07\pm0.71$ & $90.20\pm0.94$ & $88.31\pm1.31$ & $78.71\pm7.93$ & $+1.88$ [$0.07,4.22$] \\
+BUS-BRA  & $90.24\pm0.14$ & $89.47\pm0.23$ & $88.87\pm0.28$ & $68.22\pm8.44$ & $+0.77$ [$0.45,1.15$] \\
+BRISC    & $87.18\pm0.14$ & $70.89\pm2.12$ & $75.31\pm1.97$ & $58.89\pm5.30$ & $+16.29$ [$14.26,18.43$] \\
+COVID-19 & $84.08\pm0.13$ & $68.80\pm0.82$ & $68.54\pm0.16$ & $55.81\pm3.82$ & $+15.29$ [$14.49,16.10$] \\
+\bottomrule
+\end{tabular}
+\end{table}
+\fi
+
+\ifnum\BmcTableSelection=4
+\input{paper/latex/bmc_work_public5/bmc_factorial_ablation_table.tex}
+\fi
+
+\ifnum\BmcTableSelection=5
+\begin{table}[htbp]
+\centering
+\caption{Contextual held-out-test comparison under the same data and
+evaluation protocol. Values are percentages, reported as mean$\pm$sample
+standard deviation over three seeds. Bold and underline rank methods only
+within the image+text or image-only panel. Cross-panel differences are
+descriptive because the public image+text methods receive target-derived
+synthetic captions unavailable to image-only methods. The five public
+\methodname{} cells use the frozen ordered-ablation checkpoint set.}
+\label{tab:bspc_v3_models}
+\scriptsize
+\setlength{\tabcolsep}{2.9pt}
+\begin{tabular}{@{}llccc@{}}
+\toprule
+Method & Metric & BUSI & ClinicDB & BUS-BRA \\
+\midrule
+\multicolumn{5}{l}{\textit{Image+text methods}} \\
+MedCLIPSeg & Dice & $\mathbf{86.13\pm1.09}$ & $\underline{91.96\pm0.07}$ & $88.47\pm0.66$ \\
+ & IoU & $\underline{79.35\pm1.11}$ & $\underline{85.64\pm0.10}$ & $80.46\pm0.76$ \\
+CausalCLIPSeg Baseline & Dice & $84.62\pm1.07$ & $91.19\pm1.10$ & $\underline{88.87\pm0.49}$ \\
+ & IoU & $78.13\pm1.27$ & $85.17\pm1.26$ & $\underline{81.38\pm0.64}$ \\
+LViT & Dice & $81.81\pm0.89$ & $91.03\pm0.53$ & $87.66\pm0.14$ \\
+ & IoU & $74.63\pm1.02$ & $84.89\pm0.58$ & $79.75\pm0.15$ \\
+\textbf{\methodname{} (Ours)} & Dice & $\underline{85.78\pm0.45}$ & $\mathbf{92.07\pm0.71}$ & $\mathbf{90.24\pm0.14}$ \\
+ & IoU & $\mathbf{79.49\pm0.23}$ & $\mathbf{86.36\pm0.61}$ & $\mathbf{83.15\pm0.10}$ \\
+\midrule
+\multicolumn{5}{l}{\textit{Image-only contextual references}} \\
+RollingUNet & Dice & $72.36\pm1.20$ & $87.31\pm0.77$ & $88.00\pm0.45$ \\
+ & IoU & $65.06\pm1.46$ & $80.12\pm0.91$ & $80.26\pm0.56$ \\
+U-Net & Dice & $61.31\pm1.16$ & $85.61\pm1.28$ & $87.35\pm0.13$ \\
+ & IoU & $52.70\pm1.55$ & $77.72\pm1.38$ & $79.06\pm0.17$ \\
+U-Net++ & Dice & $76.21\pm0.67$ & $89.77\pm0.64$ & $88.59\pm0.06$ \\
+ & IoU & $69.41\pm0.79$ & $83.20\pm0.83$ & $81.12\pm0.07$ \\
+nnU-Net & Dice & $74.99\pm0.23$ & $\mathbf{93.62\pm0.31}$ & $\underline{89.80\pm0.44}$ \\
+ & IoU & $68.63\pm0.27$ & $\mathbf{88.63\pm0.29}$ & $\underline{82.90\pm0.48}$ \\
+U-Mamba & Dice & $\underline{76.63\pm0.80}$ & $\underline{92.21\pm0.16}$ & $\mathbf{90.34\pm0.46}$ \\
+ & IoU & $\underline{70.16\pm0.55}$ & $\underline{87.12\pm0.33}$ & $\mathbf{83.58\pm0.47}$ \\
+U-KAN & Dice & $\mathbf{77.10\pm3.33}$ & $91.40\pm0.34$ & $88.56\pm0.75$ \\
+ & IoU & $\mathbf{70.38\pm3.37}$ & $85.31\pm0.33$ & $81.19\pm0.81$ \\
+\bottomrule
+\end{tabular}
+
+\vspace{5pt}
+\begin{tabular}{@{}llcc@{}}
+\toprule
+Method & Metric & BRISC & COVID-19 \\
+\midrule
+\multicolumn{4}{l}{\textit{Image+text methods}} \\
+MedCLIPSeg & Dice & $81.36\pm1.79$ & $\underline{82.62\pm1.19}$ \\
+ & IoU & $72.44\pm2.26$ & $\underline{73.47\pm1.48}$ \\
+CausalCLIPSeg Baseline & Dice & $\underline{86.11\pm0.31}$ & $81.85\pm0.15$ \\
+ & IoU & $\underline{79.01\pm0.51}$ & $72.91\pm0.12$ \\
+LViT & Dice & $85.24\pm0.06$ & $78.50\pm0.44$ \\
+ & IoU & $78.54\pm0.11$ & $69.03\pm0.41$ \\
+\textbf{\methodname{} (Ours)} & Dice & $\mathbf{87.18\pm0.14}$ & $\mathbf{84.08\pm0.13}$ \\
+ & IoU & $\mathbf{80.32\pm0.13}$ & $\mathbf{75.51\pm0.14}$ \\
+\midrule
+\multicolumn{4}{l}{\textit{Image-only contextual references}} \\
+RollingUNet & Dice & $85.03\pm0.65$ & $79.32\pm0.24$ \\
+ & IoU & $77.86\pm0.60$ & $69.82\pm0.34$ \\
+U-Net & Dice & $85.00\pm0.12$ & $78.81\pm0.07$ \\
+ & IoU & $77.50\pm0.04$ & $69.02\pm0.12$ \\
+U-Net++ & Dice & $\underline{85.94\pm0.41}$ & $\mathbf{80.00\pm0.06}$ \\
+ & IoU & $78.99\pm0.37$ & $\mathbf{70.51\pm0.08}$ \\
+nnU-Net & Dice & $\mathbf{87.30\pm0.35}$ & $79.07\pm0.14$ \\
+ & IoU & $\mathbf{81.31\pm0.43}$ & $69.67\pm0.24$ \\
+U-Mamba & Dice & $85.37\pm0.58$ & $79.08\pm0.31$ \\
+ & IoU & $\underline{79.16\pm0.66}$ & $69.68\pm0.42$ \\
+U-KAN & Dice & $85.45\pm0.32$ & $\underline{79.38\pm0.21}$ \\
+ & IoU & $78.33\pm0.35$ & $\underline{69.91\pm0.30}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+\fi
+
+\ifnum\BmcTableSelection=7
+\begin{table}[t]
+\centering
+\caption{Equal-dataset macro segmentation accuracy on the five public
+benchmarks. Values are the arithmetic mean of the three-seed dataset means in
+Table~\ref{tab:bspc_v3_models}. Bold and underline rank
+models within modality. Cross-modality differences are descriptive because the
+image+text models receive target-derived synthetic captions unavailable to the
+image-only models.}
+\label{tab:public5_macro_accuracy}
+\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{lcc}
+\toprule
+Method & Dice (\%) & IoU (\%) \\
+\midrule
+\multicolumn{3}{l}{\textit{Image+text methods}} \\
+\textbf{\methodname{} (Ours)} & $\mathbf{87.87}$ & $\mathbf{80.97}$ \\
+CausalCLIPSeg Baseline & $\underline{86.53}$ & $\underline{79.32}$ \\
+MedCLIPSeg & $86.11$ & $78.27$ \\
+LViT & $84.85$ & $77.37$ \\
+\midrule
+\multicolumn{3}{l}{\textit{Image-only contextual references}} \\
+nnU-Net & $\mathbf{84.96}$ & $\mathbf{78.23}$ \\
+U-Mamba & $\underline{84.73}$ & $\underline{77.94}$ \\
+U-KAN & $84.38$ & $77.02$ \\
+U-Net++ & $84.10$ & $76.65$ \\
+RollingUNet & $82.40$ & $74.62$ \\
+U-Net & $79.62$ & $71.20$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+\fi
+
+\ifnum\BmcTableSelection=6
+\begin{table}[htbp]
+\centering
+\caption{Exploratory three-seed continuous-location recomputation diagnostic
+from an earlier fixed-manifest checkpoint snapshot.
+\locrecompute{}
+recomputes coarse position phrases from the transformed training mask when a
+mild affine, translation, or zoom is sampled. Values are mean$\pm$sample
+standard deviation. Delta and the reported bootstrap interval are
+\locrecompute{} minus its reference snapshot in percentage points. Both runs use
+the same transform distribution but different augmentation seed keys, so the
+realized per-case plans are not exactly matched. These
+rows are not pooled with the frozen 90-cell ablation. $p_W$ is the exploratory, unadjusted two-sided
+paired Wilcoxon $p$-value.}
+\label{tab:bspc_r11lr}
+\small
+\setlength{\tabcolsep}{4.2pt}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Dataset & Metric & Reference snapshot & Location Recompute & $\Delta$ pp [95\% CI] & $p_W$ \\
+\midrule
+BUSI & Dice & $85.74\pm0.80$ & $84.62\pm0.20$ & $-1.12$ [$-2.62,0.07$] & .004 \\
+     & IoU  & $79.46\pm0.83$ & $78.06\pm0.64$ & $-1.40$ [$-2.70,-0.30$] & .002 \\
+ClinicDB & Dice & $93.18\pm0.54$ & $93.06\pm0.72$ & $-0.13$ [$-1.25,1.27$] & .138 \\
+         & IoU  & $87.77\pm0.82$ & $87.54\pm1.07$ & $-0.23$ [$-1.94,1.78$] & .117 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\fi

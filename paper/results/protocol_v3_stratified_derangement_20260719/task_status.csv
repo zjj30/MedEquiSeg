@@ -1,0 +1,16 @@
+dataset,seed,status,seconds,message
+medclipseg_busi,123,PASS,16.127,complete
+medclipseg_busi,456,PASS,19.201,complete
+medclipseg_busi,789,PASS,17.656,complete
+medclipseg_clinicdb,123,PASS,14.626,complete
+medclipseg_clinicdb,456,PASS,14.563,complete
+medclipseg_clinicdb,789,PASS,14.604,complete
+medclipseg_busbra,123,PASS,25.456,complete
+medclipseg_busbra,456,PASS,23.731,complete
+medclipseg_busbra,789,PASS,23.756,complete
+medclipseg_brisc,123,PASS,71.676,complete
+medclipseg_brisc,456,PASS,74.745,complete
+medclipseg_brisc,789,PASS,70.348,complete
+medclipseg_covid19,123,PASS,56.435,complete
+medclipseg_covid19,456,PASS,60.720,complete
+medclipseg_covid19,789,PASS,54.303,complete

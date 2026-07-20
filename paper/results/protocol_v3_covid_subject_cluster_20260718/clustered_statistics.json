@@ -1,0 +1,138 @@
+{
+  "protocol_hash": "abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718",
+  "estimand_note": "Image-weighted point differences retain the main evaluator estimand. Sensitivity intervals resample recovered subjects and training seeds; tests use equal-subject mean differences.",
+  "rows": [
+    {
+      "comparison": "R11_minus_R11NR",
+      "metric": "dice",
+      "n_cases": 2113,
+      "n_subjects": 474,
+      "image_weighted_delta": -0.0015766090866067201,
+      "subject_weighted_delta": -0.0021284252568869117,
+      "cluster_bootstrap_ci_low": -0.004815144836069342,
+      "cluster_bootstrap_ci_high": 0.0013907461794598261,
+      "subject_wilcoxon_p": 0.006107334735042155,
+      "subject_paired_t_p": 0.2186498679194123,
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 20262386,
+      "sources": [
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed123/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed456/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed789/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_SHARED_NR/medclipseg_covid19/seed123/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_SHARED_NR/medclipseg_covid19/seed456/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_SHARED_NR/medclipseg_covid19/seed789/controls/true/per_case.csv"
+      ]
+    },
+    {
+      "comparison": "R11_minus_R11NR",
+      "metric": "iou",
+      "n_cases": 2113,
+      "n_subjects": 474,
+      "image_weighted_delta": -0.0018200605773781367,
+      "subject_weighted_delta": -0.0028385852181232237,
+      "cluster_bootstrap_ci_low": -0.0052484696557105835,
+      "cluster_bootstrap_ci_high": 0.0015336824874642933,
+      "subject_wilcoxon_p": 0.005145622816590058,
+      "subject_paired_t_p": 0.13334757607729641,
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 20262314,
+      "sources": [
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed123/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed456/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed789/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_SHARED_NR/medclipseg_covid19/seed123/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_SHARED_NR/medclipseg_covid19/seed456/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_SHARED_NR/medclipseg_covid19/seed789/controls/true/per_case.csv"
+      ]
+    },
+    {
+      "comparison": "R11_minus_UNetPP",
+      "metric": "dice",
+      "n_cases": 2113,
+      "n_subjects": 474,
+      "image_weighted_delta": 0.04079335037072094,
+      "subject_weighted_delta": 0.053014753464441476,
+      "cluster_bootstrap_ci_low": 0.03477083753965074,
+      "cluster_bootstrap_ci_high": 0.047205242279030134,
+      "subject_wilcoxon_p": 4.0582901241543136e-37,
+      "subject_paired_t_p": 8.148920473223696e-28,
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 20262586,
+      "sources": [
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed123/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed456/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed789/controls/true/per_case.csv",
+        "logs/protocol_v3_image_baselines/unetplusplus/medclipseg_covid19/seed123/controls/true/per_case.csv",
+        "logs/protocol_v3_image_baselines/unetplusplus/medclipseg_covid19/seed456/controls/true/per_case.csv",
+        "logs/protocol_v3_image_baselines/unetplusplus/medclipseg_covid19/seed789/controls/true/per_case.csv"
+      ]
+    },
+    {
+      "comparison": "R11_minus_UNetPP",
+      "metric": "iou",
+      "n_cases": 2113,
+      "n_subjects": 474,
+      "image_weighted_delta": 0.04998711121628017,
+      "subject_weighted_delta": 0.059502899312406765,
+      "cluster_bootstrap_ci_low": 0.04302140709272426,
+      "cluster_bootstrap_ci_high": 0.05682635295614654,
+      "subject_wilcoxon_p": 3.818914008252287e-38,
+      "subject_paired_t_p": 6.598331093058861e-34,
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 20262514,
+      "sources": [
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed123/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed456/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed789/controls/true/per_case.csv",
+        "logs/protocol_v3_image_baselines/unetplusplus/medclipseg_covid19/seed123/controls/true/per_case.csv",
+        "logs/protocol_v3_image_baselines/unetplusplus/medclipseg_covid19/seed456/controls/true/per_case.csv",
+        "logs/protocol_v3_image_baselines/unetplusplus/medclipseg_covid19/seed789/controls/true/per_case.csv"
+      ]
+    },
+    {
+      "comparison": "R11_true_minus_shuffled",
+      "metric": "dice",
+      "n_cases": 2113,
+      "n_subjects": 474,
+      "image_weighted_delta": 0.15288009733396435,
+      "subject_weighted_delta": 0.1768365917112882,
+      "cluster_bootstrap_ci_low": 0.13986051463806426,
+      "cluster_bootstrap_ci_high": 0.16661232581878038,
+      "subject_wilcoxon_p": 3.3986670814702726e-73,
+      "subject_paired_t_p": 7.003820432686207e-92,
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 20263438,
+      "sources": [
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed123/controls/shuffled/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed123/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed456/controls/shuffled/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed456/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed789/controls/shuffled/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed789/controls/true/per_case.csv"
+      ]
+    },
+    {
+      "comparison": "R11_true_minus_shuffled",
+      "metric": "iou",
+      "n_cases": 2113,
+      "n_subjects": 474,
+      "image_weighted_delta": 0.18035565657043695,
+      "subject_weighted_delta": 0.1939339345130687,
+      "cluster_bootstrap_ci_low": 0.16607558389599494,
+      "cluster_bootstrap_ci_high": 0.19512916874348768,
+      "subject_wilcoxon_p": 6.281169392891512e-74,
+      "subject_paired_t_p": 1.1683760487767335e-105,
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 20263366,
+      "sources": [
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed123/controls/shuffled/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed123/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed456/controls/shuffled/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed456/controls/true/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed789/controls/shuffled/per_case.csv",
+        "logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed789/controls/true/per_case.csv"
+      ]
+    }
+  ]
+}

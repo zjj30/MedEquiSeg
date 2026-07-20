@@ -1,0 +1,193 @@
+{
+  "status": "PASS",
+  "analysis": "case-first three-seed mean; paired true minus presence/class-stratified prompt derangement",
+  "protocol_hash": "abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718",
+  "bootstrap_repetitions": 10000,
+  "bootstrap_seed": 12345,
+  "analysis_code_sha256": "5c18f19644e6ce29982cde54f1cf576d62414c2474f3b39d939f45d5f9ca8738",
+  "matrix_audit_sha256": "6d473eee3081bc498c8068b599d4bdca3ba763e38a0ad767603513059b94ac42",
+  "inputs": [
+    {
+      "kind": "control_map",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/control_maps/medclipseg_busi_stratified_derangement_v1.csv",
+      "sha256": "493b7718d631bc946a74e0defa4bc3424bdf3ebcbca0c29aff9cd372d2b769a2"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_busi/seed123/controls/true/per_case.csv",
+      "sha256": "1396b0e79b5ec7ac4702d02bcdc88ca59777cbdf848db982d12cb9842f06fda3"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_busi/seed123/per_case.csv",
+      "sha256": "a2c3212ff3322a5b85e8f3acd735b0d6220ac43e41bb1e84074a3de6a332817c"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_busi/seed456/controls/true/per_case.csv",
+      "sha256": "9df439e35b37be4e8048771b4dcb5701106835eba4d7cd51148d0db48d0243a2"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_busi/seed456/per_case.csv",
+      "sha256": "d7f396dff0b712813099f2d07c290694f6674305fd2914421780ce9fd574b32b"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_busi/seed789/controls/true/per_case.csv",
+      "sha256": "29ec1f2dc15dba5028f0db78c01e3702e63e1a42e7af300721ed630c63cef77b"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_busi/seed789/per_case.csv",
+      "sha256": "a7dd45a3a072364aa80ede425a2790363809405818e5cd2d0b260cbdb4d560f9"
+    },
+    {
+      "kind": "control_map",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/control_maps/medclipseg_clinicdb_stratified_derangement_v1.csv",
+      "sha256": "2fd39dd4de4dcd08505230fcb709d90651534bc0d7da3ec5b06284375bd29dee"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_clinicdb/seed123/controls/true/per_case.csv",
+      "sha256": "20ad6b00ad67fbf0a14aac477fea15661dce6a61750c32dd8b589086196e6ea9"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_clinicdb/seed123/per_case.csv",
+      "sha256": "0f36d067e54edad331dacf11cbdc77098830f8873c3114f7a7509e198eab9f17"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_clinicdb/seed456/controls/true/per_case.csv",
+      "sha256": "db67b8f129bd1a941d361ceccc04f4a0e6a2b345a2ddb5e63a2de445c49a17b8"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_clinicdb/seed456/per_case.csv",
+      "sha256": "957f29b1eb942bf01dd640be09e3d3b2a85379806cb4a4d43a0f44f0ee0ee996"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_clinicdb/seed789/controls/true/per_case.csv",
+      "sha256": "1126c0a6ee798155effc2bf4f4c827f395821ca257d103b6b478f603eecbbca9"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_clinicdb/seed789/per_case.csv",
+      "sha256": "39a86c92ed61d673eaef1932f4dc2edba74b7ed28dcc8d7f0dd10caec6af717c"
+    },
+    {
+      "kind": "control_map",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/control_maps/medclipseg_busbra_stratified_derangement_v1.csv",
+      "sha256": "ed643a3f957bf66af26725dfe7c8f5ec2deed88c01181e70ea207610315c403d"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_busbra/seed123/controls/true/per_case.csv",
+      "sha256": "e48f17de164d5cf22238bb51b65cea09c8abd801c474187fd346586d602df2b1"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_busbra/seed123/per_case.csv",
+      "sha256": "51cb30f3e50bd45f69e1943c791cb2cccba50b8fd6df07ad3d185b776e9112f4"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_busbra/seed456/controls/true/per_case.csv",
+      "sha256": "17102f357c078e3acbec010ba9225a67e44e4922fb165013a39778d67789d339"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_busbra/seed456/per_case.csv",
+      "sha256": "cb92a90cb6a32e4e5b92128ec08d74d7867cab2e04b29588af5f14c3856b0217"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_busbra/seed789/controls/true/per_case.csv",
+      "sha256": "0f6741574073e73069fcdf7e73769dc6f2c1e3d737ddece132fb999e562b8a04"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_busbra/seed789/per_case.csv",
+      "sha256": "b309382edba2679e2eeb403db3386cd1208c4787d666df95f77e868ec20e0ac6"
+    },
+    {
+      "kind": "control_map",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/control_maps/medclipseg_brisc_stratified_derangement_v1.csv",
+      "sha256": "90de93f6e020f99773b18dd3fce930c26b74d7c4d41eb648469bbeb9bb02ad09"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_brisc/seed123/controls/true/per_case.csv",
+      "sha256": "9909484375053100d18dd61c30ced8a5e4651776600e0f5547da6cb907f5444b"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_brisc/seed123/per_case.csv",
+      "sha256": "93b5ce53998c5bb3c5148008d74735ef20f19c3e5914ba24d902720309caea98"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_brisc/seed456/controls/true/per_case.csv",
+      "sha256": "884bb1525f3c96b296ddb507d11dc624a9dabf9777d58e5fc6fb23f7fe2e0fa0"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_brisc/seed456/per_case.csv",
+      "sha256": "f14b1d3dbe7e96fa34529120f6a2427b0225b0f36d3d661a15417ba1afca636f"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_brisc/seed789/controls/true/per_case.csv",
+      "sha256": "6ae3bedb8240d550bd367b3830584e91813d0d8120ce8118c1978f7c2ef62a2d"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_brisc/seed789/per_case.csv",
+      "sha256": "3dd0cb254cd35cedfcd7286a63b452a7f654233193cf088c34d281ecf6107353"
+    },
+    {
+      "kind": "control_map",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/control_maps/medclipseg_covid19_stratified_derangement_v1.csv",
+      "sha256": "6a6b0a0b522fd7d1384ec3169c60d64fb81133926e85045a7b7cdc0fc9e9b7dd"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed123/controls/true/per_case.csv",
+      "sha256": "4d78cbc233d05aac5f407a7fde6e0cb16904d4f8ca63c6fac1b0aa2519e8b71e"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_covid19/seed123/per_case.csv",
+      "sha256": "49cecb03d110ae814fe047ff8c7042500cee20b05fd62506fbfc3e44b2c72916"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed456/controls/true/per_case.csv",
+      "sha256": "d513b72e6da7c280bfe0885722e2e7667fdd489bdb52c4b24979048f864da6b0"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_covid19/seed456/per_case.csv",
+      "sha256": "3351cd458ddadd8adffbbdb7e4fb35974ca860f6d0bfe8a88113a08918d69896"
+    },
+    {
+      "kind": "true",
+      "path": "<PROJECT_ROOT>/logs/protocol_v3/abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718/V3_ABL_EQUIPROMPT/medclipseg_covid19/seed789/controls/true/per_case.csv",
+      "sha256": "9ff0c74e9d005db3db12bfacdf7bd263e06e7156ace948dcdff114b54edfb2c1"
+    },
+    {
+      "kind": "stratified_derangement",
+      "path": "<PROJECT_ROOT>/paper/results/protocol_v3_stratified_derangement_20260719/runs/medclipseg_covid19/seed789/per_case.csv",
+      "sha256": "a944af54f2b746ca3c04100db428d964e61e49acc25bbd53d03e7527360ca583"
+    }
+  ],
+  "outputs": {
+    "casefirst_true_vs_stratified_derangement.csv": "7b7756e5cca0effe499f40c99f06c0b14466dc9458c240646b2890aebc96bf6c",
+    "casefirst_true_vs_stratified_derangement_changed_only.csv": "977957935a2c47f7143398a502e8debcdf0c3911de30d79ca388f3b3ff00bd7c",
+    "stratum_dice_statistics.csv": "cc0f6d7a67ff22ab6cfaac3f06e3211b1abdff8d43709a631c50c36d3e8722ba",
+    "seed_summary.csv": "fe079a735c50df9460927089459d81ebc20c029111b354515eacd78e7bbe8d65",
+    "covid_subject_cluster_statistics.csv": "cb320a02f148c923c047a116ad5b50693b2953610c09d61566e13062e2aa2dc9"
+  }
+}

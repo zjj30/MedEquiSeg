@@ -1,0 +1,235 @@
+control_id,dataset,case_id,source_case_id,presence_stratum,class_stratum,original_text,assigned_text,original_text_sha256,assigned_text_sha256,source_is_self,text_changed
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:102_malignant,medclipseg_busi:199_malignant,present,malignant,"One medium triangular-shaped irregular tumor at the right in the breast ultrasound image.
+","One small circle-shaped irregular tumor at the top in the breast ultrasound image.
+",92278d8d4932fafb3df99e0a84511ecae2555e7f50c996c7065440b26223bef5,9e95ad42b7c4c2721898f3de86f815d0fb21742de7d15329a366b7384bf3660b,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:103_normal,medclipseg_busi:12_normal,absent,normal,"No tumor in the breast ultrasound image.
+","No tumor in the breast ultrasound image.
+",122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,0,0
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:116_benign,medclipseg_busi:141_benign,present,benign,"One small square-shaped regular tumor at the top left in the breast ultrasound image.
+","One large circle-shaped benign tumor at the center in the breast ultrasound image.
+",6669b15f911a39f0a68718042e6f5bc29e691cfdbdc2f5a988260796876ff0ad,9fa0cb46c303670892bf60fdec48d75cad05b2f9c5734c7cc6023cc0113be583,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:116_malignant,medclipseg_busi:169_malignant,present,malignant,"One small oval-shaped malignant tumor at the top left in the breast ultrasound image.
+","One small square-shaped malignant tumor at the right in the breast ultrasound image.
+",6c8f615a8a3bbae3bbafcecc8472edb840e78af2a681f7fb2b1d9f391f4916ae,ab52df00bc1bc66c80b9df212a810e085e7a2b966ee93ec6e89b7a7e91c96687,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:128_malignant,medclipseg_busi:165_malignant,present,malignant,"One large circle-shaped malignant tumor at the center in the breast ultrasound image.
+","One large circle-shaped malignant tumor at the right in the breast ultrasound image.
+",dbf3e9795436f03fe403a7e3a2cf25fcf8e52c0626ffbfbef4a919561d249b58,561820798c0fc2d3b8e30e42bde51913394c715085112b997690b100402a98f8,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:129_benign,medclipseg_busi:23_benign,present,benign,"One small circle-shaped benign tumor at the top in the breast ultrasound image.
+","One small circle-shaped regular tumor at the center in the breast ultrasound image.
+",1943739f216424b9646400e7b0251c5156c031bfa31915c1fd2ce47baf4f3741,c40ef795bfb239836292b80b1ec6b65eda11444e6c1f8ba94a340fa832df788a,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:129_malignant,medclipseg_busi:128_malignant,present,malignant,"One large circle-shaped irregular tumor at the center in the breast ultrasound image.
+","One large circle-shaped malignant tumor at the center in the breast ultrasound image.
+",564efd55c23d246251898170a99f10b7b781493b3b17ec5dc2419dcf4d4a7762,dbf3e9795436f03fe403a7e3a2cf25fcf8e52c0626ffbfbef4a919561d249b58,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:12_normal,medclipseg_busi:133_normal,absent,normal,"No tumor in the breast ultrasound image.
+","No tumor in the breast ultrasound image.
+",122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,0,0
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:133_normal,medclipseg_busi:13_normal,absent,normal,"No tumor in the breast ultrasound image.
+","No tumor in the breast ultrasound image.
+",122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,0,0
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:134_benign,medclipseg_busi:299_benign,present,benign,"One small kidney-shaped regular tumor at the top right in the breast ultrasound image.
+","One small rectangle-shaped regular tumor at the left in the breast ultrasound image.
+",d225edd0d94450abad3ae4594bfc980f91f005e400da24fb7d2478888702df43,6521a18628851dc3a4dc9522897b39b7e8e5c6010ca31fa6dcb611b7b18d2f67,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:138_benign,medclipseg_busi:59_benign,present,benign,"One small circle-shaped regular tumor at the top in the breast ultrasound image.
+","One small circle-shaped regular tumor at the top right in the breast ultrasound image.
+",de78c28322a0ba024d7ac885cf94a530df0e41dd77c2d6620e42150f0e03cf8f,9b76b7bf5b0c3351c4b15e8134828c4ad69779754f135e04c81a66a08d78cf6f,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:13_malignant,medclipseg_busi:102_malignant,present,malignant,"One medium square-shaped malignant tumor at the center in the breast ultrasound image.
+","One medium triangular-shaped irregular tumor at the right in the breast ultrasound image.
+",323f68f91a85bc1d4e2e16f044ae228ecb5740b1bbdfca28b708044e7d423ae9,92278d8d4932fafb3df99e0a84511ecae2555e7f50c996c7065440b26223bef5,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:13_normal,medclipseg_busi:38_normal,absent,normal,"No tumor in the breast ultrasound image.
+","No tumor in the breast ultrasound image.
+",122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,0,0
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:140_malignant,medclipseg_busi:30_malignant,present,malignant,"One medium circle-shaped malignant tumor at the top right in the breast ultrasound image.
+","One medium oval-shaped irregular tumor at the center in the breast ultrasound image.
+",6bbbac4cac7865fa461baa1e1b0f414ab96abbe102e43d8c82bb11e3e5a991f0,1f1cbda2111854095d094568d2ff0e250357d471ba5d0df35ef0a604816f50c7,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:141_benign,medclipseg_busi:356_benign,present,benign,"One large circle-shaped benign tumor at the center in the breast ultrasound image.
+","One medium circle-shaped regular tumor at the top in the breast ultrasound image.
+",9fa0cb46c303670892bf60fdec48d75cad05b2f9c5734c7cc6023cc0113be583,30876cfb3720ec2ea189be25869bab4b9fe098c66ba7fa7b4785cbab845f5bbb,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:154_benign,medclipseg_busi:244_benign,present,benign,"One small circle-shaped regular tumor at the top in the breast ultrasound image.
+","One small diamond-shaped regular tumor at the top right in the breast ultrasound image.
+",de78c28322a0ba024d7ac885cf94a530df0e41dd77c2d6620e42150f0e03cf8f,8603eb15872253c74e1e101cae54f6b7211a3529aa255cef588b58c78fafc3d2,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:165_malignant,medclipseg_busi:71_malignant,present,malignant,"One large circle-shaped malignant tumor at the right in the breast ultrasound image.
+","One medium circle-shaped irregular tumor at the center in the breast ultrasound image.
+",561820798c0fc2d3b8e30e42bde51913394c715085112b997690b100402a98f8,86d1b11db982888760c5fc110baf929423f911686b518e6949344567c935a99f,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:169_malignant,medclipseg_busi:187_malignant,present,malignant,"One small square-shaped malignant tumor at the right in the breast ultrasound image.
+","Three medium square-shaped irregular tumors at the top, top, top in the breast ultrasound image.
+",ab52df00bc1bc66c80b9df212a810e085e7a2b966ee93ec6e89b7a7e91c96687,5f1a9910dca13137bc6334f2c05f1cbb4713d6c3d247c8af24a0125950b7ac57,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:186_benign,medclipseg_busi:138_benign,present,benign,"One small circle-shaped regular tumor at the center in the breast ultrasound image.
+","One small circle-shaped regular tumor at the top in the breast ultrasound image.
+",c40ef795bfb239836292b80b1ec6b65eda11444e6c1f8ba94a340fa832df788a,de78c28322a0ba024d7ac885cf94a530df0e41dd77c2d6620e42150f0e03cf8f,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:187_malignant,medclipseg_busi:53_malignant,present,malignant,"Three medium square-shaped irregular tumors at the top, top, top in the breast ultrasound image.
+","Three small square-shaped malignant tumors at the top, top, center in the breast ultrasound image.
+",5f1a9910dca13137bc6334f2c05f1cbb4713d6c3d247c8af24a0125950b7ac57,ab191c85b76409a2b293d5592fc9138bf32dc8fc127bca1233d28d8fc1fdb4f9,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:190_benign,medclipseg_busi:290_benign,present,benign,"One medium oval-shaped regular tumor at the center in the breast ultrasound image.
+","One medium square-shaped benign tumor at the top in the breast ultrasound image.
+",b77f0ae6150f7c51f73064b7e7caa1fabaa5e0a50cc8c2de96da702332bce2bb,81cc664bae2cd15c9fc32d0296e46a0a6adfd9f490b958287b96e8cdfca283b6,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:198_malignant,medclipseg_busi:209_malignant,present,malignant,"Two medium circle-shaped malignant tumors at the top, top in the breast ultrasound image.
+","Two small square-shaped irregular tumors at the top, top in the breast ultrasound image.
+",34f6645f1895f759107e842d0744779ef2a00fcb038ae3fbecfa34418e538afb,c312ff32fe14f57e3643596a6bc92b8285465487f76c5a8cabce4041dae3617c,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:199_malignant,medclipseg_busi:4_malignant,present,malignant,"One small circle-shaped irregular tumor at the top in the breast ultrasound image.
+","One small circle-shaped malignant tumor at the left in the breast ultrasound image.
+",9e95ad42b7c4c2721898f3de86f815d0fb21742de7d15329a366b7384bf3660b,d78948f082e8910fd919513f097c049d9d744a462a25239fc563bc63c306bbf7,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:209_malignant,medclipseg_busi:129_malignant,present,malignant,"Two small square-shaped irregular tumors at the top, top in the breast ultrasound image.
+","One large circle-shaped irregular tumor at the center in the breast ultrasound image.
+",c312ff32fe14f57e3643596a6bc92b8285465487f76c5a8cabce4041dae3617c,564efd55c23d246251898170a99f10b7b781493b3b17ec5dc2419dcf4d4a7762,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:20_benign,medclipseg_busi:374_benign,present,benign,"One small oval-shaped regular tumor at the top in the breast ultrasound image.
+","One small square-shaped benign tumor at the top in the breast ultrasound image.
+",23819283973ade70930ecf6ea3eae10bc5f17904046764d395fbc1c75a040ffd,e5e7871b7bc193ffb3d02ad5cbc2b62293a462d11ff51bc577f4416d0fd84766,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:210_benign,medclipseg_busi:337_benign,present,benign,"One medium square-shaped regular tumor at the left in the breast ultrasound image.
+","One small circle-shaped benign tumor at the top right in the breast ultrasound image.
+",0eef31ec68b7613f0441f4258909ea7dcb68b763f7010a632fa472ee9138cac8,12b8631c99e5fbada527ce52284123c348132c5db81f6730898a0d79e903b3e9,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:214_benign,medclipseg_busi:134_benign,present,benign,"One small circle-shaped regular tumor at the top right in the breast ultrasound image.
+","One small kidney-shaped regular tumor at the top right in the breast ultrasound image.
+",9b76b7bf5b0c3351c4b15e8134828c4ad69779754f135e04c81a66a08d78cf6f,d225edd0d94450abad3ae4594bfc980f91f005e400da24fb7d2478888702df43,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:219_benign,medclipseg_busi:20_benign,present,benign,"One small heart-shaped regular tumor at the top right in the breast ultrasound image.
+","One small oval-shaped regular tumor at the top in the breast ultrasound image.
+",54ab65f9d7ee880ab83d2629ba1518947e9927f51cc808c697ebcf0dba7c900c,23819283973ade70930ecf6ea3eae10bc5f17904046764d395fbc1c75a040ffd,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:220_benign,medclipseg_busi:308_benign,present,benign,"One small square-shaped benign tumor at the right in the breast ultrasound image.
+","One small square-shaped regular tumor at the top in the breast ultrasound image.
+",8a1b7e78e741b2e1ffbfc079bb544c074db43187cc80f7437664895d39f59b6d,08ada6aefac463909c67117932d453d889281c7eed95619138158ef53d6ceb9f,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:227_benign,medclipseg_busi:49_benign,present,benign,"One small star-shaped benign tumor at the center in the breast ultrasound image.
+","One large oval-shaped benign tumor at the right in the breast ultrasound image.
+",7b9be6b24fe6bd8fd814f3fa02e2d41ccc363f0639557bde4659feba3927d82d,340efc7b46de914f63a221216ed4cc1e7a8430624732d54a0aea05d5ac58cbc7,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:239_benign,medclipseg_busi:54_benign,present,benign,"One small square-shaped regular tumor at the top in the breast ultrasound image.
+","Three small oval-shaped regular tumors at the top right, top left, top right in the breast ultrasound image.
+",08ada6aefac463909c67117932d453d889281c7eed95619138158ef53d6ceb9f,39d5c407687164eb2bf7be0b44b5ae5b6956d8d2a11c8b1a4200938db2caf30a,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:23_benign,medclipseg_busi:154_benign,present,benign,"One small circle-shaped regular tumor at the center in the breast ultrasound image.
+","One small circle-shaped regular tumor at the top in the breast ultrasound image.
+",c40ef795bfb239836292b80b1ec6b65eda11444e6c1f8ba94a340fa832df788a,de78c28322a0ba024d7ac885cf94a530df0e41dd77c2d6620e42150f0e03cf8f,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:240_benign,medclipseg_busi:264_benign,present,benign,"Two medium circle-shaped regular tumors at the center, center in the breast ultrasound image.
+","One medium circle-shaped benign tumor at the top in the breast ultrasound image.
+",3bc979f148a04a842254b3d65c6a1152bda99fe74b4d049d39f693272ff7ddf8,43f8eb360415da167ce92650d2b48bb5ed2a686e0a568c8f371c7e0d89fa0aca,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:244_benign,medclipseg_busi:387_benign,present,benign,"One small diamond-shaped regular tumor at the top right in the breast ultrasound image.
+","One small oval-shaped regular tumor at the center in the breast ultrasound image.
+",8603eb15872253c74e1e101cae54f6b7211a3529aa255cef588b58c78fafc3d2,d4d3ca2a690b8128f19491762e0955c64206717637669d5ec8158c168acb695d,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:24_benign,medclipseg_busi:435_benign,present,benign,"One small circle-shaped regular tumor at the center in the breast ultrasound image.
+","One small circle-shaped regular tumor at the top in the breast ultrasound image.
+",c40ef795bfb239836292b80b1ec6b65eda11444e6c1f8ba94a340fa832df788a,de78c28322a0ba024d7ac885cf94a530df0e41dd77c2d6620e42150f0e03cf8f,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:264_benign,medclipseg_busi:190_benign,present,benign,"One medium circle-shaped benign tumor at the top in the breast ultrasound image.
+","One medium oval-shaped regular tumor at the center in the breast ultrasound image.
+",43f8eb360415da167ce92650d2b48bb5ed2a686e0a568c8f371c7e0d89fa0aca,b77f0ae6150f7c51f73064b7e7caa1fabaa5e0a50cc8c2de96da702332bce2bb,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:270_benign,medclipseg_busi:227_benign,present,benign,"One small square-shaped benign tumor at the top right in the breast ultrasound image.
+","One small star-shaped benign tumor at the center in the breast ultrasound image.
+",f67a1e2c194450ccd15db47ca4a792fac396a7e1dc8b29691c3fdbf2c2473d07,7b9be6b24fe6bd8fd814f3fa02e2d41ccc363f0639557bde4659feba3927d82d,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:286_benign,medclipseg_busi:428_benign,present,benign,"One medium square-shaped benign tumor at the top in the breast ultrasound image.
+","One small circle-shaped benign tumor at the right in the breast ultrasound image.
+",81cc664bae2cd15c9fc32d0296e46a0a6adfd9f490b958287b96e8cdfca283b6,2b19c5303ebca9362ba9bad555b1268c7fe38c0f6b43f0d9f13aad0e147d9ee1,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:290_benign,medclipseg_busi:129_benign,present,benign,"One medium square-shaped benign tumor at the top in the breast ultrasound image.
+","One small circle-shaped benign tumor at the top in the breast ultrasound image.
+",81cc664bae2cd15c9fc32d0296e46a0a6adfd9f490b958287b96e8cdfca283b6,1943739f216424b9646400e7b0251c5156c031bfa31915c1fd2ce47baf4f3741,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:293_benign,medclipseg_busi:239_benign,present,benign,"One small square-shaped benign tumor at the left in the breast ultrasound image.
+","One small square-shaped regular tumor at the top in the breast ultrasound image.
+",4909acc07e5def007f3562089d0e78554a14a566654dd5a0a3d7fd756f4bc1f9,08ada6aefac463909c67117932d453d889281c7eed95619138158ef53d6ceb9f,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:299_benign,medclipseg_busi:270_benign,present,benign,"One small rectangle-shaped regular tumor at the left in the breast ultrasound image.
+","One small square-shaped benign tumor at the top right in the breast ultrasound image.
+",6521a18628851dc3a4dc9522897b39b7e8e5c6010ca31fa6dcb611b7b18d2f67,f67a1e2c194450ccd15db47ca4a792fac396a7e1dc8b29691c3fdbf2c2473d07,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:308_benign,medclipseg_busi:240_benign,present,benign,"One small square-shaped regular tumor at the top in the breast ultrasound image.
+","Two medium circle-shaped regular tumors at the center, center in the breast ultrasound image.
+",08ada6aefac463909c67117932d453d889281c7eed95619138158ef53d6ceb9f,3bc979f148a04a842254b3d65c6a1152bda99fe74b4d049d39f693272ff7ddf8,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:30_malignant,medclipseg_busi:87_malignant,present,malignant,"One medium oval-shaped irregular tumor at the center in the breast ultrasound image.
+","One medium oval-shaped malignant tumor at the top right in the breast ultrasound image.
+",1f1cbda2111854095d094568d2ff0e250357d471ba5d0df35ef0a604816f50c7,65da4ca073e6a90dd854555d296f904063e0c6b22e08ed9749d41e120443e260,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:333_benign,medclipseg_busi:392_benign,present,benign,"One medium circle-shaped regular tumor at the top right in the breast ultrasound image.
+","One medium square-shaped benign tumor at the center in the breast ultrasound image.
+",922baefedcf0aab521424c5f6d671ab0af6e7616d4b18d09b638d4c209ff0cb3,80aa1de7a7117f327e036d68eb4c8511e10986402c72843e93d1a438957d4132,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:337_benign,medclipseg_busi:24_benign,present,benign,"One small circle-shaped benign tumor at the top right in the breast ultrasound image.
+","One small circle-shaped regular tumor at the center in the breast ultrasound image.
+",12b8631c99e5fbada527ce52284123c348132c5db81f6730898a0d79e903b3e9,c40ef795bfb239836292b80b1ec6b65eda11444e6c1f8ba94a340fa832df788a,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:356_benign,medclipseg_busi:80_benign,present,benign,"One medium circle-shaped regular tumor at the top in the breast ultrasound image.
+","One medium oval-shaped regular tumor at the center in the breast ultrasound image.
+",30876cfb3720ec2ea189be25869bab4b9fe098c66ba7fa7b4785cbab845f5bbb,b77f0ae6150f7c51f73064b7e7caa1fabaa5e0a50cc8c2de96da702332bce2bb,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:374_benign,medclipseg_busi:116_benign,present,benign,"One small square-shaped benign tumor at the top in the breast ultrasound image.
+","One small square-shaped regular tumor at the top left in the breast ultrasound image.
+",e5e7871b7bc193ffb3d02ad5cbc2b62293a462d11ff51bc577f4416d0fd84766,6669b15f911a39f0a68718042e6f5bc29e691cfdbdc2f5a988260796876ff0ad,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:387_benign,medclipseg_busi:220_benign,present,benign,"One small oval-shaped regular tumor at the center in the breast ultrasound image.
+","One small square-shaped benign tumor at the right in the breast ultrasound image.
+",d4d3ca2a690b8128f19491762e0955c64206717637669d5ec8158c168acb695d,8a1b7e78e741b2e1ffbfc079bb544c074db43187cc80f7437664895d39f59b6d,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:38_normal,medclipseg_busi:41_normal,absent,normal,"No tumor in the breast ultrasound image.
+","No tumor in the breast ultrasound image.
+",122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,0,0
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:392_benign,medclipseg_busi:72_benign,present,benign,"One medium square-shaped benign tumor at the center in the breast ultrasound image.
+","One small circle-shaped benign tumor at the left in the breast ultrasound image.
+",80aa1de7a7117f327e036d68eb4c8511e10986402c72843e93d1a438957d4132,e6028887e87d991346922f69addf0d78817e046d549ea2572e32b9c920a92869,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:411_benign,medclipseg_busi:286_benign,present,benign,"One medium oval-shaped benign tumor at the top in the breast ultrasound image.
+","One medium square-shaped benign tumor at the top in the breast ultrasound image.
+",b4609e3e2c6f114b2922746ef88a5090bbcf2001921e66f5afc3371e4ad5a890,81cc664bae2cd15c9fc32d0296e46a0a6adfd9f490b958287b96e8cdfca283b6,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:41_normal,medclipseg_busi:49_normal,absent,normal,"No tumor in the breast ultrasound image.
+","No tumor in the breast ultrasound image.
+",122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,0,0
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:426_benign,medclipseg_busi:411_benign,present,benign,"One large square-shaped benign tumor at the top in the breast ultrasound image.
+","One medium oval-shaped benign tumor at the top in the breast ultrasound image.
+",b596bb187bd8846c6339c9ea91cfb6f4c1bff9533092857d7b0246170b9fa248,b4609e3e2c6f114b2922746ef88a5090bbcf2001921e66f5afc3371e4ad5a890,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:428_benign,medclipseg_busi:186_benign,present,benign,"One small circle-shaped benign tumor at the right in the breast ultrasound image.
+","One small circle-shaped regular tumor at the center in the breast ultrasound image.
+",2b19c5303ebca9362ba9bad555b1268c7fe38c0f6b43f0d9f13aad0e147d9ee1,c40ef795bfb239836292b80b1ec6b65eda11444e6c1f8ba94a340fa832df788a,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:431_benign,medclipseg_busi:55_benign,present,benign,"One small circle-shaped benign tumor at the top right in the breast ultrasound image.
+","One small circle-shaped regular tumor at the center in the breast ultrasound image.
+",12b8631c99e5fbada527ce52284123c348132c5db81f6730898a0d79e903b3e9,c40ef795bfb239836292b80b1ec6b65eda11444e6c1f8ba94a340fa832df788a,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:435_benign,medclipseg_busi:219_benign,present,benign,"One small circle-shaped regular tumor at the top in the breast ultrasound image.
+","One small heart-shaped regular tumor at the top right in the breast ultrasound image.
+",de78c28322a0ba024d7ac885cf94a530df0e41dd77c2d6620e42150f0e03cf8f,54ab65f9d7ee880ab83d2629ba1518947e9927f51cc808c697ebcf0dba7c900c,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:48_malignant,medclipseg_busi:64_malignant,present,malignant,"One small circle-shaped malignant tumor at the top right in the breast ultrasound image.
+","One small oval-shaped irregular tumor at the center in the breast ultrasound image.
+",f2d66b8e70fc6b2ee407a6d6cbcf235f0f5b6a4d9c5dc0be9fa5ace4c6795cd1,47bdb2574e254980fd8322355508d9c45e3f22d94a932d3e10169573ead2ee37,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:49_benign,medclipseg_busi:333_benign,present,benign,"One large oval-shaped benign tumor at the right in the breast ultrasound image.
+","One medium circle-shaped regular tumor at the top right in the breast ultrasound image.
+",340efc7b46de914f63a221216ed4cc1e7a8430624732d54a0aea05d5ac58cbc7,922baefedcf0aab521424c5f6d671ab0af6e7616d4b18d09b638d4c209ff0cb3,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:49_normal,medclipseg_busi:53_normal,absent,normal,"No tumor in the breast ultrasound image.
+","No tumor in the breast ultrasound image.
+",122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,0,0
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:4_malignant,medclipseg_busi:48_malignant,present,malignant,"One small circle-shaped malignant tumor at the left in the breast ultrasound image.
+","One small circle-shaped malignant tumor at the top right in the breast ultrasound image.
+",d78948f082e8910fd919513f097c049d9d744a462a25239fc563bc63c306bbf7,f2d66b8e70fc6b2ee407a6d6cbcf235f0f5b6a4d9c5dc0be9fa5ace4c6795cd1,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:53_malignant,medclipseg_busi:198_malignant,present,malignant,"Three small square-shaped malignant tumors at the top, top, center in the breast ultrasound image.
+","Two medium circle-shaped malignant tumors at the top, top in the breast ultrasound image.
+",ab191c85b76409a2b293d5592fc9138bf32dc8fc127bca1233d28d8fc1fdb4f9,34f6645f1895f759107e842d0744779ef2a00fcb038ae3fbecfa34418e538afb,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:53_normal,medclipseg_busi:55_normal,absent,normal,"No tumor in the breast ultrasound image.
+","No tumor in the breast ultrasound image.
+",122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,0,0
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:54_benign,medclipseg_busi:426_benign,present,benign,"Three small oval-shaped regular tumors at the top right, top left, top right in the breast ultrasound image.
+","One large square-shaped benign tumor at the top in the breast ultrasound image.
+",39d5c407687164eb2bf7be0b44b5ae5b6956d8d2a11c8b1a4200938db2caf30a,b596bb187bd8846c6339c9ea91cfb6f4c1bff9533092857d7b0246170b9fa248,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:55_benign,medclipseg_busi:214_benign,present,benign,"One small circle-shaped regular tumor at the center in the breast ultrasound image.
+","One small circle-shaped regular tumor at the top right in the breast ultrasound image.
+",c40ef795bfb239836292b80b1ec6b65eda11444e6c1f8ba94a340fa832df788a,9b76b7bf5b0c3351c4b15e8134828c4ad69779754f135e04c81a66a08d78cf6f,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:55_normal,medclipseg_busi:60_normal,absent,normal,"No tumor in the breast ultrasound image.
+","No tumor in the breast ultrasound image.
+",122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,0,0
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:59_benign,medclipseg_busi:65_benign,present,benign,"One small circle-shaped regular tumor at the top right in the breast ultrasound image.
+","One small oval-shaped benign tumor at the top right in the breast ultrasound image.
+",9b76b7bf5b0c3351c4b15e8134828c4ad69779754f135e04c81a66a08d78cf6f,1bb483e1fef84866178cee2933790a71807a8c6dee3f1c9050ea3414f9509f65,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:60_normal,medclipseg_busi:66_normal,absent,normal,"No tumor in the breast ultrasound image.
+","No tumor in the breast ultrasound image.
+",122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,0,0
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:64_malignant,medclipseg_busi:116_malignant,present,malignant,"One small oval-shaped irregular tumor at the center in the breast ultrasound image.
+","One small oval-shaped malignant tumor at the top left in the breast ultrasound image.
+",47bdb2574e254980fd8322355508d9c45e3f22d94a932d3e10169573ead2ee37,6c8f615a8a3bbae3bbafcecc8472edb840e78af2a681f7fb2b1d9f391f4916ae,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:65_benign,medclipseg_busi:293_benign,present,benign,"One small oval-shaped benign tumor at the top right in the breast ultrasound image.
+","One small square-shaped benign tumor at the left in the breast ultrasound image.
+",1bb483e1fef84866178cee2933790a71807a8c6dee3f1c9050ea3414f9509f65,4909acc07e5def007f3562089d0e78554a14a566654dd5a0a3d7fd756f4bc1f9,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:66_normal,medclipseg_busi:71_normal,absent,normal,"No tumor in the breast ultrasound image.
+","No tumor in the breast ultrasound image.
+",122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,0,0
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:71_malignant,medclipseg_busi:96_malignant,present,malignant,"One medium circle-shaped irregular tumor at the center in the breast ultrasound image.
+","One medium circle-shaped irregular tumor at the top right in the breast ultrasound image.
+",86d1b11db982888760c5fc110baf929423f911686b518e6949344567c935a99f,9b7779c56dd65fdd8a46b93e64cb30daa43f20e99501b9fd7907bd31be9372a9,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:71_normal,medclipseg_busi:73_normal,absent,normal,"No tumor in the breast ultrasound image.
+","No tumor in the breast ultrasound image.
+",122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,0,0
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:72_benign,medclipseg_busi:431_benign,present,benign,"One small circle-shaped benign tumor at the left in the breast ultrasound image.
+","One small circle-shaped benign tumor at the top right in the breast ultrasound image.
+",e6028887e87d991346922f69addf0d78817e046d549ea2572e32b9c920a92869,12b8631c99e5fbada527ce52284123c348132c5db81f6730898a0d79e903b3e9,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:73_normal,medclipseg_busi:103_normal,absent,normal,"No tumor in the breast ultrasound image.
+","No tumor in the breast ultrasound image.
+",122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,122d89ccb3461a58d345e91eed36bc6231426872c6b82268d326f7e944a80d60,0,0
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:75_malignant,medclipseg_busi:13_malignant,present,malignant,"One medium square-shaped irregular tumor at the top right in the breast ultrasound image.
+","One medium square-shaped malignant tumor at the center in the breast ultrasound image.
+",f6c5775ae348e86da5326d809be4dff0cc2694a733ffbdc05afaae46b316f0a9,323f68f91a85bc1d4e2e16f044ae228ecb5740b1bbdfca28b708044e7d423ae9,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:80_benign,medclipseg_busi:210_benign,present,benign,"One medium oval-shaped regular tumor at the center in the breast ultrasound image.
+","One medium square-shaped regular tumor at the left in the breast ultrasound image.
+",b77f0ae6150f7c51f73064b7e7caa1fabaa5e0a50cc8c2de96da702332bce2bb,0eef31ec68b7613f0441f4258909ea7dcb68b763f7010a632fa472ee9138cac8,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:87_malignant,medclipseg_busi:75_malignant,present,malignant,"One medium oval-shaped malignant tumor at the top right in the breast ultrasound image.
+","One medium square-shaped irregular tumor at the top right in the breast ultrasound image.
+",65da4ca073e6a90dd854555d296f904063e0c6b22e08ed9749d41e120443e260,f6c5775ae348e86da5326d809be4dff0cc2694a733ffbdc05afaae46b316f0a9,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_busi,medclipseg_busi:96_malignant,medclipseg_busi:140_malignant,present,malignant,"One medium circle-shaped irregular tumor at the top right in the breast ultrasound image.
+","One medium circle-shaped malignant tumor at the top right in the breast ultrasound image.
+",9b7779c56dd65fdd8a46b93e64cb30daa43f20e99501b9fd7907bd31be9372a9,6bbbac4cac7865fa461baa1e1b0f414ab96abbe102e43d8c82bb11e3e5a991f0,0,1

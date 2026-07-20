@@ -1,0 +1,184 @@
+control_id,dataset,case_id,source_case_id,presence_stratum,class_stratum,original_text,assigned_text,original_text_sha256,assigned_text_sha256,source_is_self,text_changed
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:14,medclipseg_clinicdb:77,present,polyp,"two medium orange round polyp, located in bottom, bottom left of the image
+","two small white round polyp, located in center, bottom of the image
+",cfc64b4edad44fb87731daa29397eb9d4834943a02324ff689c9faab94463a78,097471c81000716401670dffe488efb198f87c057b3422bd97fe6546f0b0f353,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:15,medclipseg_clinicdb:201,present,polyp,"two large brown round polyp, located in center, left of the image
+","two small white circle polyp, located in right, right of the image
+",f020a50974cced43fccc59f5c0aefaac9f7400de70d9ce0ee69fa11f0ffdca0c,1ada87e275206dddacb37ec972bbb94d1d7b983d736a92b304e20198cbd16051,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:157,medclipseg_clinicdb:14,present,polyp,"one small white triangular polyp, located in top of the image
+","two medium orange round polyp, located in bottom, bottom left of the image
+",ff68d333f710fe973c95fc2c636d33940a1c1487a50957abe8a9b49fd7039f3b,cfc64b4edad44fb87731daa29397eb9d4834943a02324ff689c9faab94463a78,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:162,medclipseg_clinicdb:157,present,polyp,"one small white oval polyp, located in top of the image
+","one small white triangular polyp, located in top of the image
+",9cf3840aa9e61f08ecd410c22ee6b04a51cc8f773423ca6dc5f5ec64c3f787a7,ff68d333f710fe973c95fc2c636d33940a1c1487a50957abe8a9b49fd7039f3b,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:174,medclipseg_clinicdb:2,present,polyp,"one medium white round polyp, located in center of the image
+","one medium yellow round polyp, located in bottom of the image
+",cde8b959df2f6d5e63d2d96ccb53c2c64c8f320ffe76e47e0436151be5dbff9b,96341fe28a1e3859e47b741b6164e8c0994be67a1849febe5aba7be3a3fa5858,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:176,medclipseg_clinicdb:343,present,polyp,"one medium yellow round polyp, located in bottom of the image
+","one small pink circle polyp, located in bottom of the image
+",96341fe28a1e3859e47b741b6164e8c0994be67a1849febe5aba7be3a3fa5858,628ae05aa35e8933e46a405b9dfb663f0ee0b9120d4e8f7ccb309bce8177b5bc,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:2,medclipseg_clinicdb:523,present,polyp,"one medium yellow round polyp, located in bottom of the image
+","one small pink circle polyp, located in bottom of the image
+",96341fe28a1e3859e47b741b6164e8c0994be67a1849febe5aba7be3a3fa5858,628ae05aa35e8933e46a405b9dfb663f0ee0b9120d4e8f7ccb309bce8177b5bc,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:200,medclipseg_clinicdb:515,present,polyp,"one small white octagon polyp, located in center of the image
+","one small white round polyp, located in right of the image
+",64c593afe88586fe11eb9943871d8ec742bb85c8c1e68a8af7ab58bc7fb43ecb,d6d0c9d01baea8045176d3bfcd680fd85755f8ef1d69464e282e4bd4407a1099,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:201,medclipseg_clinicdb:504,present,polyp,"two small white circle polyp, located in right, right of the image
+","one medium pink round polyp, located in bottom of the image
+",1ada87e275206dddacb37ec972bbb94d1d7b983d736a92b304e20198cbd16051,fd6e4d408f1d621024ea24e70e958d14490aca6d145d75fee55bc9477d781f9c,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:211,medclipseg_clinicdb:540,present,polyp,"one medium white mouth polyp, located in right of the image
+","one medium white round polyp, located in center of the image
+",84fa6e40f5f56315c341aeff0de8629506f1eed31821debf9ee4b9e9d4b48586,cde8b959df2f6d5e63d2d96ccb53c2c64c8f320ffe76e47e0436151be5dbff9b,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:218,medclipseg_clinicdb:597,present,polyp,"one small pink round polyp, located in bottom right of the image
+","one small white circle polyp, located in bottom right of the image
+",775f5c702bbe747a870536d54095e90c142f59fdb10c2bb5fb562061e7a4a427,a5c66216ab42c2eddfef49bdc93f01eb79132c09aabd57e0807a925caaf650d1,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:242,medclipseg_clinicdb:390,present,polyp,"one medium white octagon polyp, located in bottom of the image
+","one medium white round polyp, located in right of the image
+",a8427841fbffb48ca342d607b3fcbdc6d0e2f66ac847e13253113705fa4b5c08,00a34644bbad4d878bca63b48de4b17f5ed425b7cafb2a94cd2a27af7cf52ff0,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:246,medclipseg_clinicdb:471,present,polyp,"one medium white octagon polyp, located in center of the image
+","one medium white triangular polyp, located in right of the image
+",5ba9baf58b79cf1f2bacfa061ee322fa6afde69b9d4636581799da24e46bc1c6,3221cb4207d41560bfc1e11d4853f08bd73ebc8730aee0312e6202659de6d626,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:288,medclipseg_clinicdb:64,present,polyp,"one small white circle polyp, located in center of the image
+","one small white circle polyp, located in right of the image
+",8842bf9b1be1fca1d8186078aa45e6cc200da527b5820b3a834ec711b19e724c,c3f5e5d81dcd8e9da3d1659b9183aaf06715a53040029120438e9f9283b10833,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:293,medclipseg_clinicdb:429,present,polyp,"one small white circle polyp, located in center of the image
+","one small white heart polyp, located in center of the image
+",8842bf9b1be1fca1d8186078aa45e6cc200da527b5820b3a834ec711b19e724c,90bd3fcd71430c7fb1fe0bceaf3e0efaecea9bb3b1f69a7cba3701adf3171ca0,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:30,medclipseg_clinicdb:174,present,polyp,"one medium white circle polyp, located in center of the image
+","one medium white round polyp, located in center of the image
+",e1c482389bcca04d1348e5a933907aea237d959813f690205e5d1ddd90feaee6,cde8b959df2f6d5e63d2d96ccb53c2c64c8f320ffe76e47e0436151be5dbff9b,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:312,medclipseg_clinicdb:442,present,polyp,"one small white octagon polyp, located in bottom right of the image
+","one small white round polyp, located in right of the image
+",6b97082b40f2c86b8be7f2c85f433ca43690bb402653baf0a2e198e7344999ca,d6d0c9d01baea8045176d3bfcd680fd85755f8ef1d69464e282e4bd4407a1099,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:313,medclipseg_clinicdb:374,present,polyp,"one small white circle polyp, located in bottom right of the image
+","one small white circle polyp, located in center of the image
+",a5c66216ab42c2eddfef49bdc93f01eb79132c09aabd57e0807a925caaf650d1,8842bf9b1be1fca1d8186078aa45e6cc200da527b5820b3a834ec711b19e724c,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:331,medclipseg_clinicdb:312,present,polyp,"one small white circle polyp, located in center of the image
+","one small white octagon polyp, located in bottom right of the image
+",8842bf9b1be1fca1d8186078aa45e6cc200da527b5820b3a834ec711b19e724c,6b97082b40f2c86b8be7f2c85f433ca43690bb402653baf0a2e198e7344999ca,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:332,medclipseg_clinicdb:477,present,polyp,"one small yellow circle polyp, located in center of the image
+","two medium white a protrusion polyp, located in right, left of the image
+",272a019d900f95a69861abedb9fea6a9deb713339d1f490cc0de519a3ba81c9d,28692d4984b4cbfacfe81391bdc89adfc433c52f2ff40eba62158c15cc3bc2d0,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:343,medclipseg_clinicdb:440,present,polyp,"one small pink circle polyp, located in bottom of the image
+","one small pink oval polyp, located in bottom left of the image
+",628ae05aa35e8933e46a405b9dfb663f0ee0b9120d4e8f7ccb309bce8177b5bc,4bc5e3af45619f8a3d8cd1ab0fa992b22881e2629b5a8fd01ae5331c96f2f124,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:35,medclipseg_clinicdb:572,present,polyp,"one small white oval polyp, located in center of the image
+","one small white round polyp, located in right of the image
+",d2e20f81335abec7c7acb677644f071a1dfa21b42eaba789d8b440b65d3fd25d,d6d0c9d01baea8045176d3bfcd680fd85755f8ef1d69464e282e4bd4407a1099,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:374,medclipseg_clinicdb:200,present,polyp,"one small white circle polyp, located in center of the image
+","one small white octagon polyp, located in center of the image
+",8842bf9b1be1fca1d8186078aa45e6cc200da527b5820b3a834ec711b19e724c,64c593afe88586fe11eb9943871d8ec742bb85c8c1e68a8af7ab58bc7fb43ecb,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:382,medclipseg_clinicdb:293,present,polyp,"one small white circle polyp, located in bottom of the image
+","one small white circle polyp, located in center of the image
+",3326b404405dace6ce7eb6d6e792a6ba0556b67a5988fe2ebfe79280ccd9c3d0,8842bf9b1be1fca1d8186078aa45e6cc200da527b5820b3a834ec711b19e724c,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:390,medclipseg_clinicdb:396,present,polyp,"one medium white round polyp, located in right of the image
+","one medium yellow round polyp, located in right of the image
+",00a34644bbad4d878bca63b48de4b17f5ed425b7cafb2a94cd2a27af7cf52ff0,c8f1ec7df195fcc3ceecceb128d97320d728da84b0fd12103b22a4fd4c6c0846,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:393,medclipseg_clinicdb:547,present,polyp,"one small yellow round polyp, located in right of the image
+","two small white a large, oval bump polyp, located in center, bottom left of the image
+",c4c96a9fdaf9416e725105f2d28669e338ae95b1fbeffb984911bef7b702f664,036508cee7ae59de14f6874b5c58ac14b8144ec5d0f0b0b3bc91ea0ad472760b,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:396,medclipseg_clinicdb:93,present,polyp,"one medium yellow round polyp, located in right of the image
+","one small pink circle polyp, located in center of the image
+",c8f1ec7df195fcc3ceecceb128d97320d728da84b0fd12103b22a4fd4c6c0846,dd80d5ad5377072223c305d662e75dbce0eb952e83d6ba863d0bf2ffabd706a7,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:41,medclipseg_clinicdb:35,present,polyp,"one small white circle polyp, located in center of the image
+","one small white oval polyp, located in center of the image
+",8842bf9b1be1fca1d8186078aa45e6cc200da527b5820b3a834ec711b19e724c,d2e20f81335abec7c7acb677644f071a1dfa21b42eaba789d8b440b65d3fd25d,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:419,medclipseg_clinicdb:483,present,polyp,"two medium white ovoid polyp, located in top, bottom right of the image
+","one medium orange round polyp, located in center of the image
+",09430506c8704462d8925e728357c18870776b765aea14466047e87da299dd80,7d545f29cb83853dc8b5d5b8fb17be31c0d7dda3b0d27947cb1935a4072f51ac,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:429,medclipseg_clinicdb:44,present,polyp,"one small white heart polyp, located in center of the image
+","one small white round polyp, located in center of the image
+",90bd3fcd71430c7fb1fe0bceaf3e0efaecea9bb3b1f69a7cba3701adf3171ca0,d620bb579e837454ffb34fe3d5baf3da2070e585521d42961f7a93172b790506,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:437,medclipseg_clinicdb:69,present,polyp,"one small pink oval polyp, located in right of the image
+","one small white circle polyp, located in bottom of the image
+",5e3f3032daf25ed9f8daf1a2a8ab53f1e5e720aa9dc345b2c593bb75d81f655b,3326b404405dace6ce7eb6d6e792a6ba0556b67a5988fe2ebfe79280ccd9c3d0,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:44,medclipseg_clinicdb:332,present,polyp,"one small white round polyp, located in center of the image
+","one small yellow circle polyp, located in center of the image
+",d620bb579e837454ffb34fe3d5baf3da2070e585521d42961f7a93172b790506,272a019d900f95a69861abedb9fea6a9deb713339d1f490cc0de519a3ba81c9d,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:440,medclipseg_clinicdb:382,present,polyp,"one small pink oval polyp, located in bottom left of the image
+","one small white circle polyp, located in bottom of the image
+",4bc5e3af45619f8a3d8cd1ab0fa992b22881e2629b5a8fd01ae5331c96f2f124,3326b404405dace6ce7eb6d6e792a6ba0556b67a5988fe2ebfe79280ccd9c3d0,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:442,medclipseg_clinicdb:532,present,polyp,"one small white round polyp, located in right of the image
+","one small yellow octagon polyp, located in top right of the image
+",d6d0c9d01baea8045176d3bfcd680fd85755f8ef1d69464e282e4bd4407a1099,d2ed5bb03c2f851f29b2f96c0f3a0bcb592382e81ce3adb532fb358014b853c3,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:444,medclipseg_clinicdb:313,present,polyp,"one small pink round polyp, located in bottom of the image
+","one small white circle polyp, located in bottom right of the image
+",1dfb4884977ef2e5f030881b319b70d952d573f72a695a31f7426d539fe50537,a5c66216ab42c2eddfef49bdc93f01eb79132c09aabd57e0807a925caaf650d1,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:446,medclipseg_clinicdb:242,present,polyp,"one medium pink round polyp, located in center of the image
+","one medium white octagon polyp, located in bottom of the image
+",50cfca536ca305adc3b7486e5d8630bbea1567e71741f10413874f513e6577cd,a8427841fbffb48ca342d607b3fcbdc6d0e2f66ac847e13253113705fa4b5c08,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:457,medclipseg_clinicdb:176,present,polyp,"one medium white oval polyp, located in center of the image
+","one medium yellow round polyp, located in bottom of the image
+",54862eacdf0ec5f1ab4e7984fee1a818fa67f7acd7844f3bebb75b4d86ef53f4,96341fe28a1e3859e47b741b6164e8c0994be67a1849febe5aba7be3a3fa5858,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:467,medclipseg_clinicdb:457,present,polyp,"one medium white a protrusion polyp, located in right of the image
+","one medium white oval polyp, located in center of the image
+",297e34e6aae4fa56df1865ef3917e317ee448343040ff17d96b92ced95ec51dd,54862eacdf0ec5f1ab4e7984fee1a818fa67f7acd7844f3bebb75b4d86ef53f4,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:471,medclipseg_clinicdb:578,present,polyp,"one medium white triangular polyp, located in right of the image
+","one small brown oval polyp, located in top right of the image
+",3221cb4207d41560bfc1e11d4853f08bd73ebc8730aee0312e6202659de6d626,a3299afaf80674adc36a963a4d2f9f7578442233d7a6dc506ddd8bf9d22f464f,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:477,medclipseg_clinicdb:557,present,polyp,"two medium white a protrusion polyp, located in right, left of the image
+","two small white round polyp, located in center, center of the image
+",28692d4984b4cbfacfe81391bdc89adfc433c52f2ff40eba62158c15cc3bc2d0,69ba3b1da289a69458330bbe742e4fea6bd689375f64bd7838caa81d0f81b92c,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:483,medclipseg_clinicdb:467,present,polyp,"one medium orange round polyp, located in center of the image
+","one medium white a protrusion polyp, located in right of the image
+",7d545f29cb83853dc8b5d5b8fb17be31c0d7dda3b0d27947cb1935a4072f51ac,297e34e6aae4fa56df1865ef3917e317ee448343040ff17d96b92ced95ec51dd,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:496,medclipseg_clinicdb:30,present,polyp,"one medium pink round polyp, located in bottom of the image
+","one medium white circle polyp, located in center of the image
+",fd6e4d408f1d621024ea24e70e958d14490aca6d145d75fee55bc9477d781f9c,e1c482389bcca04d1348e5a933907aea237d959813f690205e5d1ddd90feaee6,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:498,medclipseg_clinicdb:246,present,polyp,"one medium pink round polyp, located in right of the image
+","one medium white octagon polyp, located in center of the image
+",97013e371cfe3e25c7b8f956f64c2715b40397c8287de1f3ed8ba9fb897a10a1,5ba9baf58b79cf1f2bacfa061ee322fa6afde69b9d4636581799da24e46bc1c6,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:504,medclipseg_clinicdb:211,present,polyp,"one medium pink round polyp, located in bottom of the image
+","one medium white mouth polyp, located in right of the image
+",fd6e4d408f1d621024ea24e70e958d14490aca6d145d75fee55bc9477d781f9c,84fa6e40f5f56315c341aeff0de8629506f1eed31821debf9ee4b9e9d4b48586,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:513,medclipseg_clinicdb:444,present,polyp,"one small pink circle polyp, located in center of the image
+","one small pink round polyp, located in bottom of the image
+",dd80d5ad5377072223c305d662e75dbce0eb952e83d6ba863d0bf2ffabd706a7,1dfb4884977ef2e5f030881b319b70d952d573f72a695a31f7426d539fe50537,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:515,medclipseg_clinicdb:393,present,polyp,"one small white round polyp, located in right of the image
+","one small yellow round polyp, located in right of the image
+",d6d0c9d01baea8045176d3bfcd680fd85755f8ef1d69464e282e4bd4407a1099,c4c96a9fdaf9416e725105f2d28669e338ae95b1fbeffb984911bef7b702f664,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:523,medclipseg_clinicdb:437,present,polyp,"one small pink circle polyp, located in bottom of the image
+","one small pink oval polyp, located in right of the image
+",628ae05aa35e8933e46a405b9dfb663f0ee0b9120d4e8f7ccb309bce8177b5bc,5e3f3032daf25ed9f8daf1a2a8ab53f1e5e720aa9dc345b2c593bb75d81f655b,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:532,medclipseg_clinicdb:419,present,polyp,"one small yellow octagon polyp, located in top right of the image
+","two medium white ovoid polyp, located in top, bottom right of the image
+",d2ed5bb03c2f851f29b2f96c0f3a0bcb592382e81ce3adb532fb358014b853c3,09430506c8704462d8925e728357c18870776b765aea14466047e87da299dd80,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:540,medclipseg_clinicdb:7,present,polyp,"one medium white round polyp, located in center of the image
+","one medium yellow round polyp, located in center of the image
+",cde8b959df2f6d5e63d2d96ccb53c2c64c8f320ffe76e47e0436151be5dbff9b,aa9905ead03b0fc0a674bf8cd3526412939a8c977a115a0cd27479e8549cd62d,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:547,medclipseg_clinicdb:496,present,polyp,"two small white a large, oval bump polyp, located in center, bottom left of the image
+","one medium pink round polyp, located in bottom of the image
+",036508cee7ae59de14f6874b5c58ac14b8144ec5d0f0b0b3bc91ea0ad472760b,fd6e4d408f1d621024ea24e70e958d14490aca6d145d75fee55bc9477d781f9c,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:557,medclipseg_clinicdb:498,present,polyp,"two small white round polyp, located in center, center of the image
+","one medium pink round polyp, located in right of the image
+",69ba3b1da289a69458330bbe742e4fea6bd689375f64bd7838caa81d0f81b92c,97013e371cfe3e25c7b8f956f64c2715b40397c8287de1f3ed8ba9fb897a10a1,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:572,medclipseg_clinicdb:15,present,polyp,"one small white round polyp, located in right of the image
+","two large brown round polyp, located in center, left of the image
+",d6d0c9d01baea8045176d3bfcd680fd85755f8ef1d69464e282e4bd4407a1099,f020a50974cced43fccc59f5c0aefaac9f7400de70d9ce0ee69fa11f0ffdca0c,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:578,medclipseg_clinicdb:95,present,polyp,"one small brown oval polyp, located in top right of the image
+","one small pink circle polyp, located in top of the image
+",a3299afaf80674adc36a963a4d2f9f7578442233d7a6dc506ddd8bf9d22f464f,4a957402f30d6cb0d8462ea1090ef4f28922ef5f986e4469d224ad5ab6a9f655,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:597,medclipseg_clinicdb:41,present,polyp,"one small white circle polyp, located in bottom right of the image
+","one small white circle polyp, located in center of the image
+",a5c66216ab42c2eddfef49bdc93f01eb79132c09aabd57e0807a925caaf650d1,8842bf9b1be1fca1d8186078aa45e6cc200da527b5820b3a834ec711b19e724c,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:64,medclipseg_clinicdb:162,present,polyp,"one small white circle polyp, located in right of the image
+","one small white oval polyp, located in top of the image
+",c3f5e5d81dcd8e9da3d1659b9183aaf06715a53040029120438e9f9283b10833,9cf3840aa9e61f08ecd410c22ee6b04a51cc8f773423ca6dc5f5ec64c3f787a7,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:69,medclipseg_clinicdb:331,present,polyp,"one small white circle polyp, located in bottom of the image
+","one small white circle polyp, located in center of the image
+",3326b404405dace6ce7eb6d6e792a6ba0556b67a5988fe2ebfe79280ccd9c3d0,8842bf9b1be1fca1d8186078aa45e6cc200da527b5820b3a834ec711b19e724c,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:7,medclipseg_clinicdb:513,present,polyp,"one medium yellow round polyp, located in center of the image
+","one small pink circle polyp, located in center of the image
+",aa9905ead03b0fc0a674bf8cd3526412939a8c977a115a0cd27479e8549cd62d,dd80d5ad5377072223c305d662e75dbce0eb952e83d6ba863d0bf2ffabd706a7,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:77,medclipseg_clinicdb:446,present,polyp,"two small white round polyp, located in center, bottom of the image
+","one medium pink round polyp, located in center of the image
+",097471c81000716401670dffe488efb198f87c057b3422bd97fe6546f0b0f353,50cfca536ca305adc3b7486e5d8630bbea1567e71741f10413874f513e6577cd,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:93,medclipseg_clinicdb:218,present,polyp,"one small pink circle polyp, located in center of the image
+","one small pink round polyp, located in bottom right of the image
+",dd80d5ad5377072223c305d662e75dbce0eb952e83d6ba863d0bf2ffabd706a7,775f5c702bbe747a870536d54095e90c142f59fdb10c2bb5fb562061e7a4a427,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:95,medclipseg_clinicdb:99,present,polyp,"one small pink circle polyp, located in top of the image
+","one small red round polyp, located in center of the image
+",4a957402f30d6cb0d8462ea1090ef4f28922ef5f986e4469d224ad5ab6a9f655,481040830213d38d7f52502fd46fd473802ca5a872914b3cc033f42c11698ba5,0,1
+STRATIFIED_DERANGEMENT_V1_20260719,medclipseg_clinicdb,medclipseg_clinicdb:99,medclipseg_clinicdb:288,present,polyp,"one small red round polyp, located in center of the image
+","one small white circle polyp, located in center of the image
+",481040830213d38d7f52502fd46fd473802ca5a872914b3cc033f42c11698ba5,8842bf9b1be1fca1d8186078aa45e6cc200da527b5820b3a834ec711b19e724c,0,1

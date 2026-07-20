@@ -1,0 +1,12 @@
+dataset,presence_stratum,class_stratum,n_cases,n_unique_texts,max_text_frequency,n_text_changed,text_changed_rate,strict_full_derangement_feasible
+medclipseg_busi,absent,normal,13,1,13,0,0.0,0
+medclipseg_busi,present,benign,44,34,4,44,1.0,1
+medclipseg_busi,present,malignant,21,21,1,21,1.0,1
+medclipseg_clinicdb,present,polyp,61,48,5,61,1.0,1
+medclipseg_busbra,present,benign,191,27,15,191,1.0,1
+medclipseg_busbra,present,malignant,91,24,10,91,1.0,1
+medclipseg_brisc,absent,no_tumor,139,29,9,139,1.0,1
+medclipseg_brisc,present,glioma,253,91,11,253,1.0,1
+medclipseg_brisc,present,meningioma,205,94,8,205,1.0,1
+medclipseg_brisc,present,pituitary,295,32,16,295,1.0,1
+medclipseg_covid19,present,infection,2113,190,640,2113,1.0,1

@@ -1,0 +1,26 @@
+\begin{table}[htbp]
+\centering
+\caption{COVID-19 subject-cluster sensitivity under the original Protocol V3
+test set. The image-weighted delta is the main evaluator point estimate, and
+its 95\% interval resamples recoverable subjects and training seeds with 10,000
+replicates. Subject-weighted deltas first average the three-seed difference
+within each of 474 subjects and then weight subjects equally. $p_{\mathrm{subj}}$
+is the two-sided Wilcoxon test on those equal-subject mean differences. Thus,
+the confidence interval and $p$-value describe explicitly different estimands.
+All effects are percentage points.}
+\label{tab:covid_subject_cluster}
+\scriptsize
+\setlength{\tabcolsep}{3.0pt}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Comparison & Metric & Image $\Delta$ & Cluster 95\% CI & Subject $\Delta$ & $p_{\mathrm{subj}}$ \\
+\midrule
+\methodname{} $-$ w/o Rewrite & Dice & $-0.16$ & [$-0.48$, $0.14$] & $-0.21$ & .006 \\
+               & IoU  & $-0.18$ & [$-0.52$, $0.15$] & $-0.28$ & .005 \\
+\methodname{} $-$ U-Net++ & Dice & $+4.08$ & [$3.48$, $4.72$] & $+5.30$ & $<.001$ \\
+                 & IoU  & $+5.00$ & [$4.30$, $5.68$] & $+5.95$ & $<.001$ \\
+True $-$ shuffled & Dice & $+15.29$ & [$13.99$, $16.66$] & $+17.68$ & $<.001$ \\
+                  & IoU  & $+18.04$ & [$16.61$, $19.51$] & $+19.39$ & $<.001$ \\
+\bottomrule
+\end{tabular}
+\end{table}

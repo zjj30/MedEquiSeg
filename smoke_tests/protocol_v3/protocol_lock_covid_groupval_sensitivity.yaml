@@ -1,0 +1,30 @@
+protocol_id: MEDSEG_TEXT_V3_20260710
+claim_tier: covid_grouped_validation_sensitivity_only
+dataset_registry: smoke_tests/protocol_v3/dataset_registry.yaml
+seeds: [123, 456, 789]
+training_epochs: 100
+selection_split: val
+final_split: test
+prediction_threshold: 0.5
+metrics: [dice, iou, nsd, hd95, assd]
+nsd_tolerance_px: 2.0
+empty_case_policy:
+  both_empty:
+    overlap: 1.0
+    distance: 0.0
+  one_empty:
+    overlap: 0.0
+    distance: inf
+statistics:
+  bootstrap_repetitions: 10000
+  bootstrap_seed: 12345
+  case_seed_reduction: mean
+  multiplicity_correction: holm
+datasets:
+  medclipseg_covid19:
+    manifest: smoke_tests/protocol_v3/manifests/medclipseg_covid19_groupval_sensitivity.csv
+    prompt_source: official_medclipseg
+    split_note: original_test_unchanged_train_val_regrouped_by_recoverable_subject_id
+promotion_gate:
+  sensitivity_only: true
+  do_not_mix_with_protocol_v3_main_table: true

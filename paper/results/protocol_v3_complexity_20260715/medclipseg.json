@@ -1,0 +1,10 @@
+{
+  "protocol": "single-image synchronized wall-clock forward latency",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "torch": "2.5.1+cu121",
+  "cuda": "12.1",
+  "data_loading_included": false,
+  "postprocessing_included": false,
+  "official_num_samples": 30,
+  "output": "<PROJECT_ROOT>/repos/MedCLIPSeg/paper/results/protocol_v3_complexity_20260715/medclipseg.csv"
+}

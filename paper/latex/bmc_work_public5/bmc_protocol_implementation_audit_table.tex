@@ -1,0 +1,49 @@
+\begin{table}[!htbp]
+\centering
+\caption{Protocol and implementation verification performed before manuscript
+revision. Hashes are abbreviated for display; complete values and machine-readable
+audit outputs are included in the results archive.}
+\label{tab:protocol_implementation_audit}
+\scriptsize
+\setlength{\tabcolsep}{3.0pt}
+\begin{tabular}{@{}p{0.19\linewidth}p{0.46\linewidth}p{0.27\linewidth}@{}}
+\toprule
+Audit item & Executed evidence & Manuscript treatment \\
+\midrule
+V3 lock scope & Protocol hash \texttt{abb8ccb2...} fixes manifests, split roles,
+mask rules, seeds, threshold, and the evaluation specification; evaluator source
+identity is carried separately by the code digest. It does not contain the full model
+or augmentation policy. & Used as a data/evaluation identifier, not a complete
+training-policy lock. \\
+Shared-plan routing & Original V3 routing is horizontal-flip-only for ClinicDB
+and COVID-19 and excludes continuous geometry. The reported R11 sampler applies
+multi-geometry plus mild affine, translation, and zoom to every dataset. &
+Reported as a separately frozen follow-up amendment. \\
+Rewrite pairing & The rewrite and no-rewrite run names are normalized to the
+same keyed sampler seed, using training seed, epoch, and case identifier. &
+Accepted as an exact image--mask-plan mechanism control. \\
+ATConv execution & Checkpoint \texttt{df18874b...} contains four registered
+replacements. Forward hooks on a real BUSI test case recorded one call with
+non-zero output for each projector replacement and zero calls for both neck
+candidates. & Reported as two forward-active projector operators; no ATConv4
+claim. \\
+Completion identity & Run metadata include protocol, manifest, code, cache,
+recipe, augmentation, epoch, checkpoint, and run-configuration hashes. The
+completion digest did not include every CLI field, including batch size and
+worker count; original command logs record them. All 90 checkpoint SHA256 values
+were independently recomputed and matched. & Hash identity is supplemented
+by archived commands and disclosed as a limitation. \\
+Source reconstruction & The 90-cell batch records aggregate code digest
+\texttt{2732eeac...}. The recorded Git commit omits four orchestration/evaluation
+files, and the current, July 15, and July 18 release copies do not reproduce this
+digest. & The digest identifies a common execution batch, but exact clean-clone
+source reconstruction is not claimed. \\
+Training-log integrity & Eighty-nine cells contain 100 epoch records with matching
+declared and selected checkpoint paths. One intermediate BioMedCLIP--ATConv
+COVID-19 seed-789 log was sparsely overwritten during a duplicate launch; its
+run metadata and all four controls consistently bind checkpoint
+\texttt{82e42695...}. & The numerical cell remains checkpoint-traceable, while
+the incomplete training log is not described as pristine provenance. \\
+\bottomrule
+\end{tabular}
+\end{table}

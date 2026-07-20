@@ -1,0 +1,59 @@
+% Springer Nature journal template, December 2024, Vancouver numbered style.
+% Target journal: BMC Medical Imaging.
+% Public-5-only fallback: public benchmark evidence only.
+\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{placeins}
+\hypersetup{hypertexnames=false}
+
+\graphicspath{{paper/figures/}}
+
+\newcommand{\methodname}{\textsc{MedEquiSeg}}
+\newcommand{\norewrite}{\textsc{MedEquiSeg} w/o Prompt Rewrite}
+\newcommand{\locrecompute}{\textsc{MedEquiSeg} + Location Recompute}
+
+\begin{document}
+
+\title[Shared augmentation and prompt reliability]{MedEquiSeg: Shared Augmentation and Privileged-Prompt Reliability in Multimodal Medical Image Segmentation}
+
+% SUBMISSION_METADATA_BEGIN
+\author[1,2]{\fnm{Xianjun} \sur{Ye}}\email{244318574@qq.com}
+\equalcont{Xianjun Ye and Jianjun Zhu contributed equally to this work.}
+\author[3]{\fnm{Jianjun} \sur{Zhu}}\email{jianjunzhu@cau.edu.cn}
+\equalcont{Xianjun Ye and Jianjun Zhu contributed equally to this work.}
+\author[4]{\fnm{Mengmeng} \sur{Zhang}}\email{3529026130@qq.com}
+\author[4]{\fnm{Ye} \sur{Zhang}}\email{2134150485@qq.com}
+\author*[1]{\fnm{Yu} \sur{Kang}}\email{kangduyu@ustc.edu.cn}
+\author*[5]{\fnm{Yongsheng} \sur{Luo}}\email{vincent@zcst.edu.cn}
+
+\affil*[1]{\orgdiv{Department of Automation}, \orgname{University of Science and Technology of China}, \orgaddress{\city{Hefei}, \postcode{230026}, \country{China}}}
+\affil[2]{\orgdiv{Department of Ultrasound}, \orgname{The First Affiliated Hospital of USTC, Division of Life Sciences and Medicine, University of Science and Technology of China}, \orgaddress{\city{Hefei}, \postcode{230001}, \country{China}}}
+\affil[3]{\orgdiv{College of Information and Electrical Engineering}, \orgname{China Agricultural University}, \orgaddress{\city{Beijing}, \postcode{100083}, \country{China}}}
+\affil[4]{\orgname{Bengbu Medical University}, \orgaddress{\city{Bengbu}, \postcode{233030}, \country{China}}}
+\affil*[5]{\orgdiv{School of Data Science}, \orgname{Zhuhai College of Science and Technology}, \orgaddress{\city{Zhuhai}, \postcode{519000}, \country{China}}}
+% SUBMISSION_METADATA_END
+
+\abstract{\textbf{Background:} Text can provide target and spatial context for medical image segmentation, but augmentation can invalidate spatial language and target-derived prompts can exaggerate meaningful text use. Accuracy and prompt reliability therefore require separate controls.
+
+\textbf{Methods:} \methodname{} combines a frozen pooled BioMedCLIP adapter, two forward-active projector ATConv replacements, and a deterministic image--mask--text plan. Protocol V3 fixed manifests, split roles, mask rules, and evaluation; the richer shared plan was a separately frozen amendment. Direction phrases are rewritten for flips and right-angle rotations; an exact no-rewrite control receives identical image--mask transforms. Five public benchmarks used three seeds, native-grid scoring, a retrospective 90-cell ablation, correct/shuffled/fixed/empty prompt controls, and a post hoc presence/class-stratified derangement.
+
+\textbf{Results:} \methodname{} achieved Public-5 macro Dice of $87.87\%$ and IoU of $80.97\%$. Versus the horizontal-flip Base reference, Dice increased by $1.46$ points (95\% dataset-stratified bootstrap confidence interval $0.95$ to $1.99$) and IoU by $1.74$ points (95\% interval $1.13$ to $2.34$). The shared-plan no-rewrite row was numerically best at $87.96\%$ Dice; rewriting changed Dice by $-0.09$ points (95\% interval $-0.30$ to $0.10$). Base plus the shared plan reached $87.83\%$, leaving $0.04$ points for the complete model (95\% interval $-0.40$ to $0.41$). Case-specific versus constant-text training differed by $1.90$ points (95\% interval $1.16$ to $2.75$). True text exceeded presence/class-stratified derangement by $+5.63$ Dice points (95\% interval $+4.71$ to $+6.67$), versus $+14.66$ under unstratified shuffling.
+
+\textbf{Conclusions:} Most macro improvement is attributable to the shared training policy; additional macro accuracy from rewriting or the BioMedCLIP--ATConv stack was not established. Presence/class matching explains part of the shuffled-prompt gap, but the residual remains privileged because public prompts contain mask- or label-derived attributes. The results support a reliability-audited benchmark, not clinical-report understanding or deployment generalization.}
+
+\keywords{medical image segmentation, multimodal learning, paired augmentation, vision-language models, privileged prompts, prompt reliability}
+
+\maketitle
+
+\input{paper/latex/bmc_work_public5/bmc_body.tex}
+
+\backmatter
+\input{paper/latex/bmc_work_public5/bmc_declarations.tex}
+\input{paper/latex/bmc_work_public5/bmc_references.tex}
+
+\end{document}

@@ -1,0 +1,230 @@
+{
+  "status": "PASS",
+  "protocol_hash": "abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718",
+  "checks": [
+    {
+      "name": "matrix_complete",
+      "status": "PASS",
+      "detail": {
+        "status": "PASS",
+        "tasks": 15,
+        "failures": 0
+      }
+    },
+    {
+      "name": "matrix_protocol_hash",
+      "status": "PASS",
+      "detail": "abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718"
+    },
+    {
+      "name": "matrix_rows",
+      "status": "PASS",
+      "detail": [
+        {
+          "dataset": "medclipseg_busi",
+          "seed": 123,
+          "status": "PASS",
+          "seconds": "16.127",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_busi",
+          "seed": 456,
+          "status": "PASS",
+          "seconds": "19.201",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_busi",
+          "seed": 789,
+          "status": "PASS",
+          "seconds": "17.656",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_clinicdb",
+          "seed": 123,
+          "status": "PASS",
+          "seconds": "14.626",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_clinicdb",
+          "seed": 456,
+          "status": "PASS",
+          "seconds": "14.563",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_clinicdb",
+          "seed": 789,
+          "status": "PASS",
+          "seconds": "14.604",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_busbra",
+          "seed": 123,
+          "status": "PASS",
+          "seconds": "25.456",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_busbra",
+          "seed": 456,
+          "status": "PASS",
+          "seconds": "23.731",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_busbra",
+          "seed": 789,
+          "status": "PASS",
+          "seconds": "23.756",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_brisc",
+          "seed": 123,
+          "status": "PASS",
+          "seconds": "71.676",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_brisc",
+          "seed": 456,
+          "status": "PASS",
+          "seconds": "74.745",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_brisc",
+          "seed": 789,
+          "status": "PASS",
+          "seconds": "70.348",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_covid19",
+          "seed": 123,
+          "status": "PASS",
+          "seconds": "56.435",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_covid19",
+          "seed": 456,
+          "status": "PASS",
+          "seconds": "60.720",
+          "message": "complete"
+        },
+        {
+          "dataset": "medclipseg_covid19",
+          "seed": 789,
+          "status": "PASS",
+          "seconds": "54.303",
+          "message": "complete"
+        }
+      ]
+    },
+    {
+      "name": "task_artifacts",
+      "status": "PASS",
+      "detail": {
+        "expected": 60,
+        "missing": []
+      }
+    },
+    {
+      "name": "public5_casefirst",
+      "status": "PASS",
+      "detail": {
+        "analysis_scope": "all_cases",
+        "scope": "dataset_macro",
+        "dataset": "Public-5",
+        "metric": "dice",
+        "n_cases": "3426",
+        "n_seeds": "3",
+        "delta_true_minus_control": "0.05633994608619428",
+        "ci_low": "0.04707845181396785",
+        "ci_high": "0.06672940691249273",
+        "wilcoxon_p": "",
+        "paired_t_p": "",
+        "wilcoxon_p_holm": "",
+        "paired_t_p_holm": ""
+      }
+    },
+    {
+      "name": "medclipseg_busi_cases",
+      "status": "PASS",
+      "detail": "78"
+    },
+    {
+      "name": "medclipseg_clinicdb_cases",
+      "status": "PASS",
+      "detail": "61"
+    },
+    {
+      "name": "medclipseg_busbra_cases",
+      "status": "PASS",
+      "detail": "282"
+    },
+    {
+      "name": "medclipseg_brisc_cases",
+      "status": "PASS",
+      "detail": "892"
+    },
+    {
+      "name": "medclipseg_covid19_cases",
+      "status": "PASS",
+      "detail": "2113"
+    },
+    {
+      "name": "changed_cases",
+      "status": "PASS",
+      "detail": "3413"
+    },
+    {
+      "name": "covid_subjects",
+      "status": "PASS",
+      "detail": "474"
+    },
+    {
+      "name": "abstract_effect",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "methods_control",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "results_effect",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "covid_cluster",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "supplement_input",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "table_public5",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "claim_boundary",
+      "status": "PASS",
+      "detail": true
+    }
+  ],
+  "matrix_audit_sha256": "6d473eee3081bc498c8068b599d4bdca3ba763e38a0ad767603513059b94ac42",
+  "analysis_code_sha256": "5c18f19644e6ce29982cde54f1cf576d62414c2474f3b39d939f45d5f9ca8738"
+}

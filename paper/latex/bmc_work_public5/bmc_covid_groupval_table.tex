@@ -1,0 +1,23 @@
+\begin{table}[htbp]
+\centering
+\caption{COVID-19 grouped train--validation sensitivity. The fixed test set is
+unchanged. The sensitivity manifest contains 5,706 training, 1,439 validation,
+and 2,113 test images; overlap among 2,130 recoverable subject tokens is zero
+across all splits. Values are percentages (mean$\pm$sample standard deviation
+over seeds 123, 456, and 789). $\Delta$ is the grouped-validation result minus
+a separately trained, configuration-matched original-split sensitivity result
+in percentage points; these sensitivity checkpoints are distinct from the
+frozen ordered-ablation checkpoint set in the main table.}
+\label{tab:covid_groupval}
+\scriptsize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Method & Dice & Original & $\Delta$ & IoU & Original & $\Delta$ \\
+\midrule
+\methodname{} & $83.99\pm0.07$ & $84.18\pm0.13$ & $-0.19$ & $75.35\pm0.09$ & $75.64\pm0.14$ & $-0.28$ \\
+No rewrite & $84.28\pm0.06$ & $84.28\pm0.10$ & $+0.00$ & $75.71\pm0.10$ & $75.77\pm0.15$ & $-0.06$ \\
+U-Net++ & $80.14\pm0.09$ & $80.00\pm0.05$ & $+0.14$ & $70.68\pm0.18$ & $70.51\pm0.10$ & $+0.17$ \\
+\bottomrule
+\end{tabular}
+\end{table}

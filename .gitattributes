@@ -1,0 +1,2 @@
+# Preserve the audited release payload byte for byte across Git platforms.
+* -text

@@ -1,0 +1,129 @@
+{
+  "status": "PASS",
+  "audit_date": "2026-07-19",
+  "scope": "submission headline statistics, 90-cell matrix, protocol disclosure, and ATConv runtime activation",
+  "checks": [
+    {
+      "name": "factorial_matrix_is_6x5_with_three_seeds",
+      "status": "PASS",
+      "evidence": {
+        "datasets": [
+          "BRISC",
+          "BUS-BRA",
+          "BUSI",
+          "COVID-19",
+          "ClinicDB"
+        ],
+        "dataset_configuration_cells": 30,
+        "training_cells": 90
+      }
+    },
+    {
+      "name": "all_public5_factorial_numbers_are_in_tex",
+      "status": "PASS",
+      "evidence": [
+        "86.41\\pm0.35",
+        "79.22\\pm0.34",
+        "86.67\\pm0.08",
+        "79.52\\pm0.06",
+        "86.63\\pm0.32",
+        "79.42\\pm0.31",
+        "87.03\\pm0.15",
+        "79.85\\pm0.23",
+        "87.96\\pm0.05",
+        "81.10\\pm0.08",
+        "87.87\\pm0.17",
+        "80.97\\pm0.13"
+      ]
+    },
+    {
+      "name": "case_first_attribution_table_matches_csv",
+      "status": "PASS",
+      "evidence": [
+        "\\methodname{} $-$ Base reference & $+1.46$ [$+0.95,+1.99$] & $+1.74$ [$+1.13,+2.34$] \\\\",
+        "\\methodname{} $-$ w/o Rewrite & $-0.09$ [$-0.30,+0.10$] & $-0.13$ [$-0.39,+0.10$] \\\\",
+        "Base $+$ shared plan $-$ Base reference & $+1.42$ [$+0.81,+2.13$] & $+1.70$ [$+1.05,+2.40$] \\\\",
+        "\\methodname{} $-$ Base $+$ shared plan & $+0.04$ [$-0.40,+0.41$] & $+0.05$ [$-0.39,+0.45$] \\\\",
+        "\\methodname{} $-$ constant-text full model & $+1.90$ [$+1.16,+2.75$] & $+2.10$ [$+1.34,+2.98$] \\\\"
+      ]
+    },
+    {
+      "name": "true_vs_shuffled_case_first_intervals_are_in_tex",
+      "status": "PASS",
+      "evidence": [
+        "$+39.05$ [$29.85,48.49$]",
+        "$+1.88$ [$0.07,4.22$]",
+        "$+0.77$ [$0.45,1.15$]",
+        "$+16.29$ [$14.26,18.43$]",
+        "$+15.29$ [$14.49,16.10$]"
+      ]
+    },
+    {
+      "name": "covid_grouped_rewrite_sensitivity_matches_tex",
+      "status": "PASS",
+      "evidence": {
+        "case_delta_pp": "-0.29",
+        "case_ci_pp": [
+          "-0.55",
+          "-0.03"
+        ],
+        "subject_delta_pp": "-0.40",
+        "cluster_ci_pp": [
+          "-0.58",
+          "-0.02"
+        ]
+      }
+    },
+    {
+      "name": "atconv_runtime_forward_graph",
+      "status": "PASS",
+      "evidence": {
+        "checkpoint_sha256": "df18874b8e55782401046a79e70be6b118e1f104310e0a0618534cc3ffb10e8d",
+        "active_targets": [
+          "base_model.proj.vis.1.0",
+          "base_model.proj_ad.vis.1.0"
+        ],
+        "inactive_targets": [
+          "base_model.neck_ad.coordconv.1.0",
+          "base_model.neck_ad.f4_proj3.0"
+        ],
+        "active_calls": [
+          1,
+          1
+        ],
+        "inactive_calls": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "manuscript_does_not_claim_atconv4",
+      "status": "PASS",
+      "evidence": {
+        "ATConv4_occurrences_in_negative_disclosures": 4,
+        "no_ATConv4_claim_occurrences": 1,
+        "two_forward_active_occurrences": 4
+      }
+    },
+    {
+      "name": "shared_plan_is_disclosed_as_protocol_amendment",
+      "status": "PASS",
+      "evidence": {
+        "separately_dated_r11": 1,
+        "amendment_phrase": 0
+      }
+    }
+  ],
+  "source_sha256": {
+    "paper/results/medequiseg_factorial_public5_20260715/aggregate.csv": "89b5e816d5916aa254382a9be5e9a2ae99c71a5cce1b8fdac865e92c5b5ea54c",
+    "paper/results/protocol_v3_final_controls_20260718/casefirst_full_vs_base.csv": "bb9f62453d42dfd2f0144ba61c696093158d3a434b799d3d1a285123003ce371",
+    "paper/results/protocol_v3_final_controls_20260718/casefirst_full_vs_no_rewrite.csv": "0e18f8d70cb2a3a58ad53f434eeabe75d40f949251bdcc034bd88be56af281db",
+    "paper/results/protocol_v3_final_controls_20260718/casefirst_base_plan_vs_base.csv": "5c3852fd5fd9738303e78f4760db2935747b01e84f5816403be5954e6db5a130",
+    "paper/results/protocol_v3_final_controls_20260718/full_vs_base_plan_statistics.csv": "1381a4ba1f043fbe6a043ff32d1a4d3489772d4f5591724ab16bdd6eab452621",
+    "paper/results/protocol_v3_final_controls_20260718/casefirst_full_vs_constant.csv": "b0422a461257bf486499e32bf21a29e5063ad8832d9b6f5e95a2ce39bfb96cfa",
+    "paper/results/protocol_v3_final_controls_20260718/casefirst_true_vs_shuffled.csv": "c5c5a1255f024b31818135a5329a7e87e00577a39ee1990cc52605c0b8b16e28",
+    "paper/results/protocol_v3_final_controls_20260718/atconv_forward_activation_audit.json": "7a2907350707af5cf9d4c5d4ef5bb75608abc994ec56d02f800c7cf7ac827f2a",
+    "paper/results/protocol_v3_covid_groupval_sensitivity/r11_vs_r11nr_statistics.csv": "37d86449c3dcfe9cec576ec6dd9e783440ba5bd71fe6a3020eb68bbefe4645cf"
+  }
+}

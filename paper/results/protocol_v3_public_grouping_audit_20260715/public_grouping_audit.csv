@@ -1,0 +1,6 @@
+dataset,rows,train,val,test,populated_patient_id_rows,exact_image_hash_cross_split,exact_mask_hash_cross_split,empty_mask_hash_cross_split,nonempty_mask_hash_cross_split,validated_group_rule,recoverable_group_rows,recoverable_groups,recoverable_train_val_overlap,recoverable_train_test_overlap,recoverable_val_test_overlap,folder_provenance
+BUSI,780,624,78,78,0,0,3,3,0,none in released metadata,0,0,0,0,0,train=Train_Folder:624; val=Val_Folder:78; test=Test_Folder:78
+ClinicDB,612,490,61,61,0,0,0,0,0,none in released metadata,0,0,0,0,0,train=Train_Folder:490; val=Val_Folder:61; test=Test_Folder:61
+BUS-BRA,1875,1311,282,282,0,0,0,0,0,none in released metadata,0,0,0,0,0,train=Train_Folder:1311; val=Val_Folder:282; test=Test_Folder:282
+BRISC,5747,3881,974,892,0,0,1,1,0,none in released metadata,0,0,0,0,0,train=Train_Folder:3881; val=Val_Folder:974; test=Test_Folder:892
+COVID-19,9258,5716,1429,2113,0,0,0,0,0,case_id token sub-<subject>,6307,2130,434,0,0,train=Train_Folder:5716; val=Val_Folder:1429; test=Test_Folder:2113
