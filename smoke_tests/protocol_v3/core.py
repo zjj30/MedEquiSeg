@@ -61,7 +61,13 @@ def manifest_sha256(path: str | Path) -> str:
 
 
 def _resolve_project_path(raw: str | Path, *, base: Path = ROOT) -> Path:
-    path = Path(raw)
+    value = str(raw).strip().replace("\\", "/")
+    marker = "<PROJECT_ROOT>"
+    if value == marker:
+        return base
+    if value.startswith(marker + "/"):
+        return base / value[len(marker) + 1 :]
+    path = Path(value)
     return path if path.is_absolute() else base / path
 
 
@@ -111,6 +117,11 @@ def read_manifest(path: str | Path) -> tuple[list[str], list[dict[str, str]]]:
         reader = csv.DictReader(handle)
         rows = [dict(row) for row in reader]
         fields = list(reader.fieldnames or [])
+    for row in rows:
+        for field in ("image_path", "mask_path"):
+            value = str(row.get(field, "")).strip()
+            if value:
+                row[field] = str(_resolve_project_path(value))
     return fields, rows
 
 

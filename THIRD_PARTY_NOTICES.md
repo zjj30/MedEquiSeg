@@ -1,5 +1,12 @@
 # Third-Party Notices
 
+## CausalCLIPSeg
+
+The training adapter imports the upstream CausalCLIPSeg implementation from
+the pinned Git submodule at `repos/CausalCLIPSeg` (commit
+`6ffa975c6f2ec0805780744eaf713f2642312030`). Its own license and notices remain
+authoritative for that source tree.
+
 The root Apache-2.0 license applies to project-authored software. The following
 included files retain their original terms.
 

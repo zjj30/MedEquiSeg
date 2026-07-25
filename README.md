@@ -21,12 +21,6 @@ four frozen-checkpoint prompt controls per cell. Because shared augmentation
 and prompt rewriting enter together in the complete ordered configuration,
 that sequence does not identify either component as an isolated causal effect.
 
-A separately trained, matched three-seed BUSI experiment holds the model
-architecture, training budget, and shared image--mask augmentation policy fixed
-while varying prompt rewriting. Its hierarchical confidence interval includes
-zero. This targeted control is reported separately and is not pooled into the
-75-cell ordered analysis.
-
 Runtime hooks found two forward-active projector ATConv replacements and two
 dormant legacy neck members. The manuscript therefore describes the effective
 two-projector forward graph. Prompt controls evaluate sensitivity to
@@ -78,10 +72,14 @@ sources cited in the manuscript and comply with their licenses and terms.
 
 ## Verification
 
-From a clean clone, verify the retained matrix and rebuild a deterministic
-release archive:
+Clone the pinned dependency and then verify the retained matrix and rebuild a
+deterministic release archive:
 
 ```bash
+git clone --recurse-submodules https://github.com/zjj30/MedEquiSeg.git
+cd MedEquiSeg
+git submodule update --init --recursive
+
 python paper/analysis/generate_medequiseg_factorial_manuscript_assets.py \
   --seed-metrics paper/results/medequiseg_factorial_public5_20260715/seed_metrics.csv \
   --check-only

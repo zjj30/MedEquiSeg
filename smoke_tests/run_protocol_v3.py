@@ -59,6 +59,7 @@ CODE_FILES = (
     "smoke_tests/paper_metrics.py",
     "smoke_tests/protocol_v3/core.py",
 )
+GIT_DEPENDENCIES = ("repos/CausalCLIPSeg",)
 
 
 @dataclass(frozen=True)
@@ -84,8 +85,33 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def dependency_commits() -> dict[str, str]:
+    commits: dict[str, str] = {}
+    for relative in GIT_DEPENDENCIES:
+        path = (ROOT / relative).resolve()
+        if not path.is_dir():
+            raise FileNotFoundError(
+                f"Missing pinned dependency {relative}; run git submodule update --init --recursive"
+            )
+        git = ["git", "-c", f"safe.directory={path}", "-C", str(path)]
+        commit = subprocess.check_output([*git, "rev-parse", "HEAD"], text=True).strip()
+        tracked_changes = subprocess.check_output(
+            [*git, "status", "--porcelain", "--untracked-files=no"],
+            text=True,
+        ).strip()
+        if tracked_changes:
+            raise RuntimeError(f"Pinned dependency has tracked changes: {relative}")
+        commits[relative] = commit
+    return commits
+
+
 def code_sha256() -> str:
-    return canonical_hash({path: file_sha256(ROOT / path) for path in CODE_FILES})
+    return canonical_hash(
+        {
+            "files": {path: file_sha256(ROOT / path) for path in CODE_FILES},
+            "git_dependencies": dependency_commits(),
+        }
+    )
 
 
 def git_head() -> str:
@@ -156,6 +182,7 @@ def expected_meta(task: Task, lock_path: Path, protocol_hash: str, cache: Path |
         "protocol_id": lock["protocol_id"],
         "protocol_hash": protocol_hash,
         "code_sha256": code_sha256(),
+        "dependency_commits": dependency_commits(),
         "git_commit": git_head(),
         "manifest": str(manifest),
         "manifest_sha256": file_sha256(manifest),

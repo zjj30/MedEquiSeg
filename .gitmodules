@@ -1,0 +1,3 @@
+[submodule "repos/CausalCLIPSeg"]
+	path = repos/CausalCLIPSeg
+	url = https://github.com/WUTCM-Lab/CausalCLIPSeg.git

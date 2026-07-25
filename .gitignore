@@ -22,3 +22,7 @@ output/submission/
 paper/figures/dsp_lcaug_evidence.pdf
 paper/figures/dsp_lcaug_evidence.svg
 tmp/
+/datasets
+/logs
+/models
+/outputs

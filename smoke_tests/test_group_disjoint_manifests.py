@@ -19,7 +19,12 @@ from build_group_disjoint_public5_manifests import (  # noqa: E402
     recover_cvc_sequence,
     rows_fingerprint,
 )
-from protocol_v3.core import read_manifest, validate_manifest_rows  # noqa: E402
+from protocol_v3.core import (  # noqa: E402
+    ROOT as PROTOCOL_ROOT,
+    _resolve_project_path,
+    read_manifest,
+    validate_manifest_rows,
+)
 
 
 def load(name: str) -> tuple[list[str], list[dict[str, str]]]:
@@ -47,6 +52,14 @@ def test_rows_from_development_groups(
 
 
 class GroupDisjointManifestTests(unittest.TestCase):
+    def test_project_root_placeholder_is_portable(self) -> None:
+        expected = PROTOCOL_ROOT / "datasets/example/image.png"
+        self.assertEqual(
+            _resolve_project_path("<PROJECT_ROOT>/datasets/example/image.png"),
+            expected,
+        )
+        self.assertTrue(Path(str(expected)).is_absolute())
+
     def assert_disjoint(self, rows: list[dict[str, str]]) -> None:
         groups = groups_by_split(rows)
         self.assertFalse(groups["train"] & groups["val"])
