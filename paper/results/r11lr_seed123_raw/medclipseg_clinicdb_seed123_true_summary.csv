@@ -1,4 +1,0 @@
-scope,dataset,samples,both_empty_count,one_empty_failure_count,dice_mean,dice_std,iou_mean,iou_std,nsd_mean,nsd_std,hd95_mean,hd95_std,hd95_finite_mean,hd95_finite_std,hd95_inf_count,assd_mean,assd_std,assd_finite_mean,assd_finite_std,assd_inf_count,one_empty_failure_rate
-dataset,medclipseg_clinicdb,61,0,0,0.922573,0.071222,0.863457,0.110737,0.668846,0.167121,14.735565,19.702147,14.735565,19.702147,0,3.555697,3.756971,3.555697,3.756971,0,0.000000
-case_weighted_overall,ALL_CASES,61,0,0,0.922573,0.071222,0.863457,0.110737,0.668846,0.167121,14.735565,19.702147,14.735565,19.702147,0,3.555697,3.756971,3.555697,3.756971,0,0.000000
-dataset_macro,MACRO,1,0,0,0.922573,0.000000,0.863457,0.000000,0.668846,0.000000,14.735565,0.000000,14.735565,0.000000,0,3.555697,0.000000,3.555697,0.000000,0,0.000000

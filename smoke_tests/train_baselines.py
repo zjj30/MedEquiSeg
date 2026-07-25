@@ -36,8 +36,8 @@ from protocol_v3.core import (
 )
 
 
-ROOT = Path("<PROJECT_ROOT>")
-MANIFEST = ROOT / "smoke_tests" / "dataset_manifest.csv"
+ROOT = Path(__file__).resolve().parents[1]
+MANIFEST = ROOT / "smoke_tests/protocol_v3/manifests/medclipseg_busi_full.csv"
 OUT_DIR = ROOT / "outputs" / "training"
 ARTIFACT_DIR = ROOT / "smoke_tests" / "_artifacts"
 OPENAI_CLIP_RN50_URL = (

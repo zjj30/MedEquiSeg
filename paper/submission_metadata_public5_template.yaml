@@ -1,48 +1,100 @@
 submission:
   date: ""
   journal: "BMC Medical Imaging"
-  repository_url: ""
+  repository_url: "https://github.com/zjj30/MedEquiSeg"
   repository_is_permanent: false
   originality_confirmed: false
   not_under_consideration_elsewhere: false
   all_authors_approved: false
-  equal_contribution_statement: ""
+  equal_contribution_statement: "Xianjun Ye and Ruxue Xing contributed equally to this work."
 
 authors:
-  - given_names: ""
-    family_name: ""
-    initials: ""
-    degree: ""
-    email: ""
-    phone: ""
+  - given_names: "Xianjun"
+    family_name: "Ye"
+    initials: "XY"
+    email: "244318574@qq.com"
+    corresponding: false
+    equal_contribution: true
+    affiliations: [1, 2]
+  - given_names: "Ruxue"
+    family_name: "Xing"
+    initials: "RX"
+    email: "ruxuehsing@icloud.com"
+    corresponding: false
+    equal_contribution: true
+    affiliations: [3]
+  - given_names: "Mengmeng"
+    family_name: "Zhang"
+    initials: "MZ"
+    email: "3529026130@qq.com"
+    corresponding: false
+    equal_contribution: false
+    affiliations: [4]
+  - given_names: "Ye"
+    family_name: "Zhang"
+    initials: "YZ"
+    email: "2134150485@qq.com"
+    corresponding: false
+    equal_contribution: false
+    affiliations: [4]
+  - given_names: "Yongsheng"
+    family_name: "Luo"
+    initials: "YL"
+    email: "vincent@zcst.edu.cn"
+    corresponding: false
+    equal_contribution: false
+    affiliations: [5]
+  - given_names: "Yu"
+    family_name: "Kang"
+    initials: "YK"
+    email: "kangduyu@ustc.edu.cn"
     corresponding: true
     equal_contribution: false
     affiliations: [1]
-    orcid: ""
-  - given_names: ""
-    family_name: ""
-    initials: ""
-    degree: ""
-    email: ""
-    phone: ""
-    corresponding: false
+  - given_names: "Jianjun"
+    family_name: "Zhu"
+    initials: "JZ"
+    email: "jianjunzhu@cau.edu.cn"
+    corresponding: true
     equal_contribution: false
-    affiliations: [1]
-    orcid: ""
+    affiliations: [3]
 
 affiliations:
   - id: 1
-    department: ""
-    institution: ""
-    city: ""
-    postal_code: ""
-    country: ""
+    department: "Department of Automation"
+    institution: "University of Science and Technology of China"
+    city: "Hefei"
+    postal_code: "230026"
+    country: "China"
+  - id: 2
+    department: "Department of Ultrasound"
+    institution: "The First Affiliated Hospital of USTC, Division of Life Sciences and Medicine, University of Science and Technology of China"
+    city: "Hefei"
+    postal_code: "230001"
+    country: "China"
+  - id: 3
+    department: "College of Information and Electrical Engineering"
+    institution: "China Agricultural University"
+    city: "Beijing"
+    postal_code: "100083"
+    country: "China"
+  - id: 4
+    institution: "Bengbu Medical University"
+    city: "Bengbu"
+    postal_code: "233030"
+    country: "China"
+  - id: 5
+    department: "School of Data Science"
+    institution: "Zhuhai College of Science and Technology"
+    city: "Zhuhai"
+    postal_code: "519000"
+    country: "China"
 
 declarations:
-  ethics_approval: ""
+  ethics_approval: "Not applicable. This study was a secondary computational analysis of five publicly available, de-identified benchmark datasets; no participants were recruited and no new human data were collected."
   consent_for_publication: "Not applicable. The manuscript contains no identifiable participant information."
-  competing_interests: ""
-  funding: ""
-  contributions: ""
-  acknowledgements: ""
+  competing_interests: "All authors declare that they have no competing interests or relevant financial or non-financial relationships to disclose."
+  funding: "This work was supported by the Joint Fund for Medical Artificial Intelligence (MAI2023C005) and the Guangdong Key Disciplines Project (2024ZDJS137)."
+  contributions: "Xianjun Ye designed the experimental methodology and collected and curated the datasets. Ruxue Xing assisted with model training, revised the manuscript, and organized the references. Mengmeng Zhang and Ye Zhang annotated and curated the data. Yongsheng Luo contributed to model refinement and manuscript review and editing. Yu Kang supervised the overall research direction and critically revised the manuscript. Jianjun Zhu conducted the experiments, led model training, and drafted the manuscript. All authors read and approved the final manuscript."
+  acknowledgements: "Not applicable."
   ai_use: "OpenAI Codex was used for code-assisted reproducibility checks and English language editing during manuscript preparation. The authors reviewed and take responsibility for the experimental code, numerical results, citations, and final text. No generative model was treated as an author."

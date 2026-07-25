@@ -7,9 +7,9 @@
 \usepackage{float}
 \usepackage{placeins}
 \renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
 \hypersetup{hypertexnames=false}
 \newcommand{\methodname}{\textsc{MedEquiSeg}}
-\newcommand{\norewrite}{\textsc{MedEquiSeg} w/o Prompt Rewrite}
 \newcommand{\locrecompute}{\textsc{MedEquiSeg} + Location Recompute}
 
 \begin{document}
@@ -19,26 +19,61 @@ Privileged-Prompt Reliability in Multimodal Medical Image Segmentation}
 
 % SUBMISSION_METADATA_BEGIN
 \author[1,2]{\fnm{Xianjun} \sur{Ye}}\email{244318574@qq.com}
-\equalcont{Xianjun Ye and Jianjun Zhu contributed equally to this work.}
-\author[3]{\fnm{Jianjun} \sur{Zhu}}\email{jianjunzhu@cau.edu.cn}
-\equalcont{Xianjun Ye and Jianjun Zhu contributed equally to this work.}
+\equalcont{Xianjun Ye and Ruxue Xing contributed equally to this work.}
+\author[3]{\fnm{Ruxue} \sur{Xing}}\email{ruxuehsing@icloud.com}
+\equalcont{Xianjun Ye and Ruxue Xing contributed equally to this work.}
 \author[4]{\fnm{Mengmeng} \sur{Zhang}}\email{3529026130@qq.com}
 \author[4]{\fnm{Ye} \sur{Zhang}}\email{2134150485@qq.com}
+\author[5]{\fnm{Yongsheng} \sur{Luo}}\email{vincent@zcst.edu.cn}
 \author*[1]{\fnm{Yu} \sur{Kang}}\email{kangduyu@ustc.edu.cn}
-\author*[5]{\fnm{Yongsheng} \sur{Luo}}\email{vincent@zcst.edu.cn}
+\author*[3]{\fnm{Jianjun} \sur{Zhu}}\email{jianjunzhu@cau.edu.cn}
 
 \affil*[1]{\orgdiv{Department of Automation}, \orgname{University of Science and Technology of China}, \orgaddress{\city{Hefei}, \postcode{230026}, \country{China}}}
 \affil[2]{\orgdiv{Department of Ultrasound}, \orgname{The First Affiliated Hospital of USTC, Division of Life Sciences and Medicine, University of Science and Technology of China}, \orgaddress{\city{Hefei}, \postcode{230001}, \country{China}}}
-\affil[3]{\orgdiv{College of Information and Electrical Engineering}, \orgname{China Agricultural University}, \orgaddress{\city{Beijing}, \postcode{100083}, \country{China}}}
+\affil*[3]{\orgdiv{College of Information and Electrical Engineering}, \orgname{China Agricultural University}, \orgaddress{\city{Beijing}, \postcode{100083}, \country{China}}}
 \affil[4]{\orgname{Bengbu Medical University}, \orgaddress{\city{Bengbu}, \postcode{233030}, \country{China}}}
-\affil*[5]{\orgdiv{School of Data Science}, \orgname{Zhuhai College of Science and Technology}, \orgaddress{\city{Zhuhai}, \postcode{519000}, \country{China}}}
+\affil[5]{\orgdiv{School of Data Science}, \orgname{Zhuhai College of Science and Technology}, \orgaddress{\city{Zhuhai}, \postcode{519000}, \country{China}}}
 % SUBMISSION_METADATA_END
 
 \maketitle
 
-\section*{Canonical boundary and empty-mask metrics}
-All entries were recomputed after Protocol V3 predictions were restored to the
-native reference-mask grid with the same evaluator. A both-empty case receives perfect overlap and zero
+\section*{Layer-resolved MedEquiSeg architecture}
+The main manuscript shows the effective forward graph at a readable scale.
+The following two figures expose the source-verified layer transitions and
+custom operators. They do not add dormant modules or token-level fusion to the
+evaluated graph.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{paper/figures/medequiseg_layer_details_supp_v1.pdf}
+\caption{Layer-resolved encoder and text representation. (A) The fine-tuned
+OpenAI CLIP-RN50 stage stack, anti-aliased bottleneck, and spatial-only
+AttentionPool2d implementation. (B) The three multi-scale alignment routes and
+the CARAFE reassembly operator. (C) The complete frozen BioMedCLIP text tower,
+the boundary between one-time cache construction and online lookup, and the
+trainable pooled-feature adapter. BioMedCLIP contributes a pooled 512-D vector;
+token-level text fusion is inactive.}
+\label{fig:supp-layer-details}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{paper/figures/medequiseg_operator_details_supp_v1.pdf}
+\caption{Layer-resolved custom operators. (D) Each scale has a structurally
+identical but independently parameterized Masker; supportive and inferior
+features are complementary, and their three-scale aggregation uses shared
+weights. (E) The two projectors are parameter-independent and each contains one
+active ATConv followed by a text-conditioned per-sample dynamic classifier.
+(F) ATConv's visual kernel and feature branches. The pooled semantic state does
+not enter ATConv itself.}
+\label{fig:supp-operator-details}
+\end{figure}
+
+\clearpage
+
+\section*{Boundary and empty-mask metrics}
+All entries were recomputed after predictions were restored to the native
+reference-mask grid with the common evaluation procedure. A both-empty case receives perfect overlap and zero
 distance. A one-sided empty case receives zero overlap and infinite distance.
 For interpretability, the tables report finite-case HD95 and ASSD together with
 the one-empty failure rate; finite distance values must not be interpreted
@@ -48,16 +83,17 @@ without the corresponding failure rate. NSD uses a two-pixel tolerance.
 
 \clearpage
 \section*{COVID-19 subject-cluster sensitivity}
-This post hoc sensitivity analysis uses the reported frozen checkpoints. It
+This post hoc sensitivity analysis holds the reported model parameters fixed. It
 accounts for repeated test images from 474 recoverable subjects, but it does not
 repair the known overlap of recoverable subject IDs between the fixed training
 and validation folders.
 
 \input{paper/latex/bmc_work_public5/bmc_covid_cluster_table.tex}
 
-\section*{Realized rewrite-trigger audit}
-The following table replays the exact deterministic \methodname{} augmentation sampler
-without loading images. It reports realized rather than analytic trigger rates.
+\section*{Realized rewrite-trigger frequencies}
+The following table applies the deterministic \methodname{} augmentation procedure
+to every training case, epoch, and seed without loading image content. It reports
+realized rather than analytically expected trigger frequencies.
 
 \input{paper/latex/bmc_work_public5/bmc_realized_trigger_table.tex}
 
@@ -70,10 +106,13 @@ quality.
 \input{paper/latex/bmc_work_public5/bmc_mask_presence_table.tex}
 
 \clearpage
-\section*{Complete component ablation}
-The main manuscript reports the compact Public-5 component summary. The full
-dataset-level matrix is retained here to show that the macro improvement is not
-uniform across datasets and to preserve all 90 ordered-ablation cells.
+\section*{Full ordered configuration results}
+The main manuscript reports the compact five-dataset macro-average. The full
+dataset-level matrix is retained here to show that the macro difference is not
+uniform across datasets and to preserve all 75 retained
+dataset--configuration--seed combinations. The sequence is not a full
+crossing of adapters, augmentation policy, and rewriting; row differences are therefore
+conditional configuration contrasts rather than independent component effects.
 
 \input{paper/latex/bmc_work_public5/bmc_factorial_ablation_detail_table.tex}
 
@@ -87,28 +126,20 @@ not evidence that every image in the source release has a known patient identity
 \input{paper/latex/bmc_work_public5/bmc_covid_groupval_table.tex}
 \FloatBarrier
 
-Within the grouped-validation checkpoint set, the direct \methodname{} minus
-\norewrite{} Dice contrast is $-0.29$ percentage points (paired-case 95\%
-confidence interval $-0.55$ to $-0.03$). After equal-subject averaging over 474
-recoverable subjects, the effect is $-0.40$ points; the subject-cluster interval
-is $-0.58$ to $-0.02$ and the two-sided Wilcoxon $p$-value is $<.001$. The
-grouped sensitivity therefore does not rescue an accuracy-benefit claim for
-rewriting.
-
 \clearpage
-\section*{Protocol and implementation verification}
-This audit distinguishes the original V3 data/evaluation lock from the later
-shared-plan training amendment and verifies the effective ATConv execution graph.
-It is descriptive of the runs already reported and does not alter checkpoints or
-predictions.
+\section*{Reproducibility and implementation verification}
+This verification distinguishes the fixed data and evaluation procedures from
+the later shared-augmentation experiment and examines the effective ATConv
+execution graph. It is descriptive of the reported experiments and does not
+alter model parameters or predictions.
 
 \input{paper/latex/bmc_work_public5/bmc_protocol_implementation_audit_table.tex}
 \FloatBarrier
 
 \section*{Exploratory continuous-location diagnostic}
-This earlier snapshot uses the same transform distribution but a different
-augmentation seed key from the reference run. It is therefore retained only as
-a same-distribution diagnostic, not an exact matched mechanism control.
+This exploratory experiment uses the same transformation distribution but an
+independently initialized augmentation sequence. It is therefore retained only as
+a distribution-matched analysis, not a paired mechanism comparison.
 
 \def\BmcTableSelection{6}
 \input{paper/latex/bmc_work_public5/bmc_tables.tex}
@@ -116,20 +147,39 @@ a same-distribution diagnostic, not an exact matched mechanism control.
 
 \clearpage
 \section*{Presence/class-stratified prompt derangement}
-This post hoc sensitivity analysis reuses the 15 frozen complete-model
-checkpoints and performs no retraining. For each public dataset, the complete
+This post hoc sensitivity analysis reuses the 15 trained complete models
+without retraining. For each public dataset, the complete
 test-prompt multiset is deterministically permuted within target-presence and
 diagnostic-class strata constructed from released case identifiers and prompt
-fields. The control builder reads neither image pixels nor masks and validates
-one-to-one prompt closure, donor identity, stratum membership, and text hashes.
+fields. The permutation uses neither image pixels nor masks and preserves
+one-to-one prompt assignment, donor identity, stratum membership, and prompt-text
+consistency.
 It changes 3,413 of 3,426 prompt strings; the 13 unavoidable unchanged cases are
 BUSI normal studies whose within-stratum strings are identical. Statistics first
-average the three checkpoint values for each case, then use paired 10,000-repeat
+average the three model values for each case, then use paired 10,000-repeat
 bootstrap intervals and Holm-adjusted Wilcoxon tests. The analysis remains a
 privileged-prompt diagnostic because the strata and prompts encode released
 target-derived information.
 
 \input{paper/latex/bmc_work_public5/bmc_stratified_derangement_table.tex}
+\FloatBarrier
+
+\clearpage
+\input{paper/latex/bmc_work_public5/bmc_full_model_comparison_table.tex}
+\FloatBarrier
+
+\clearpage
+\section*{Targeted matched prompt-rewrite control}
+To estimate prompt rewriting under a fixed shared augmentation policy, two BUSI
+arms were newly trained for 100 epochs with seeds 123, 456, and 789. Within each
+seed pair, the fixed partition, pretrained initialization, pooled BioMedCLIP
+cache, model recipe, and deterministic image--mask augmentation plan were held
+constant; only spatial-phrase rewriting after flips and right-angle rotations
+differed. This targeted control is separate from the 75-run ordered matrix and
+does not estimate an across-dataset rewriting effect or the effect of shared
+augmentation itself.
+
+\input{paper/results/medequiseg_no_rewrite_matched_20260725/matched_no_rewrite_busi_table.tex}
 \FloatBarrier
 
 \end{document}

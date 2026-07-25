@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Plot Protocol V3 accuracy gains, ordered ablations, and rewrite controls."""
+"""Plot accuracy across the five retained ordered configurations."""
 
 from __future__ import annotations
 
@@ -17,7 +17,6 @@ RUN_ORDER = (
     "V3_ABL_BIOMED",
     "V3_ABL_ATCONV",
     "V3_ABL_BIOMED_ATCONV",
-    "V3_ABL_SHARED_NR",
     "V3_ABL_EQUIPROMPT",
 )
 LABELS = (
@@ -25,17 +24,9 @@ LABELS = (
     "+ BioMedCLIP",
     "+ ATConv",
     "+ BioMedCLIP + ATConv",
-    "+ shared plan, no rewrite",
     "MedEquiSeg",
 )
 DATASET_ORDER = ("BUSI", "ClinicDB", "BUS-BRA", "BRISC", "COVID-19")
-DATASET_SLUGS = {
-    "medclipseg_busi": "BUSI",
-    "medclipseg_clinicdb": "ClinicDB",
-    "medclipseg_busbra": "BUS-BRA",
-    "medclipseg_brisc": "BRISC",
-    "medclipseg_covid19": "COVID-19",
-}
 
 NAVY = "#163A63"
 BLUE = "#2C6EA3"
@@ -70,12 +61,6 @@ def main() -> None:
     parser.add_argument("--aggregate", type=Path, default=result_dir / "aggregate.csv")
     parser.add_argument("--seed-metrics", type=Path, default=result_dir / "seed_metrics.csv")
     parser.add_argument(
-        "--rewrite-statistics",
-        type=Path,
-        default=ROOT
-        / "paper/results/protocol_v3_final_controls_20260718/casefirst_full_vs_no_rewrite.csv",
-    )
-    parser.add_argument(
         "--output-prefix", type=Path, default=ROOT / "paper/figures/strict_factorial_evidence"
     )
     args = parser.parse_args()
@@ -88,32 +73,24 @@ def main() -> None:
     if missing:
         raise ValueError(f"Missing complete ordered-ablation rows: {missing}")
 
-    rewrite = pd.read_csv(args.rewrite_statistics)
-    rewrite["display_dataset"] = rewrite["dataset"].map(DATASET_SLUGS).fillna(rewrite["dataset"])
-    rewrite_dataset = rewrite[rewrite["scope"] == "dataset"].set_index(
-        ["display_dataset", "metric"]
+    fig, (ax_a, ax_b) = plt.subplots(
+        1,
+        2,
+        figsize=(7.35, 3.15),
+        gridspec_kw={"width_ratios": (1.18, 1.0)},
     )
-    macro_rewrite = rewrite[
-        (rewrite["scope"] == "dataset_macro") & (rewrite["metric"] == "dice")
-    ].iloc[0]
-
-    fig = plt.figure(figsize=(7.35, 4.65))
-    grid = fig.add_gridspec(2, 2, height_ratios=(1.05, 1.0), hspace=0.58, wspace=0.58)
-    ax_a = fig.add_subplot(grid[0, :])
-    ax_b = fig.add_subplot(grid[1, 0])
-    ax_c = fig.add_subplot(grid[1, 1])
 
     y = np.arange(len(RUN_ORDER))[::-1]
     means = np.array([100 * macro.loc[run_id, "dice_mean"] for run_id in RUN_ORDER])
     stds = np.array([100 * macro.loc[run_id, "dice_std"] for run_id in RUN_ORDER])
-    colors = [GRAY, BLUE, ORANGE, "#6A5A9E", RED, TEAL]
+    colors = [GRAY, BLUE, ORANGE, "#6A5A9E", TEAL]
     for index, (value, std, color) in enumerate(zip(means, stds, colors)):
         ax_a.errorbar(
             value,
             y[index],
             xerr=std,
             fmt="o",
-            ms=5.5 if index >= 4 else 4.8,
+            ms=5.5 if index == len(RUN_ORDER) - 1 else 4.8,
             color=color,
             ecolor=color,
             elinewidth=1.2,
@@ -122,11 +99,10 @@ def main() -> None:
         )
         ax_a.text(value + std + 0.06, y[index], f"{value:.2f}", va="center", fontsize=7.2, color=color)
     ax_a.set_yticks(y, LABELS)
-    ax_a.set_xlabel("Public-5 macro Dice (%)")
+    ax_a.set_xlabel("Five-dataset macro-average Dice (%)")
     ax_a.set_xlim(min(means - stds) - 0.35, max(means + stds) + 0.55)
     ax_a.grid(axis="x", color=LIGHT, linewidth=0.7, alpha=0.8)
-    ax_a.set_title("A  Frozen three-seed ordered ablation", loc="left", fontweight="bold", color=NAVY)
-    ax_a.text(1.0, 1.02, "mean $\\pm$ sample SD across seeds", transform=ax_a.transAxes, ha="right", va="bottom", fontsize=6.8, color=GRAY)
+    ax_a.set_title("A  Five-configuration comparison", loc="left", fontweight="bold", color=NAVY)
 
     paired = seed_metrics[seed_metrics["run_id"].isin(("V3_ABL_BASE", "V3_ABL_EQUIPROMPT"))]
     paired = paired.pivot(index=["dataset", "seed"], columns="run_id", values="dice").reset_index()
@@ -136,11 +112,11 @@ def main() -> None:
         values = paired.loc[paired["dataset"] == dataset, "delta"].to_numpy(dtype=float)
         gain_rows.append((dataset, float(values.mean()), float(values.std(ddof=1))))
     macro_by_seed = paired.groupby("seed", sort=True)["delta"].mean().to_numpy(dtype=float)
-    gain_rows.append(("Public-5 macro", float(macro_by_seed.mean()), float(macro_by_seed.std(ddof=1))))
+    gain_rows.append(("Macro avg.", float(macro_by_seed.mean()), float(macro_by_seed.std(ddof=1))))
 
     y_b = np.arange(len(gain_rows))[::-1]
     for index, (label, delta, std) in enumerate(gain_rows):
-        is_macro = label == "Public-5 macro"
+        is_macro = label == "Macro avg."
         ax_b.errorbar(
             delta,
             y_b[index],
@@ -159,41 +135,7 @@ def main() -> None:
     ax_b.grid(axis="x", color=LIGHT, linewidth=0.7, alpha=0.8)
     ax_b.set_title("B  Accuracy gain over Base", loc="left", fontweight="bold", color=NAVY)
 
-    rows = []
-    for dataset in DATASET_ORDER:
-        row = rewrite_dataset.loc[(dataset, "dice")]
-        rows.append((dataset, 100 * row["delta"], 100 * row["ci_low"], 100 * row["ci_high"]))
-    rows.append(
-        (
-            "Public-5 macro",
-            100 * macro_rewrite["delta"],
-            100 * macro_rewrite["ci_low"],
-            100 * macro_rewrite["ci_high"],
-        )
-    )
-    y_c = np.arange(len(rows))[::-1]
-    for index, (label, delta, low, high) in enumerate(rows):
-        is_macro = label == "Public-5 macro"
-        color = TEAL if delta >= 0 else RED
-        marker = "D" if is_macro else "o"
-        ax_c.errorbar(
-            delta,
-            y_c[index],
-            xerr=[[delta - low], [high - delta]],
-            fmt=marker,
-            ms=5.2 if is_macro else 4.6,
-            color=color,
-            ecolor=color,
-            elinewidth=1.2,
-            capsize=2.3,
-            zorder=3,
-        )
-    ax_c.axvline(0, color="#303840", linewidth=0.85, linestyle="--", zorder=1)
-    ax_c.set_yticks(y_c, [row[0] for row in rows])
-    ax_c.set_xlabel("Rewrite minus no rewrite, Dice (pp)")
-    ax_c.grid(axis="x", color=LIGHT, linewidth=0.7, alpha=0.8)
-    ax_c.set_title("C  Exact-plan rewrite contrast", loc="left", fontweight="bold", color=NAVY)
-    fig.subplots_adjust(left=0.18, right=0.98, top=0.94, bottom=0.10)
+    fig.subplots_adjust(left=0.24, right=0.98, top=0.90, bottom=0.17, wspace=0.72)
     args.output_prefix.parent.mkdir(parents=True, exist_ok=True)
     for suffix, options in (("pdf", {}), ("png", {"dpi": 400})):
         fig.savefig(

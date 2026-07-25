@@ -60,9 +60,10 @@ datasets whose source metadata lack patient or sequence identifiers.
 ## Reproducible artifacts
 
 - `smoke_tests/build_protocol_v3_covid_groupval_sensitivity.py`
+- `smoke_tests/run_protocol_v3_covid_groupval_sensitivity.py`
 - `smoke_tests/protocol_v3/manifests/medclipseg_covid19_groupval_sensitivity.csv`
 - `smoke_tests/protocol_v3/protocol_lock_covid_groupval_sensitivity.yaml`
-- `paper/results/protocol_v3_covid_groupval_sensitivity/manifest_audit.json`
+- `paper/results/protocol_v3_covid_groupval_public5_20260725/manifest_audit.json`
 - `paper/analysis/summarize_covid_groupval_sensitivity.py`
 - `paper/analysis/audit_protocol_v3_public_grouping.py`
 - `paper/results/protocol_v3_public_grouping_audit_20260715/public_grouping_audit.csv`

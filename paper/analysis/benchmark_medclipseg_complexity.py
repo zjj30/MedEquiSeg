@@ -15,9 +15,12 @@ from pathlib import Path
 import torch
 
 
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--project-root", type=Path, default=Path("<PROJECT_ROOT>"))
+    parser.add_argument("--project-root", type=Path, default=PROJECT_ROOT)
     parser.add_argument("--output", type=Path, required=True)
     return parser.parse_args()
 

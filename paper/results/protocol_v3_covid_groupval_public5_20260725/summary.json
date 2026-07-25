@@ -1,0 +1,42 @@
+{
+  "protocol_hash": "c0e828a220a5ce116fbe40fac2f113df4b198e1c3c7ca57171bee4b7702adfe3",
+  "scope": "Retained MedEquiSeg and U-Net++ grouped train--validation sensitivity",
+  "aggregate": [
+    {
+      "method": "MedEquiSeg",
+      "seeds": 3,
+      "dice_mean": 0.8399323333333334,
+      "dice_std": 0.000731054945495442,
+      "iou_mean": 0.7535426666666667,
+      "iou_std": 0.0009432403369944204
+    },
+    {
+      "method": "U-Net++",
+      "seeds": 3,
+      "dice_mean": 0.8014223333333333,
+      "dice_std": 0.0009472852439119721,
+      "iou_mean": 0.7068193333333334,
+      "iou_std": 0.0018262629420029923
+    }
+  ],
+  "comparison_with_original_protocol": [
+    {
+      "method": "MedEquiSeg",
+      "groupval_dice": 0.8399323333333334,
+      "original_dice": 0.84180824,
+      "dice_change": -0.0018759066666665936,
+      "groupval_iou": 0.7535426666666667,
+      "original_iou": 0.75637467,
+      "iou_change": -0.0028320033333333328
+    },
+    {
+      "method": "U-Net++",
+      "groupval_dice": 0.8014223333333333,
+      "original_dice": 0.800038667,
+      "dice_change": 0.001383666333333311,
+      "groupval_iou": 0.7068193333333334,
+      "original_iou": 0.705102,
+      "iou_change": 0.0017173333333333485
+    }
+  ]
+}

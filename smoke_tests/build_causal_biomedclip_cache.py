@@ -14,17 +14,25 @@ from text_encoders import (
     unique_texts_from_manifest,
 )
 
-ROOT = Path("<PROJECT_ROOT>")
-PYTHON = "<ENV_ROOT>/bin/python"
-DEFAULT_MANIFEST = ROOT / "smoke_tests/dataset_manifest.csv"
+ROOT = Path(__file__).resolve().parents[1]
+PYTHON = sys.executable
+DEFAULT_MANIFESTS = tuple(
+    ROOT / "smoke_tests/protocol_v3/manifests" / name
+    for name in (
+        "medclipseg_busi_full.csv",
+        "medclipseg_clinicdb_full.csv",
+        "medclipseg_busbra_full.csv",
+        "medclipseg_brisc_full.csv",
+        "medclipseg_covid19_full.csv",
+    )
+)
 DEFAULT_OUTPUT = ROOT / "outputs/text_embeddings/biomedclip_dataset_manifest_seed123.npz"
-FALLBACK_CACHE = ROOT / "outputs/text_embeddings/biomedclip_public_private_lcaug_pooled_norm.npz"
 DEFAULT_LOCAL_DIR = ROOT / "models/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224"
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--manifest", nargs="+", default=[str(DEFAULT_MANIFEST)])
+    parser.add_argument("--manifest", nargs="+", default=[str(path) for path in DEFAULT_MANIFESTS])
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
     parser.add_argument("--include-lcaug-variants", action="store_true")
     parser.add_argument("--include-empty-control", action="store_true")

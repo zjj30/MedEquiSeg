@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "protocol_hash": "abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718",
+  "dataset": "medclipseg_busi",
+  "seeds": [
+    123,
+    456,
+    789
+  ],
+  "bootstrap_samples": 10000,
+  "bootstrap_seed": 20260725,
+  "rewrite_run_id": "V3_CTRL_REWRITE_MATCHED_20260725",
+  "no_rewrite_run_id": "V3_CTRL_NO_REWRITE_MATCHED_20260725",
+  "pair_invariants": {
+    "protocol_id": "MEDSEG_TEXT_V3_20260710",
+    "protocol_hash": "abb8ccb2d46cf039a4a0c573d733e3bc510636e6dfa7e59032508ab96fc0f718",
+    "code_sha256": "db558aa0431c002c937c4348e8e82fe00a01946a06453bbd2d777e85eee2b5c4",
+    "git_commit": "f3afe35189889bad2f2a3896461deb8d385892cc",
+    "manifest": "<PROJECT_ROOT>/smoke_tests/protocol_v3/manifests/medclipseg_busi_full.csv",
+    "manifest_sha256": "95b553c061065294ac39d648f634b7f7e8e1d182b99eb7fedc897ddff3fef36f",
+    "cache": "<PROJECT_ROOT>/outputs/text_embeddings/biomedclip_protocol_v3_abb8ccb2d46cf039.npz",
+    "cache_sha256": "8ad6798b2cac30bef6bd1234390a6c0c6d854113d668660fcde6a2bf8c918abd",
+    "recipe": "biomed_lcaug_v2_atconv4",
+    "epochs": 100
+  },
+  "paired_statistics": [
+    {
+      "dataset": "BUSI",
+      "metric": "dice",
+      "n_cases": 78,
+      "n_seeds": 3,
+      "rewrite_mean": 0.8571232179487179,
+      "rewrite_std_across_seeds": 0.005741924227540217,
+      "no_rewrite_mean": 0.8454652435897435,
+      "no_rewrite_std_across_seeds": 0.020291518721386688,
+      "delta_rewrite_minus_no_rewrite": 0.01165797435897436,
+      "hierarchical_ci_low": -0.015836221794871794,
+      "hierarchical_ci_high": 0.041675190384615396,
+      "wilcoxon_case_mean_p": 0.01261563181522418
+    },
+    {
+      "dataset": "BUSI",
+      "metric": "iou",
+      "n_cases": 78,
+      "n_seeds": 3,
+      "rewrite_mean": 0.7936434914529915,
+      "rewrite_std_across_seeds": 0.008324525754837591,
+      "no_rewrite_mean": 0.7790951495726498,
+      "no_rewrite_std_across_seeds": 0.022500449702037892,
+      "delta_rewrite_minus_no_rewrite": 0.01454834188034188,
+      "hierarchical_ci_low": -0.01553260352564102,
+      "hierarchical_ci_high": 0.04785198749999999,
+      "wilcoxon_case_mean_p": 0.013598832167677558
+    }
+  ]
+}

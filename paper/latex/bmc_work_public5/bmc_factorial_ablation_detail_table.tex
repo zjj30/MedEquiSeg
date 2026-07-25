@@ -2,11 +2,15 @@
 % Do not edit numerical cells manually.
 \begin{table}[htbp]
 \centering
-\caption{Complete frozen follow-up three-seed ordered component ablation on the
-fixed V3 data and evaluation protocol. ATConv denotes the two forward-active
-projector replacements; the shared-plan rows use the separately frozen R11
-training-policy amendment. Values are Dice and IoU percentages
-(mean$\pm$sample standard deviation). Bold and underline identify the best and
+\caption{Per-dataset results for five retained ordered configurations. Each configuration
+was evaluated with three random seeds under common data partitions and
+evaluation procedures. ATConv denotes the two projection-head operators active
+in the evaluated forward pass; shared augmentation and prompt rewriting appear
+together only in the final configuration.
+Values are Dice and IoU percentages
+(mean$\pm$sample standard deviation). Because the joint final addition is not crossed with every
+adapter combination, row differences are conditional configuration contrasts,
+not independent component effects. Bold and underline identify the best and
 second-best configuration within each dataset and metric.}
 \label{tab:medequiseg_factorial_detail}
 \scriptsize
@@ -15,8 +19,8 @@ second-best configuration within each dataset and metric.}
 \toprule
 Configuration & Metric & BUSI & ClinicDB & BUS-BRA \\
 \midrule
-Base & Dice & $84.50\pm0.82$ & $90.15\pm0.97$ & $89.26\pm0.14$ \\
- & IoU & $77.86\pm0.80$ & $84.19\pm0.91$ & $81.83\pm0.22$ \\
+Base & Dice & $84.50\pm0.82$ & $90.15\pm0.97$ & \underline{$89.26\pm0.14$} \\
+ & IoU & $77.86\pm0.80$ & $84.19\pm0.91$ & \underline{$81.83\pm0.22$} \\
 \addlinespace[1pt]
 $+$ BioMedCLIP & Dice & $83.76\pm0.47$ & $90.47\pm1.03$ & $89.17\pm0.17$ \\
  & IoU & $76.96\pm0.59$ & $84.88\pm0.96$ & $81.67\pm0.22$ \\
@@ -24,39 +28,33 @@ $+$ BioMedCLIP & Dice & $83.76\pm0.47$ & $90.47\pm1.03$ & $89.17\pm0.17$ \\
 $+$ ATConv & Dice & $84.76\pm0.48$ & $90.87\pm0.99$ & $89.19\pm0.42$ \\
  & IoU & $78.08\pm0.26$ & $84.88\pm1.17$ & $81.78\pm0.53$ \\
 \addlinespace[1pt]
-$+$ BioMedCLIP $+$ ATConv & Dice & $84.87\pm0.46$ & $91.49\pm0.47$ & $89.08\pm0.22$ \\
- & IoU & $78.08\pm0.51$ & $85.57\pm0.56$ & $81.76\pm0.23$ \\
+$+$ BioMedCLIP $+$ ATConv & Dice & \underline{$84.87\pm0.46$} & \underline{$91.49\pm0.47$} & $89.08\pm0.22$ \\
+ & IoU & \underline{$78.08\pm0.51$} & \underline{$85.57\pm0.56$} & $81.76\pm0.23$ \\
 \addlinespace[1pt]
-$+$ Shared plan (no rewrite) & Dice & \underline{$85.60\pm0.58$} & \textbf{$92.37\pm0.93$} & \underline{$90.14\pm0.16$} \\
- & IoU & \underline{$79.36\pm0.63$} & \textbf{$86.82\pm1.11$} & \underline{$83.03\pm0.18$} \\
-\addlinespace[1pt]
-\textbf{\methodname{} (Ours)} & Dice & \textbf{$85.78\pm0.45$} & \underline{$92.07\pm0.71$} & \textbf{$90.24\pm0.14$} \\
- & IoU & \textbf{$79.49\pm0.23$} & \underline{$86.36\pm0.61$} & \textbf{$83.15\pm0.10$} \\
+\textbf{\methodname{} (Ours)} & Dice & \textbf{$85.78\pm0.45$} & \textbf{$92.07\pm0.71$} & \textbf{$90.24\pm0.14$} \\
+ & IoU & \textbf{$79.49\pm0.23$} & \textbf{$86.36\pm0.61$} & \textbf{$83.15\pm0.10$} \\
 \bottomrule
 \end{tabular}
 
 \vspace{4pt}
 \begin{tabular}{@{}llrrr@{}}
 \toprule
-Configuration & Metric & BRISC & COVID-19 & Public-5 \\
+Configuration & Metric & BRISC & COVID-19 & Macro avg. \\
 \midrule
 Base & Dice & $86.52\pm0.17$ & $81.65\pm0.08$ & $86.41\pm0.35$ \\
  & IoU & $79.52\pm0.14$ & $72.71\pm0.14$ & $79.22\pm0.34$ \\
 \addlinespace[1pt]
-$+$ BioMedCLIP & Dice & $86.58\pm0.06$ & $83.35\pm0.07$ & $86.67\pm0.08$ \\
- & IoU & $79.60\pm0.04$ & $74.49\pm0.09$ & $79.52\pm0.06$ \\
+$+$ BioMedCLIP & Dice & \underline{$86.58\pm0.06$} & \underline{$83.35\pm0.07$} & $86.67\pm0.08$ \\
+ & IoU & \underline{$79.60\pm0.04$} & \underline{$74.49\pm0.09$} & $79.52\pm0.06$ \\
 \addlinespace[1pt]
 $+$ ATConv & Dice & $86.34\pm0.11$ & $82.02\pm0.16$ & $86.63\pm0.32$ \\
  & IoU & $79.31\pm0.14$ & $73.06\pm0.11$ & $79.42\pm0.31$ \\
 \addlinespace[1pt]
-$+$ BioMedCLIP $+$ ATConv & Dice & $86.39\pm0.25$ & $83.32\pm0.10$ & $87.03\pm0.15$ \\
- & IoU & $79.41\pm0.18$ & $74.42\pm0.19$ & $79.85\pm0.23$ \\
+$+$ BioMedCLIP $+$ ATConv & Dice & $86.39\pm0.25$ & $83.32\pm0.10$ & \underline{$87.03\pm0.15$} \\
+ & IoU & $79.41\pm0.18$ & $74.42\pm0.19$ & \underline{$79.85\pm0.23$} \\
 \addlinespace[1pt]
-$+$ Shared plan (no rewrite) & Dice & \textbf{$87.46\pm0.20$} & \textbf{$84.24\pm0.13$} & \textbf{$87.96\pm0.05$} \\
- & IoU & \textbf{$80.59\pm0.20$} & \textbf{$75.69\pm0.13$} & \textbf{$81.10\pm0.08$} \\
-\addlinespace[1pt]
-\textbf{\methodname{} (Ours)} & Dice & \underline{$87.18\pm0.14$} & \underline{$84.08\pm0.13$} & \underline{$87.87\pm0.17$} \\
- & IoU & \underline{$80.32\pm0.13$} & \underline{$75.51\pm0.14$} & \underline{$80.97\pm0.13$} \\
+\textbf{\methodname{} (Ours)} & Dice & \textbf{$87.18\pm0.14$} & \textbf{$84.08\pm0.13$} & \textbf{$87.87\pm0.17$} \\
+ & IoU & \textbf{$80.32\pm0.13$} & \textbf{$75.51\pm0.14$} & \textbf{$80.97\pm0.13$} \\
 \bottomrule
 \end{tabular}
 \end{table}

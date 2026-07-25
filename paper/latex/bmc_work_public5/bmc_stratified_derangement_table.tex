@@ -2,10 +2,10 @@
 % Do not edit numerical cells manually.
 \begin{table}[htbp]
 \centering
-\caption{Post hoc frozen-checkpoint prompt control that permutes the complete prompt
+\caption{Post hoc fixed-model prompt control that permutes the complete prompt
 multiset within target-presence and diagnostic-class strata. Changed/N is the number
 of cases receiving a different text string. Dice values are percentages
-(mean$\pm$sample standard deviation across three checkpoints); deltas are
+(mean$\pm$sample standard deviation across three trained models); deltas are
 case-first true-minus-control effects with 95\% bootstrap confidence intervals.
 Holm $p$ is the adjusted paired Wilcoxon value across the five datasets.}
 \label{tab:stratified_derangement}
@@ -21,7 +21,7 @@ BUS-BRA & 282/282 & $90.24\pm0.14$ & $90.16\pm0.12$ & $+0.08$ [$-0.10,+0.26$] & 
 BRISC & 892/892 & $87.18\pm0.14$ & $86.81\pm0.30$ & $+0.37$ [$+0.13,+0.65$] & .011 \\
 COVID-19 & 2113/2113 & $84.08\pm0.13$ & $65.63\pm1.10$ & $+18.45$ [$+17.68,+19.22$] & $<10^{-6}$ \\
 \midrule
-Public-5 & 3413/3426 & $87.87\pm0.17$ & $82.24\pm0.16$ & $+5.63$ [$+4.71,+6.67$] & -- \\
+Macro avg. & 3413/3426 & $87.87\pm0.17$ & $82.24\pm0.16$ & $+5.63$ [$+4.71,+6.67$] & -- \\
 \bottomrule
 \end{tabular}
 \end{table}

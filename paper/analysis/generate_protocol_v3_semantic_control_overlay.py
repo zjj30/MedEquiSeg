@@ -170,7 +170,7 @@ def select_case(root: Path, run_id: str, dataset: str) -> dict[str, object]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--project-root", type=Path, default=Path("<PROJECT_ROOT>"))
+    parser.add_argument("--project-root", type=Path, default=PROJECT_ROOT)
     parser.add_argument("--run-id", default=DEFAULT_RUN_ID)
     parser.add_argument("--output-prefix", type=Path, required=True)
     parser.add_argument("--selection-csv", type=Path, required=True)
@@ -280,3 +280,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+PROJECT_ROOT = Path(__file__).resolve().parents[2]

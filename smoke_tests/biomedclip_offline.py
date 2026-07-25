@@ -8,7 +8,8 @@ from pathlib import Path
 
 BIOMEDCLIP_HF_ID = "microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224"
 BIOMEDCLIP_OPENCLIP_ID = f"hf-hub:{BIOMEDCLIP_HF_ID}"
-DEFAULT_LOCAL_DIR = Path("<PROJECT_ROOT>/models/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_LOCAL_DIR = PROJECT_ROOT / "models/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224"
 REQUIRED_FILES = (
     "open_clip_config.json",
     "open_clip_pytorch_model.bin",
@@ -33,7 +34,10 @@ def resolve_local_dir(local_dir: str | Path | None = None) -> Path:
 def ensure_hf_hub_cache(local_dir: str | Path | None = None, cache_root: str | Path | None = None) -> Path:
     """Symlink local BiomedCLIP files into an open_clip HF hub cache layout."""
     model_dir = resolve_local_dir(local_dir)
-    root = Path(cache_root or os.environ.get("OPENCLIP_HF_CACHE", "<PROJECT_ROOT>/repos/NextGen-UIA/ckpt"))
+    root = Path(
+        cache_root
+        or os.environ.get("OPENCLIP_HF_CACHE", Path.home() / ".cache" / "open_clip")
+    )
     cache = root / f"models--{BIOMEDCLIP_HF_ID.replace('/', '--')}"
     snapshot = cache / "snapshots" / "local"
     (cache / "refs").mkdir(parents=True, exist_ok=True)

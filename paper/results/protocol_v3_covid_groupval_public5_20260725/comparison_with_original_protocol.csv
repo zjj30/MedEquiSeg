@@ -1,0 +1,3 @@
+method,groupval_dice,original_dice,dice_change,groupval_iou,original_iou,iou_change
+MedEquiSeg,0.83993233,0.84180824,-0.0018759067,0.75354267,0.75637467,-0.0028320033
+U-Net++,0.80142233,0.80003867,0.0013836663,0.70681933,0.705102,0.0017173333

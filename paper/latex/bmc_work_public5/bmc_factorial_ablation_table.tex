@@ -2,28 +2,32 @@
 % Do not edit numerical cells manually.
 \begin{table}[htbp]
 \centering
-\caption{Frozen follow-up three-seed ordered component ablation on the five
-public datasets ($6$ configurations $\times5$ datasets $\times3$ seeds = 90
-cells). Values are equal-dataset Public-5 Dice and IoU percentages
-(mean$\pm$sample standard deviation). BMC denotes pooled BioMedCLIP
-conditioning; ATConv denotes the two forward-active projector replacements;
-Plan denotes the R11 shared training policy applied on the fixed V3 data and
-evaluation protocol. Bold and underline identify the best and second-best
-configurations. The complete per-dataset matrix is reported in Supplementary
-Table S10.}
+\caption{Five-dataset macro-average accuracy across five retained ordered configurations.}
 \label{tab:medequiseg_factorial}
 \scriptsize
-\setlength{\tabcolsep}{3.2pt}
+\setlength{\tabcolsep}{2.4pt}
 \begin{tabular}{@{}lccccrr@{}}
 \toprule
-Configuration & BMC & ATConv & Plan & Rewrite & Dice & IoU \\
+Configuration & Text enc. & ATConv & Aug. & Rewrite & Dice & IoU \\
 \midrule
 Base model & -- & -- & -- & -- & $86.41\pm0.35$ & $79.22\pm0.34$ \\
 $+$ BioMedCLIP & \checkmark & -- & -- & -- & $86.67\pm0.08$ & $79.52\pm0.06$ \\
 $+$ ATConv & -- & \checkmark & -- & -- & $86.63\pm0.32$ & $79.42\pm0.31$ \\
-$+$ BioMedCLIP $+$ ATConv & \checkmark & \checkmark & -- & -- & $87.03\pm0.15$ & $79.85\pm0.23$ \\
-$+$ Shared plan (no rewrite) & \checkmark & \checkmark & \checkmark & -- & \textbf{$87.96\pm0.05$} & \textbf{$81.10\pm0.08$} \\
-\textbf{\methodname{} (Ours)} & \checkmark & \checkmark & \checkmark & \checkmark & \underline{$87.87\pm0.17$} & \underline{$80.97\pm0.13$} \\
+$+$ BioMedCLIP $+$ ATConv & \checkmark & \checkmark & -- & -- & \underline{$87.03\pm0.15$} & \underline{$79.85\pm0.23$} \\
+\textbf{\methodname{} (Ours)} & \checkmark & \checkmark & \checkmark & \checkmark & \textbf{$87.87\pm0.17$} & \textbf{$80.97\pm0.13$} \\
 \bottomrule
 \end{tabular}
+\vspace{2pt}
+\begin{minipage}{0.98\linewidth}
+\footnotesize\raggedright
+\textit{Notes:} Five retained configurations, five datasets, and three seeds produce 75
+training runs. Values are five-dataset macro-average percentages
+(mean$\pm$sample standard deviation). Text enc. denotes pooled BioMedCLIP
+conditioning; ATConv denotes the two projection-head operators active in the evaluated forward pass;
+Aug. denotes the common shared augmentation policy. Shared augmentation and
+prompt rewriting appear together only in the final configuration, so these are conditional configuration contrasts,
+not independent component effects or complete interactions. Bold and underline
+mark the best and second-best configurations. The complete per-dataset matrix
+is in Supplementary Table S9.\par
+\end{minipage}
 \end{table}

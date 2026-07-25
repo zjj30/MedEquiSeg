@@ -1,0 +1,30 @@
+{
+  "changed_trainval_rows": 2280,
+  "input": "smoke_tests/protocol_v3/manifests/medclipseg_covid19_full.csv",
+  "original_patient_overlap": {
+    "train_test": 0,
+    "train_val": 434,
+    "val_test": 0
+  },
+  "original_test_rows": 2113,
+  "output": "smoke_tests/protocol_v3/manifests/medclipseg_covid19_groupval_sensitivity.csv",
+  "realized_trainval_val_fraction": 0.2013995801259622,
+  "recoverable_patient_rows": 6307,
+  "recoverable_patients": 2130,
+  "rows": 9258,
+  "sensitivity_patient_overlap": {
+    "train_test": 0,
+    "train_val": 0,
+    "val_test": 0
+  },
+  "split_counts": {
+    "test": 2113,
+    "train": 5706,
+    "val": 1439
+  },
+  "split_seed": 123,
+  "target_val_fraction": 0.2,
+  "test_fingerprint": "c10378e377f50d25f26a1682b0a9dc41bc69108d82c3385e73fef687b1e1d255",
+  "test_unchanged": true,
+  "unknown_patient_rows": 2951
+}

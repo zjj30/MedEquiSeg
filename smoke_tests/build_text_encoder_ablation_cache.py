@@ -16,6 +16,17 @@ from text_encoders import cache_expectations, text_key, unique_texts_from_manife
 
 PUBMEDBERT_ID = "microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext"
 BIOMEDCLIP_ID = BIOMEDCLIP_OPENCLIP_ID
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_MANIFESTS = tuple(
+    ROOT / "smoke_tests/protocol_v3/manifests" / name
+    for name in (
+        "medclipseg_busi_full.csv",
+        "medclipseg_clinicdb_full.csv",
+        "medclipseg_busbra_full.csv",
+        "medclipseg_brisc_full.csv",
+        "medclipseg_covid19_full.csv",
+    )
+)
 
 
 def _device(name: str) -> torch.device:
@@ -172,7 +183,7 @@ def write_cache(args, texts: list[str], embeddings: np.ndarray, encoder_meta: di
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--encoder", choices=["pubmedbert", "biomedclip"], required=True)
-    parser.add_argument("--manifest", nargs="+", default=["<PROJECT_ROOT>/smoke_tests/dataset_manifest.csv"])
+    parser.add_argument("--manifest", nargs="+", default=[str(path) for path in DEFAULT_MANIFESTS])
     parser.add_argument("--output", required=True)
     parser.add_argument("--include-lcaug-variants", action="store_true")
     parser.add_argument("--include-empty-control", action="store_true")

@@ -1,0 +1,79 @@
+% Full Dice and IoU matrix moved from the main manuscript during the
+% conservative table optimization.
+\begin{table}[p]
+\centering
+\caption{Complete per-dataset Dice and IoU comparison on five public benchmarks.}
+\label{tab:supp_full_model_comparison}
+\scriptsize
+\setlength{\tabcolsep}{2.9pt}
+\begin{tabular}{@{}llccc@{}}
+\toprule
+Method & Metric & BUSI & ClinicDB & BUS-BRA \\
+\midrule
+\multicolumn{5}{l}{\textit{Image+text methods}} \\
+MedCLIPSeg & Dice & $\mathbf{86.13\pm1.09}$ & $\underline{91.96\pm0.07}$ & $88.47\pm0.66$ \\
+ & IoU & $\underline{79.35\pm1.11}$ & $\underline{85.64\pm0.10}$ & $80.46\pm0.76$ \\
+CausalCLIPSeg Baseline & Dice & $84.62\pm1.07$ & $91.19\pm1.10$ & $\underline{88.87\pm0.49}$ \\
+ & IoU & $78.13\pm1.27$ & $85.17\pm1.26$ & $\underline{81.38\pm0.64}$ \\
+LViT & Dice & $81.81\pm0.89$ & $91.03\pm0.53$ & $87.66\pm0.14$ \\
+ & IoU & $74.63\pm1.02$ & $84.89\pm0.58$ & $79.75\pm0.15$ \\
+\textbf{\methodname{} (Ours)} & Dice & $\underline{85.78\pm0.45}$ & $\mathbf{92.07\pm0.71}$ & $\mathbf{90.24\pm0.14}$ \\
+ & IoU & $\mathbf{79.49\pm0.23}$ & $\mathbf{86.36\pm0.61}$ & $\mathbf{83.15\pm0.10}$ \\
+\midrule
+\multicolumn{5}{l}{\textit{Image-only contextual references}} \\
+RollingUNet & Dice & $72.36\pm1.20$ & $87.31\pm0.77$ & $88.00\pm0.45$ \\
+ & IoU & $65.06\pm1.46$ & $80.12\pm0.91$ & $80.26\pm0.56$ \\
+U-Net & Dice & $61.31\pm1.16$ & $85.61\pm1.28$ & $87.35\pm0.13$ \\
+ & IoU & $52.70\pm1.55$ & $77.72\pm1.38$ & $79.06\pm0.17$ \\
+U-Net++ & Dice & $76.21\pm0.67$ & $89.77\pm0.64$ & $88.59\pm0.06$ \\
+ & IoU & $69.41\pm0.79$ & $83.20\pm0.83$ & $81.12\pm0.07$ \\
+nnU-Net & Dice & $74.99\pm0.23$ & $\mathbf{93.62\pm0.31}$ & $\underline{89.80\pm0.44}$ \\
+ & IoU & $68.63\pm0.27$ & $\mathbf{88.63\pm0.29}$ & $\underline{82.90\pm0.48}$ \\
+U-Mamba & Dice & $\underline{76.63\pm0.80}$ & $\underline{92.21\pm0.16}$ & $\mathbf{90.34\pm0.46}$ \\
+ & IoU & $\underline{70.16\pm0.55}$ & $\underline{87.12\pm0.33}$ & $\mathbf{83.58\pm0.47}$ \\
+U-KAN & Dice & $\mathbf{77.10\pm3.33}$ & $91.40\pm0.34$ & $88.56\pm0.75$ \\
+ & IoU & $\mathbf{70.38\pm3.37}$ & $85.31\pm0.33$ & $81.19\pm0.81$ \\
+\bottomrule
+\end{tabular}
+
+\vspace{5pt}
+\begin{tabular}{@{}llcc@{}}
+\toprule
+Method & Metric & BRISC & COVID-19 \\
+\midrule
+\multicolumn{4}{l}{\textit{Image+text methods}} \\
+MedCLIPSeg & Dice & $81.36\pm1.79$ & $\underline{82.62\pm1.19}$ \\
+ & IoU & $72.44\pm2.26$ & $\underline{73.47\pm1.48}$ \\
+CausalCLIPSeg Baseline & Dice & $\underline{86.11\pm0.31}$ & $81.85\pm0.15$ \\
+ & IoU & $\underline{79.01\pm0.51}$ & $72.91\pm0.12$ \\
+LViT & Dice & $85.24\pm0.06$ & $78.50\pm0.44$ \\
+ & IoU & $78.54\pm0.11$ & $69.03\pm0.41$ \\
+\textbf{\methodname{} (Ours)} & Dice & $\mathbf{87.18\pm0.14}$ & $\mathbf{84.08\pm0.13}$ \\
+ & IoU & $\mathbf{80.32\pm0.13}$ & $\mathbf{75.51\pm0.14}$ \\
+\midrule
+\multicolumn{4}{l}{\textit{Image-only contextual references}} \\
+RollingUNet & Dice & $85.03\pm0.65$ & $79.32\pm0.24$ \\
+ & IoU & $77.86\pm0.60$ & $69.82\pm0.34$ \\
+U-Net & Dice & $85.00\pm0.12$ & $78.81\pm0.07$ \\
+ & IoU & $77.50\pm0.04$ & $69.02\pm0.12$ \\
+U-Net++ & Dice & $\underline{85.94\pm0.41}$ & $\mathbf{80.00\pm0.06}$ \\
+ & IoU & $78.99\pm0.37$ & $\mathbf{70.51\pm0.08}$ \\
+nnU-Net & Dice & $\mathbf{87.30\pm0.35}$ & $79.07\pm0.14$ \\
+ & IoU & $\mathbf{81.31\pm0.43}$ & $69.67\pm0.24$ \\
+U-Mamba & Dice & $85.37\pm0.58$ & $79.08\pm0.31$ \\
+ & IoU & $\underline{79.16\pm0.66}$ & $69.68\pm0.42$ \\
+U-KAN & Dice & $85.45\pm0.32$ & $\underline{79.38\pm0.21}$ \\
+ & IoU & $78.33\pm0.35$ & $\underline{69.91\pm0.30}$ \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\begin{minipage}{0.98\linewidth}
+\footnotesize\raggedright
+\textit{Notes:} Values are percentages reported as mean$\pm$sample standard
+deviation over three seeds. Bold and underline rank methods only within the
+image+text or image-only panel. Cross-panel differences are descriptive because
+the public image+text methods receive target-derived synthetic captions
+unavailable to image-only methods. The five \methodname{} entries use the models
+from the main ordered configuration analysis.\par
+\end{minipage}
+\end{table}

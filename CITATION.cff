@@ -2,23 +2,27 @@ cff-version: 1.2.0
 message: "Please cite the final journal article when using this software or its audited results."
 title: "MedEquiSeg: Shared Augmentation and Privileged-Prompt Reliability in Multimodal Medical Image Segmentation"
 type: software
-version: 1.0.0
-date-released: 2026-07-20
+version: 1.1.0
+date-released: 2026-07-25
 license: Apache-2.0
 repository-code: "https://github.com/zjj30/MedEquiSeg"
 url: "https://github.com/zjj30/MedEquiSeg"
 authors:
   - family-names: Ye
     given-names: Xianjun
-  - family-names: Zhu
-    given-names: Jianjun
+  - family-names: Xing
+    given-names: Ruxue
+    email: ruxuehsing@icloud.com
   - family-names: Zhang
     given-names: Mengmeng
   - family-names: Zhang
     given-names: Ye
-  - family-names: Kang
-    given-names: Yu
-    email: kangduyu@ustc.edu.cn
   - family-names: Luo
     given-names: Yongsheng
     email: vincent@zcst.edu.cn
+  - family-names: Kang
+    given-names: Yu
+    email: kangduyu@ustc.edu.cn
+  - family-names: Zhu
+    given-names: Jianjun
+    email: jianjunzhu@cau.edu.cn

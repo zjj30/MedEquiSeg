@@ -1,4 +1,0 @@
-scope,dataset,samples,both_empty_count,one_empty_failure_count,dice_mean,dice_std,iou_mean,iou_std,nsd_mean,nsd_std,hd95_mean,hd95_std,hd95_finite_mean,hd95_finite_std,hd95_inf_count,assd_mean,assd_std,assd_finite_mean,assd_finite_std,assd_inf_count,one_empty_failure_rate
-dataset,medclipseg_busi,78,13,1,0.845724,0.238849,0.783444,0.252718,0.431279,0.318207,inf,inf,35.244422,64.874337,1,inf,inf,11.507535,20.526718,1,0.012821
-case_weighted_overall,ALL_CASES,78,13,1,0.845724,0.238849,0.783444,0.252718,0.431279,0.318207,inf,inf,35.244422,64.874337,1,inf,inf,11.507535,20.526718,1,0.012821
-dataset_macro,MACRO,1,13,1,0.845724,0.000000,0.783444,0.000000,0.431279,0.000000,inf,inf,35.244422,0.000000,1,inf,inf,11.507535,0.000000,1,0.012821

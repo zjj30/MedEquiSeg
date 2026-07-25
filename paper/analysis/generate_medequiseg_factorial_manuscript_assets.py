@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate manuscript assets only after the strict ablation is complete."""
+"""Generate manuscript assets from the five retained ordered configurations."""
 
 from __future__ import annotations
 
@@ -44,14 +44,6 @@ METHODS = (
         "Yes",
         "Yes",
         "No",
-        "No",
-    ),
-    Method(
-        "V3_ABL_SHARED_NR",
-        r"\norewrite{}",
-        "Yes",
-        "Yes",
-        "Yes",
         "No",
     ),
     Method(
@@ -154,13 +146,13 @@ def latex_table(
         "% Do not edit numerical cells manually.",
         r"\begin{table}[htbp]",
         r"\centering",
-        r"\caption{Strict three-seed component and prompt-consistency ablation on the five public datasets. All rows use the locked Protocol V3 manifests, 100 epochs, and the same held-out evaluation. Values are Dice and IoU percentages (mean$\pm$sample standard deviation). Bold and underline denote the best and second-best configuration within each dataset and metric. The shared-plan rows are matched exactly except for prompt rewriting.}",
+        r"\caption{Per-dataset accuracy across five retained ordered configurations. Each configuration was evaluated with three random seeds under common data partitions and evaluation procedures for 100 epochs. Values are Dice and IoU percentages (mean$\pm$sample standard deviation). Bold and underline denote the best and second-best configuration within each dataset and metric. Shared augmentation and prompt rewriting appear together only in the final configuration.}",
         r"\label{tab:medequiseg_factorial}",
         r"\scriptsize",
         r"\setlength{\tabcolsep}{2.8pt}",
         r"\begin{tabular}{@{}lcccc@{}}",
         r"\toprule",
-        r"Configuration & BioMedCLIP & ATConv & Shared plan & Rewrite \\",
+        r"Configuration & BioMedCLIP & ATConv & Shared aug. & Rewrite \\",
         r"\midrule",
     ]
     for method in METHODS:
@@ -176,7 +168,7 @@ def latex_table(
             r"\vspace{4pt}",
             r"\begin{tabular}{@{}llrrrrrr@{}}",
             r"\toprule",
-            r"Configuration & Metric & BUSI & ClinicDB & BUS-BRA & BRISC & COVID-19 & Public-5 \\",
+            r"Configuration & Metric & BUSI & ClinicDB & BUS-BRA & BRISC & COVID-19 & Macro avg. \\",
             r"\midrule",
         ]
     )
@@ -205,7 +197,6 @@ def latex_compact_table(
         "V3_ABL_BIOMED": r"$+$ BioMedCLIP",
         "V3_ABL_ATCONV": r"$+$ ATConv",
         "V3_ABL_BIOMED_ATCONV": r"$+$ BioMedCLIP $+$ ATConv",
-        "V3_ABL_SHARED_NR": r"$+$ Shared plan (no rewrite)",
         "V3_ABL_EQUIPROMPT": r"\textbf{\methodname{} (Ours)}",
     }
 
@@ -217,13 +208,13 @@ def latex_compact_table(
         "% Do not edit numerical cells manually.",
         r"\begin{table}[htbp]",
         r"\centering",
-        r"\caption{Strict three-seed ordered component ablation on the five public datasets. Values are equal-dataset Public-5 Dice and IoU percentages (mean$\pm$sample standard deviation). BMC denotes BioMedCLIP conditioning; Plan denotes the shared deterministic training plan. Bold and underline identify the best and second-best configurations. The complete per-dataset matrix is reported in Supplementary Table S10.}",
+        r"\caption{Five-dataset macro-average accuracy across five retained ordered configurations. Values are Dice and IoU percentages (mean$\pm$sample standard deviation). Shared augmentation and prompt rewriting appear together only in the final configuration, so the rows provide conditional configuration contrasts and do not estimate independent component main effects or complete interactions. Bold and underline identify the best and second-best configurations. The complete per-dataset matrix is reported in Supplementary Table S9.}",
         r"\label{tab:medequiseg_factorial}",
         r"\scriptsize",
-        r"\setlength{\tabcolsep}{3.2pt}",
+        r"\setlength{\tabcolsep}{2.4pt}",
         r"\begin{tabular}{@{}lccccrr@{}}",
         r"\toprule",
-        r"Configuration & BMC & ATConv & Plan & Rewrite & Dice & IoU \\",
+        r"Configuration & Text enc. & ATConv & Aug. & Rewrite & Dice & IoU \\",
         r"\midrule",
     ]
     for method in METHODS:
@@ -248,7 +239,6 @@ def latex_detail_table(
         "V3_ABL_BIOMED": r"$+$ BioMedCLIP",
         "V3_ABL_ATCONV": r"$+$ ATConv",
         "V3_ABL_BIOMED_ATCONV": r"$+$ BioMedCLIP $+$ ATConv",
-        "V3_ABL_SHARED_NR": r"$+$ Shared plan (no rewrite)",
         "V3_ABL_EQUIPROMPT": r"\textbf{\methodname{} (Ours)}",
     }
     lines = [
@@ -256,7 +246,7 @@ def latex_detail_table(
         "% Do not edit numerical cells manually.",
         r"\begin{table}[htbp]",
         r"\centering",
-        r"\caption{Complete strict three-seed component ablation. Values are Dice and IoU percentages (mean$\pm$sample standard deviation). Bold and underline identify the best and second-best configuration within each dataset and metric.}",
+        r"\caption{Per-dataset results for five retained ordered configurations. Each configuration was evaluated with three random seeds under common data partitions and evaluation procedures. Values are Dice and IoU percentages (mean$\pm$sample standard deviation). Shared augmentation and prompt rewriting appear together only in the final configuration; row differences are therefore conditional configuration contrasts, not independent component effects. Bold and underline identify the best and second-best configuration within each dataset and metric.}",
         r"\label{tab:medequiseg_factorial_detail}",
         r"\scriptsize",
         r"\setlength{\tabcolsep}{3.0pt}",
@@ -268,7 +258,7 @@ def latex_detail_table(
     for panel_index, datasets in enumerate(panels):
         if panel_index:
             lines.extend(["", r"\vspace{4pt}"])
-        headers = ["Public-5" if dataset == "Public-5 macro" else dataset for dataset in datasets]
+        headers = ["Macro avg." if dataset == "Public-5 macro" else dataset for dataset in datasets]
         lines.extend(
             [
                 r"\begin{tabular}{@{}llrrr@{}}",
@@ -300,35 +290,33 @@ def markdown_summary(
     stats: dict[tuple[str, str, str], tuple[float, float]], source_hash: str
 ) -> str:
     lines = [
-        "# Strict MedEquiSeg Factorial Ablation",
+        "# MedEquiSeg 75-Run Retained Ordered Configuration Study",
         "",
         f"- Source SHA-256: `{source_hash}`",
-        "- Completeness gate: `90/90` unique dataset-model-seed cells",
+        "- Completeness: `75/75` retained dataset-model-seed training runs",
         "- Seeds: `123, 456, 789`",
         "- Datasets: BUSI, ClinicDB, BUS-BRA, BRISC, COVID-19",
         "",
-        "| Configuration | Public-5 Dice (%) | Public-5 IoU (%) |",
+        "| Configuration | Macro-average Dice (%) | Macro-average IoU (%) |",
         "|---|---:|---:|",
     ]
     for method in METHODS:
         dice = stats[(method.run_id, "Public-5 macro", "dice")]
         iou = stats[(method.run_id, "Public-5 macro", "iou")]
         label = method.label.replace(r"\textbf{", "").replace(r"\methodname{} (Ours)}", "MedEquiSeg")
-        label = label.replace(r"\norewrite{}", "MedEquiSeg w/o Prompt Rewrite")
         label = label.replace("$+$", "+")
         lines.append(
             f"| {label} | {100 * dice[0]:.2f} +/- {100 * dice[1]:.2f} | "
             f"{100 * iou[0]:.2f} +/- {100 * iou[1]:.2f} |"
         )
-    lines.extend(["", "## Exact-plan rewrite contrast", ""])
-    for metric in METRICS:
-        equip = stats[("V3_ABL_EQUIPROMPT", "Public-5 macro", metric)][0]
-        no_rewrite = stats[("V3_ABL_SHARED_NR", "Public-5 macro", metric)][0]
-        lines.append(
-            f"- Public-5 macro {metric.upper()}: MedEquiSeg - no rewrite = "
-            f"{100 * (equip - no_rewrite):+.2f} pp."
-        )
-    lines.append("")
+    lines.extend(
+        [
+            "",
+            "The final transition jointly introduces shared augmentation and prompt rewriting; ",
+            "it is not a component-specific contrast.",
+            "",
+        ]
+    )
     return "\n".join(lines)
 
 
@@ -362,7 +350,7 @@ def main() -> None:
     observed = set(rows)
     missing = sorted(expected - observed)
     unexpected = sorted(observed - expected)
-    print(f"strict_ablation_complete={len(observed & expected)}/{len(expected)}")
+    print(f"retained_ablation_complete={len(observed & expected)}/{len(expected)}")
     if missing:
         print(f"missing={len(missing)}")
         for key in missing[:12]:

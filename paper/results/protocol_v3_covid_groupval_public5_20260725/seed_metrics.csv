@@ -1,0 +1,7 @@
+method,seed,dice,iou,samples,source
+MedEquiSeg,123,0.839887,0.753788,2113,<PROJECT_ROOT>/logs/protocol_v3/c0e828a220a5ce116fbe40fac2f113df4b198e1c3c7ca57171bee4b7702adfe3/V3_R11_COVID_GROUPVAL/medclipseg_covid19/seed123/controls/true/summary.csv
+MedEquiSeg,456,0.840685,0.754339,2113,<PROJECT_ROOT>/logs/protocol_v3/c0e828a220a5ce116fbe40fac2f113df4b198e1c3c7ca57171bee4b7702adfe3/V3_R11_COVID_GROUPVAL/medclipseg_covid19/seed456/controls/true/summary.csv
+MedEquiSeg,789,0.839225,0.752501,2113,<PROJECT_ROOT>/logs/protocol_v3/c0e828a220a5ce116fbe40fac2f113df4b198e1c3c7ca57171bee4b7702adfe3/V3_R11_COVID_GROUPVAL/medclipseg_covid19/seed789/controls/true/summary.csv
+U-Net++,123,0.800805,0.705105,2113,<PROJECT_ROOT>/logs/protocol_v3_covid_groupval_sensitivity/image_baselines/unetplusplus/medclipseg_covid19/seed123/controls/true/summary.csv
+U-Net++,456,0.802513,0.70874,2113,<PROJECT_ROOT>/logs/protocol_v3_covid_groupval_sensitivity/image_baselines/unetplusplus/medclipseg_covid19/seed456/controls/true/summary.csv
+U-Net++,789,0.800949,0.706613,2113,<PROJECT_ROOT>/logs/protocol_v3_covid_groupval_sensitivity/image_baselines/unetplusplus/medclipseg_covid19/seed789/controls/true/summary.csv

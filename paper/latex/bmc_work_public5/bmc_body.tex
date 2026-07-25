@@ -1,4 +1,4 @@
-% Protocol V3 manuscript body. Numeric claims are generated from locked test summaries.
+% Manuscript body. Numeric claims are generated from verified result summaries.
 
 \section{Background}
 \label{sec:intro}
@@ -24,25 +24,30 @@ image-frame location, rather than
 anatomical laterality: mirroring a breast image does not change the patient's
 anatomical left or right.
 
-We therefore treat the shared training policy as the main empirical object and
-prompt reliability as a control on how its accuracy is obtained. \methodname{}
-combines biomedical text features, adaptive convolution, and synchronized
-image--mask--text augmentation, while matched and fixed-checkpoint controls
-prevent the aggregate result from being misattributed to rewriting or to
-clinically meaningful language understanding. Our contributions are:
+We therefore treat the retrospective ordered configuration analysis as the main
+empirical comparison and prompt reliability as a control on how the resulting
+accuracy is obtained. \methodname{} combines biomedical text features,
+adaptive convolution, and synchronized image--mask--text augmentation, while
+within-study ordered configuration contrasts and fixed-model controls constrain
+interpretation of aggregate performance and language use. Our contributions are:
 \begin{enumerate}
-  \item A complete retrospective 90-cell ordered component ablation that
-  separates the base pathway, frozen pooled BioMedCLIP embedding adapter, the
-  effective two-projector ATConv adapter, the shared training plan, and prompt
-  rewriting.
-  \item A same-data-and-evaluation-protocol comparison on five public datasets,
-  with three training seeds, restored native-grid mask scoring, and three
+  \item A retrospective comparison of five ordered configurations across five
+  datasets and three random seeds, comprising 75 retained training runs of the base
+  pathway, frozen pooled BioMedCLIP embedding adapter, the effective
+  two-projector ATConv adapter, shared augmentation policy, and prompt rewriting.
+  Because shared augmentation and prompt rewriting enter together only after both
+  adapters, the sequence provides
+  conditional configuration contrasts rather than independent component effects.
+  \item A comparison under common data partitions and evaluation procedures on
+  five public datasets, with three training seeds, restored native-resolution
+  mask scoring, and three
   text-guided and six image-only architectures.
-  \item A protocol and prompt-reliability audit comprising an exact-plan
-  no-rewrite control, correct/shuffled/fixed/empty inference controls,
-  a post hoc presence/class-stratified prompt derangement, constant-text and
-  Base-plus-plan follow-ups, prompt-provenance boundaries, and a runtime check
-  of which registered ATConv modules enter the forward graph.
+  \item Evaluation-protocol and prompt-reliability analyses comprising
+  correct/shuffled/fixed/empty inference controls,
+  a post hoc presence/class-stratified prompt derangement,
+  a separately retrained three-seed BUSI matched prompt-rewrite control,
+  prompt-provenance boundaries, and a forward-pass check of which registered ATConv
+  modules enter the forward graph.
 \end{enumerate}
 
 \subsection{Related work}
@@ -77,7 +82,8 @@ U-Mamba \cite{umamba}, and U-KAN \cite{ukan} demonstrate that a strong visual
 pathway can perform well without text. A multimodal method should therefore be
 compared against both text-guided baselines and competitive image-only models.
 RollingUNet, U-Net, U-Net++, nnU-Net, U-Mamba, and U-KAN are complete for all
-datasets and all three seeds under Protocol V3. This breadth is important
+datasets and all three seeds under the same data partitions and evaluation
+procedure. This breadth is important
 because the strongest image-only reference differs across datasets.
 
 \subsubsection{Consistency under paired augmentation}
@@ -94,14 +100,15 @@ patch mixing and perturbs position phrases in a semi-supervised teacher--student
 setting \cite{semimedref}. \methodname{} therefore does not claim priority for the
 general alignment problem, paired caption augmentation, or exchanging individual
 left/right tokens. Its specific contribution is the cross-dataset evidence chain:
-an explicit lexical map for a finite image-coordinate vocabulary, deterministic
-exact-plan controls, a complete ordered ablation, and a privileged-prompt
-reliability audit.
+an explicit lexical map for a finite image-coordinate vocabulary, a deterministic
+shared augmentation procedure, an ordered configuration comparison, and a
+privileged-prompt reliability analysis.
 
 \section{Methods}
 \label{sec:protocol}
 \subsection{Dataset and prompt provenance}
-Table~\ref{tab:bspc_dataset_audit} reports the locked manifests. The image and
+Table~\ref{tab:bspc_dataset_audit} reports the prespecified image-level
+partitions. The image and
 mask sources are BUSI \cite{busi}, CVC-ClinicDB \cite{cvc}, BUS-BRA
 \cite{busbra}, BRISC \cite{brisc}, and QaTa-COV19 \cite{qatacov19}. Their paired
 prompts are distributed by the MedCLIPSeg repository \cite{medclipseg}. For
@@ -130,51 +137,48 @@ Spatial coverage counts prompts containing any member of the finite dictionary,
 including center, middle, top, bottom, upper, lower, left, and right compounds.
 This count alone overstates intervention frequency because central phrases can be
 invariant and geometric operations are sampled probabilistically. We therefore
-replay the exact keyed random generator for every training case, epoch, and seed
+apply the deterministic sampling procedure to every training case, epoch, and seed
 and report the realized proportion of events whose final prompt string differs
 from the original. Across 100 epochs and seeds 123, 456, and 789, the rates
 range from $5.75\pm0.04\%$ for BRISC to $45.75\pm0.06\%$ for COVID-19.
 Complete event counts and operation rates are reported in Supplementary
 Table~S7.
 
-\subsection{Protocol V3}
-The protocol identifier is \texttt{MEDSEG\_TEXT\_V3\_20260710}. Manifests are
-fixed across seeds. Seeds 123, 456, and 789 change parameter initialization,
-minibatch order, and augmentation sampling; they do not resplit the data.
-Validation selects the best checkpoint, and the test split is accessed only by
-the final prediction and evaluation scripts. Predictions are restored to the
-native ground-truth resolution before scoring.
+\subsection{Data partitioning and evaluation protocol}
+Dataset partitions were fixed across seeds. Seeds 123, 456, and 789 change
+parameter initialization, minibatch order, and augmentation sampling; they do
+not resplit the data. Validation selects the best checkpoint, and the test split
+is accessed only by the final prediction and evaluation scripts. Predictions are
+restored to the native ground-truth resolution before scoring.
 
-The protocol hash locks the dataset registry, manifests, split roles, mask
-rules, seeds, threshold, and evaluation specification, but it does not encode
-the full training policy or evaluator source. In particular, the original V3 LCAugv2 router restricted ClinicDB and
-COVID-19 to horizontal flips and excluded affine, translation, and zoom. The
-shared-plan rows in the 90-cell matrix instead use the separately dated R11
-follow-up policy: all five public datasets receive the same multi-geometry,
-appearance, mild affine, translation, and zoom sampler. That policy was frozen
-before the paired R11/no-rewrite matrix, but it is an amendment on the fixed V3
-data and evaluation protocol rather than part of the original protocol lock.
-Accordingly, we use the V3 protocol hash only for data/evaluation identity and
-retain a separate run-configuration hash, code hash, manifest hash, cache hash,
-checkpoint hash, and original command log for each training task. We do not
-describe the shared-plan matrix as prospectively confirmatory under the original
-July 10 augmentation specification (Supplementary Table S11).
+Dataset partitions, split roles, mask-processing rules, random seeds, prediction
+threshold, and metric implementation were held constant across the reported
+comparisons. The initial augmentation specification restricted ClinicDB and
+COVID-19 to horizontal flips and excluded affine transformation, translation,
+and zoom. The subsequent shared-augmentation experiment instead applied the same
+multi-geometry and appearance policy to all five public datasets, including mild
+affine transformation, translation, and zoom. This policy was introduced after
+the initial augmentation specification and appears together with prompt rewriting
+only in the complete configuration. We therefore treat the ordered configuration
+analysis as a retrospective follow-up experiment under unchanged data partitions
+and evaluation procedures, rather than as a prospectively specified factorial
+experiment. Implementation records were retained to support reproducibility
+(Supplementary Table S11).
 
-BRISC contains duplicated images with conflicting masks. Protocol V3 drops
-conflicting duplicate groups while preserving exact holdout membership; this
-sanitation rule is part of the dataset registry and protocol hash. The public
-MedCLIPSeg manifests inherit the repository's
+BRISC contains duplicated images with conflicting masks. Conflicting duplicate
+groups were removed according to a prespecified sanitation rule while the
+original holdout membership was preserved. The public MedCLIPSeg partition files inherit the repository's
 Train/Val/Test folders and do not expose a populated patient- or sequence-ID
 field; consequently, we describe these as fixed image-level holdouts rather than
-claiming patient-level separation. A post hoc filename audit can recover subject
+claiming patient-level separation. A post hoc filename review can recover subject
 IDs for part of COVID-19: no recovered subject crosses into the fixed test set,
 but 434 subjects occur in both its original training and validation folders. We
-therefore performed a separately hashed sensitivity rerun that assigns every
+therefore performed a separate sensitivity analysis that assigns every
 recoverable subject to only one training or validation split while preserving the
 fixed test set. Rows without recoverable IDs remain case-level groups. The
 grouped-validation training results are reported in Supplementary Table S10, and
-the reported-checkpoint test-set cluster sensitivity additionally addresses
-uncertainty from repeated test images.
+the test-set subject-cluster sensitivity based on the reported models additionally
+addresses uncertainty from repeated test images.
 
 We report Dice and IoU in the main table and additionally export precision,
 recall, normalized surface Dice (NSD) at two pixels, HD95, and ASSD. A both-empty
@@ -189,24 +193,24 @@ rate.
 \label{sec:method}
 \subsubsection{Framework overview and reliability scope}
 \methodname{} comprises a visual segmentation pathway, a frozen biomedical text
-representation pathway, a shared transformation plan, and an evaluation-time
-semantic audit (Fig.~\ref{fig:architecture}). The visual pathway fine-tunes the
+representation pathway, a shared augmentation policy, and an evaluation-time
+semantic sensitivity analysis (Fig.~\ref{fig:architecture}). The visual pathway fine-tunes the
 CausalCLIPSeg RN50 encoder and retains its scale-wise supportive/inferior feature
 partition, and two text-conditioned projection heads. Cached 512-dimensional
 pooled BioMedCLIP features pass through a trainable state projection and condition
-both heads; each evaluated head contains one active ATConv operator. During training, the shared plan
+both heads; each evaluated head contains one active ATConv operator. During training, the shared augmentation policy
 keeps the image and mask geometrically aligned and updates discrete spatial
 phrases when their image-frame meaning changes. During evaluation, correct,
-shuffled, fixed, and empty prompts test whether the checkpoint responds to
+shuffled, fixed, and empty prompts test whether the trained model responds to
 case-specific text. We use \emph{prompt-reliability-aware} in this operational
-sense: the framework protects and audits prompt reliability. It does not estimate
+sense: the framework protects and evaluates prompt reliability. It does not estimate
 per-case uncertainty or contain a learned reliability gate.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\linewidth]{medequiseg_architecture.pdf}
+\includegraphics[width=\linewidth]{medequiseg_architecture_draft_20260722.png}
 \caption{Architecture of \methodname{}. A public BUSI training case is used only
-to illustrate the paired transformation. (A) During training, a keyed online plan
+to illustrate the paired transformation. (A) During training, a deterministic online procedure
 produces an aligned image--mask pair and the corresponding EquiPrompt lexical
 view. (B) The fine-tuned CLIP RN50 features are partitioned into supportive and
 inferior streams, where the latter is the complement of the supportive mask. A
@@ -216,44 +220,28 @@ one active ATConv operator. Their logits are averaged before segmentation loss.
 The transformed target $y'$ provides the second input to the BCE--Dice loss.
 Solid modules are optimized, dashed modules are frozen, and the gray feature is
 cached offline. (C) At evaluation, true,
-shuffled, fixed, and empty prompts audit semantic sensitivity of the same frozen
-checkpoint; this audit is not a learned reliability gate.}
+shuffled, fixed, and empty prompts evaluate semantic sensitivity of the same
+trained model; this analysis is not a learned reliability gate.}
 \label{fig:architecture}
 \end{figure}
 
-\subsubsection{Frozen follow-up shared plan}
-The shared rows of the ordered ablation use the R11 follow-up policy defined
-above. For case identifier $c$, epoch $e$, and training seed $s$, a keyed random
-generator samples
+\subsubsection{Shared augmentation policy}
+The complete configuration uses the shared augmentation policy described above.
+For case identifier $c$, epoch $e$, and training seed $s$, a deterministic
+sampling function generates
 \begin{equation}
   A_{c,e,s} = \mathcal{S}\!\left(H,V,R,F,Z,C,G,N\mid c,e,s\right),
 \end{equation}
 where $H$ and $V$ are horizontal and vertical flips, $R$ is a 90-degree
 rotation, $F$ is a mild affine transform with translation, $Z$ is zoom, and
 $C$, $G$, and $N$ denote color jitter, gamma, and Gaussian noise. The same
-realized spatial plan is applied to image $x$ and mask $y$:
+realized spatial transformation is applied to image $x$ and mask $y$:
 \begin{equation}
   x' = A^{x}_{c,e,s}(x), \qquad y' = A^{y}_{c,e,s}(y).
 \end{equation}
 Images use bilinear interpolation, masks use nearest-neighbor interpolation, and
 the mask is never exposed to appearance operations. The training set is not
-physically duplicated; a new deterministic plan is sampled online each epoch.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=\linewidth]{equiprompt_mechanism.pdf}
-\caption{EquiPrompt synchronization and its exact mechanism control, illustrated
-with a public BUSI training case. (A) One
-realized transform creates aligned image, mask, and prompt views; appearance-only
-operations affect the image alone. (B) Direction phrases are represented in
-image coordinates, transformed compositionally, and lexicalized only after all
-discrete operations; multiword phrases are treated atomically. (C) \methodname{}
-and \norewrite{} are separate runs matched in architecture, initialization,
-optimizer, data order, and realized augmentation sequence. Only the lexical map
-differs, isolating prompt validity from ordinary geometric augmentation without
-assuming that the rewrite must improve accuracy.}
-\label{fig:equiprompt}
-\end{figure}
+physically duplicated; a new deterministic transformation is sampled online each epoch.
 
 \subsubsection{Compositional direction rewriting}
 Each recognized direction is mapped to a vector $d=(d_x,d_y)$ with components in
@@ -274,7 +262,7 @@ under all compositions, preventing an augmented prompt from silently falling
 back to a missing embedding.
 
 \subsubsection{Augmentation profile and scope}
-\methodname{} uses one locked mild profile: $p_H=0.35$, $p_V=0.10$, and $p_R=0.12$;
+\methodname{} uses one fixed mild augmentation profile: $p_H=0.35$, $p_V=0.10$, and $p_R=0.12$;
 when rotation is selected, $90^\circ$, $180^\circ$, and $270^\circ$ are sampled
 uniformly. Mild affine is selected with probability 0.15, with angle in
 $[-5^\circ,5^\circ]$ and translation in $\pm2.5\%$ of image size. Zoom is
@@ -305,18 +293,36 @@ maps each pooled feature to the 1024-dimensional state consumed by both
 CausalCLIPSeg projectors. Each projector converts this state into a sample-specific
 $3\times3$ kernel and bias. One same-channel convolution in each active projector
 is replaced by ATConv \cite{atconv}, giving two effective ATConv operators in the
-evaluated graph. The adapter also instantiates expanded token features, but all
+evaluated graph (Fig.~\ref{fig:effective-forward}). The adapter also instantiates expanded token features, but all
 token-level fusion switches are disabled in the reported configuration; those
-tokens therefore do not enter the effective forward path. Plugin metadata records
+tokens therefore do not enter the effective forward path. Implementation metadata record
 four substitutions because two additional replacements target dormant legacy FPN
-members that are not called by the released \texttt{FPN\_AD.forward}; we exclude
-them from the architectural claim. A post-run forward-hook audit loaded the
-reported BUSI seed-123 checkpoint and passed one real test case through the
-model: both projector operators were called once with non-zero outputs, while
+members that are not called by the released forward implementation; we exclude
+them from the architectural claim. A forward-pass verification loaded the BUSI
+model trained with random seed 123 and passed one real test case through the
+model. Both projector operators were called once with non-zero outputs, while
 the two registered neck candidates were never called (Supplementary Table S11). Training uses a BCE--Dice objective with Dice
 weight 0.5. Text conditions visual decoding but does not directly generate the
-target mask. \norewrite{} has the identical architecture, objective, and sampled
-image--mask plans; only prompt rewriting is disabled.
+target mask.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{medequiseg_effective_forward_fig2_v4.pdf}
+\caption{Effective forward graph of \methodname{}. (A) The fine-tuned CLIP-RN50
+supplies three aligned scales to independently parameterized Maskers. The
+complementary supportive and inferior streams use the same aggregation weights
+and two independent projectors, each containing exactly one forward-active,
+visual-only ATConv operator. The two branch logits are averaged before the
+BCEWithLogits--Soft-Dice training objective or the test-time sigmoid and 0.5
+threshold. (B) Offline, the complete frozen BioMedCLIP text tower generates a
+normalized pooled 512-D cache over the finite prompt closure. Online, the
+rewritten prompt is a cache key; only the trainable 512-to-1024 adapter follows
+the lookup. The resulting pooled state $s_p$ enters only the two dynamic-kernel
+controllers. Colors identify pathways, whereas solid, dashed, and gray styling
+denotes optimized, frozen, and cached computation. Layer-resolved modules are
+shown in Supplementary Figs.~S1--S2.}
+\label{fig:effective-forward}
+\end{figure}
 
 \subsection{Experimental design}
 \label{sec:experiments}
@@ -333,7 +339,7 @@ nnU-Net v2.8.0 and MONAI 1.3.0; the official U-Mamba path used Python 3.10.20
 and nnU-Net v2.1.1. Runs used NVIDIA RTX 4090 GPUs with driver 580.119.02.
 A package-level environment record lists the remaining core library versions.
 
-Online complexity is measured from the frozen BUSI seed-123 checkpoints on one
+Online complexity is measured from the BUSI models trained with random seed 123 on one
 NVIDIA GeForce RTX 4090 with batch size 1, FP32, and $224\times224$ inputs.
 After model-specific warm-up, each forward pass is timed with wall-clock CUDA
 synchronization; data loading and mask post-processing are excluded. The \methodname{}
@@ -341,17 +347,16 @@ and LViT measurements include cached-text lookup but not the one-time offline
 BioMedCLIP or PubMedBERT encoding step. MedCLIPSeg instead runs its released
 online UniMedCLIP/BiomedBERT path and is measured with both one probabilistic
 sample and its official 30-sample test setting. Parameter counts include all
-modules instantiated by each checkpoint loader and are not pruned to
+modules instantiated in each evaluated model and are not pruned to
 output-connected subgraphs. Because the prompt-consistency policy is active only
 during training, it adds no inference branch or parameter beyond the reported
 \methodname{} backbone.
 
-The expression \textit{same protocol} in this paper means the same locked
-manifest, split roles, held-out test set, mask sanitation, prediction
-restoration, and metric implementation. It does not imply that architectures
-with different official recipes share identical losses, input sizes, or
-augmentation. We therefore use the more precise phrase
-\textit{same data and evaluation protocol} in comparative claims.
+In comparative claims, \textit{common data and evaluation procedures} means the
+same prespecified partitions, split roles, held-out test set, mask sanitation,
+prediction restoration, and metric implementation. It does not imply that
+architectures with different official recipes share identical losses, input
+sizes, or augmentation policies.
 
 \subsubsection{Baselines and controls}
 The completed comparison includes MedCLIPSeg, CausalCLIPSeg, LViT, RollingUNet,
@@ -359,25 +364,25 @@ U-Net, U-Net++, nnU-Net, U-Mamba, and U-KAN
 \cite{medclipseg,causalclipseg,lvit,rollingunet,unet,unetpp,nnunet,umamba,ukan}.
 The first three and \methodname{} are multimodal; the remaining six models are
 image-only. Every method has three optimization seeds on every dataset. U-Net,
-U-Net++, nnU-Net, U-Mamba, and U-KAN contribute 75 public
-dataset--model--seed cells; RollingUNet contributes 15 more, for 90 image-only
-public cells in total. The contextual CausalCLIPSeg row (internal run V3\_R0) and the
-Base reference (V3\_ABL\_BASE) use the same CLIP-text/horizontal-flip recipe but
-are independent three-seed training matrices; the latter is the reference for
-the ordered component ablation, whereas the former is retained in the broad
+U-Net++, nnU-Net, U-Mamba, and U-KAN contribute 75
+dataset--model--seed combinations; RollingUNet contributes 15 more, for 90
+image-only training runs in total. The contextual CausalCLIPSeg comparison and
+the Base reference use the same CLIP-text/horizontal-flip recipe but are
+independent three-seed training matrices; the latter is the reference for the
+ordered configuration analysis, whereas the former is retained in the broad
 model table.
 
-\norewrite{} is the primary mechanism control. Four inference-time semantic controls are also
-defined without retraining: correct case text, seed-fixed shuffled text,
+Four inference-time semantic controls are defined without retraining: correct
+case text, seed-fixed shuffled text,
 a training-derived fixed prompt, and an empty prompt. Correct text must exceed
 shuffled text in the Holm-adjusted paired rank screen before a dataset enters
 the semantic-control visualization; a hierarchical interval excluding zero is
 additionally required for the evidence to be described as robust to seed
 uncertainty. The shuffled control applies a deterministic non-zero cyclic shift
-(control seed 123) to the ordered test prompts. It preserves the complete prompt
+(random seed 123) to the ordered test prompts. It preserves the complete prompt
 multiset and assigns every row another row's prompt, although duplicated prompt
 strings can remain textually unchanged; no class or attribute stratum is
-preserved. To assess this confounding directly, a post hoc frozen-checkpoint
+preserved. To assess this confounding directly, a post hoc fixed-model
 control permutes the complete prompt multiset separately within target-presence
 and diagnostic-class strata. Strata are constructed only from released case
 identifiers and prompt fields; the builder reads neither masks nor image pixels.
@@ -391,27 +396,37 @@ Additional prompts generated directly from a case's mask for oracle diagnostic
 experiments are a separate category and are excluded from formal performance
 tables.
 
-A frozen follow-up ordered component ablation uses the fixed V3 manifests and
-evaluator for the base
+The retrospective ordered configuration analysis compares the base
 CausalCLIPSeg pathway, BioMedCLIP substitution alone, ATConv alone, their
-combination, the shared deterministic plan without rewriting, and the complete
-\methodname{} configuration. Every configuration contains all five public
-datasets and seeds 123, 456, and 789, yielding 90 unique
-dataset--configuration--seed cells. The first four configurations use the same
-hflip policy; the last two share the same richer online plan and differ only in
-whether direction phrases are rewritten. Historical engineering runs using
-other prompt-generation or evaluation definitions are excluded.
+combination, and the complete \methodname{} configuration. Every retained
+configuration contains all five public datasets and seeds 123, 456, and 789,
+yielding 75 unique dataset--configuration--seed training runs. The first four
+configurations use the same horizontal-flip policy. The complete configuration
+jointly introduces the broader shared augmentation policy and prompt rewriting
+after both adapters are present; this design does not estimate a standalone
+effect of either addition or their complete interactions with the adapters.
+Exploratory runs using other prompt-generation or evaluation definitions are
+excluded.
+
+We additionally trained a targeted matched prompt-rewrite control on BUSI. For
+each of seeds 123, 456, and 789, two arms were newly trained for 100 epochs from
+the same pretrained initialization with the same fixed partition, pooled
+BioMedCLIP cache, model recipe, and deterministic image--mask augmentation plan.
+Only the update of spatial phrases after flips and right-angle rotations was
+enabled or disabled. These six runs are separate from the 75-run ordered matrix
+and estimate neither the effect of shared augmentation itself nor an
+across-dataset rewriting effect.
 
 \subsubsection{Endpoints and statistical analysis}
 The main accuracy-centered contrast reported in this retrospective ordered
-ablation is the complete \methodname{} configuration minus the horizontal-flip Base
-reference in equal-dataset Public-5 macro Dice. This contrast was selected after
-the original frozen promotion gate and is therefore interpreted as post hoc
-rather than as a prospectively declared primary endpoint. The mechanism
-contrast frozen before completion of the paired matrix is \methodname{} minus \norewrite{} under an exactly matched
-visual transformation plan. The ordered ablation additionally reports the
-incremental BioMedCLIP and ATConv configurations. Both contrasts use
-case-first paired inference after averaging the three seed values per case.
+configuration analysis is the complete \methodname{} configuration minus the horizontal-flip Base
+reference in five-dataset macro-average Dice. This contrast was selected after
+model development and is therefore interpreted as post hoc rather than as a
+prospectively declared primary endpoint. The ordered sequence additionally reports
+the intermediate BioMedCLIP and ATConv configurations. Differences among these rows
+describe complete configurations within the sequence; they do not estimate
+independent component main effects or complete interactions. The complete-minus-Base
+contrast uses case-first paired inference after averaging the three seed values per case.
 Dataset-specific Dice and IoU differences
 and boundary measures are secondary endpoints. The primary semantic-control
 endpoint is true versus shuffled Dice; fixed and empty controls are descriptive.
@@ -423,51 +438,43 @@ Cross-model and cross-modality comparisons in Table~\ref{tab:bspc_v3_models}
 are contextual rather than confirmatory because architectures and input
 information differ.
 
-Two additional training controls were completed after the 90-cell matrix. A
-constant-text run keeps the complete recipe and shared plan but replaces every
-cached prompt feature with the same empty-prompt embedding throughout training
-and test. A Base-plus-plan run applies the richer shared plan to the Base-reference
-recipe without BioMedCLIP substitution, ATConv, or rewriting. Their comparisons
-with the earlier matrix are post hoc sensitivity analyses because the runner
-code snapshot changed between batches, although manifests, evaluator, epochs,
-optimizer settings, and command logs are retained. We therefore use these
-controls to assess attribution, not as new confirmatory endpoints.
-
 Seed-level results are reported as mean and sample standard deviation. For
 hypothesis tests, per-case metrics are first averaged across seeds for each
 method, then compared with paired Wilcoxon signed-rank tests; paired $t$-tests are
 reported as sensitivity analyses. Family-wise multiplicity is controlled with
 Holm correction \cite{holm}. Confidence intervals use 10,000 paired-case
 bootstrap replicates after the three seed values for each case have been
-averaged. For the Public-5 macro effect, resampling is stratified within each
+averaged. For the five-dataset macro-average effect, resampling is stratified within each
 dataset before the five dataset-level effects are averaged, so each benchmark
 receives equal weight. Training-seed variability is retained in the reported
 mean and sample standard deviation but is not treated as an additional set of
 independent cases. Bootstrap intervals estimate the mean effect, whereas the
 Wilcoxon test targets paired rank differences; the two summaries are interpreted
 together rather than treated as interchangeable significance decisions.
-Case-level tests use manifest rows as the paired units and are interpreted
+Case-level tests use individual test images as the paired units and are interpreted
 subject to the patient-grouping limitation described below. Because the
 COVID-19 test set contains repeated images from 474 recoverable subjects, a
 post hoc sensitivity analysis retains the image-weighted point estimate but
 resamples subjects and training seeds for the interval and applies paired tests
 to equal-subject mean differences. This clustered analysis is reported
 separately and does not replace the pre-specified image-level analysis.
+For the targeted BUSI control, rewrite-minus-no-rewrite differences use 10,000
+hierarchical bootstrap replicates that resample paired test cases and training
+seeds. The corresponding case-mean Wilcoxon test is recorded for completeness,
+but interpretation emphasizes the hierarchical interval because it incorporates
+the observed variability across the three newly trained seed pairs.
 
-\subsubsection{Software-assisted manuscript preparation}
-OpenAI Codex was used for code-assisted reproducibility checks and English
-language editing. The authors inspected the generated changes and retained full
+\paragraph{Use of generative artificial intelligence.}
+OpenAI Codex was used to assist source-code verification and English-language
+revision. All outputs were reviewed and validated by the authors, who take full
 responsibility for the experimental code, numerical results, citations, and
 manuscript text.
 
 \section{Results}
 \label{sec:results}
 
-\subsection{Segmentation accuracy and component contributions}
-\def\BmcTableSelection{7}
-\input{paper/latex/bmc_work_public5/bmc_tables.tex}
-
-Across the five public datasets, \methodname{} attains equal-dataset macro Dice
+\subsection{Segmentation accuracy and ordered configuration contrasts}
+Across the five public datasets, \methodname{} attains a five-dataset macro-average Dice
 of $87.87\%$ and IoU of $80.97\%$. This is $1.34$ Dice pp and $1.65$ IoU pp
 above the next reproduced image+text model, CausalCLIPSeg, and $2.91$ Dice pp
 and $2.74$ IoU pp above the highest-macro image-only architecture, nnU-Net.
@@ -479,75 +486,53 @@ heterogeneity rather than treating the macro value as a universal ranking.
 \def\BmcTableSelection{4}
 \input{paper/latex/bmc_work_public5/bmc_tables.tex}
 
-The frozen follow-up ordered component ablation contains all 90 planned cells. Public-5 macro Dice rises
-from $86.41\pm0.35\%$ for the base pathway to $86.67\pm0.08\%$ with BioMedCLIP,
-$86.63\pm0.32\%$ with ATConv, and $87.03\pm0.15\%$ with both components. Adding
-the shared deterministic plan without rewriting gives $87.96\pm0.05\%$; the
-complete \methodname{} configuration gives $87.87\pm0.17\%$. The corresponding
-full-framework minus base-model differences are $+1.46$ Dice pp (95\%
+The retrospective comparison includes all five retained configurations across five
+datasets and three random seeds, for 75 training runs. The five-dataset
+macro-average Dice is $86.41\pm0.35\%$ for the base pathway,
+$86.67\pm0.08\%$ for BioMedCLIP alone, $86.63\pm0.32\%$ for ATConv alone,
+$87.03\pm0.15\%$ for their combination, and $87.87\pm0.17\%$ for the complete
+\methodname{} configuration. The largest adjacent Dice difference in the
+displayed sequence is $+0.84$ pp between BioMedCLIP+ATConv and the complete
+configuration. This transition jointly introduces shared augmentation and
+prompt rewriting and cannot isolate the contribution of either component. The
+complete-configuration minus Base differences are $+1.46$ Dice pp (95\%
 dataset-stratified bootstrap CI $+0.95$ to $+1.99$) and $+1.74$ IoU pp (95\% CI
 $+1.13$ to $+2.34$). Dataset-level Dice point estimates are positive throughout;
-only the ClinicDB interval includes zero. The component increments are
-descriptive because this ordered ablation does
-not estimate every higher-order interaction, but it shows that neither
-BioMedCLIP nor ATConv alone accounts for the final improvement.
+only the ClinicDB interval includes zero. These are conditional contrasts between
+complete configurations. Because shared augmentation and prompt rewriting appear together only in the
+final row and were not crossed with every BioMedCLIP--ATConv combination, the
+matrix does not identify either standalone effect or complete component interactions.
 
-\input{paper/latex/bmc_work_public5/bmc_attribution_table.tex}
-
-The follow-up controls further localize the aggregate effect. Base plus the
-shared plan reaches $87.83\pm0.23\%$ Dice and differs from the Base reference by $+1.42$
-pp (95\% CI $+0.81$ to $+2.13$). The complete model differs from Base plus the
-shared plan by only $+0.04$ pp (95\% CI $-0.40$ to $+0.41$), providing no
-aggregate evidence for an additional contribution from the combined
-BioMedCLIP--ATConv--rewrite stack beyond the plan. Conversely, the complete
-model differs from its constant-text training control by $+1.90$ pp (95\% CI
-$+1.16$ to $+2.75$), with intervals excluding zero on BUSI and COVID-19 but not
-on ClinicDB, BUS-BRA, or BRISC. Thus case-specific privileged text matters in
-aggregate, but its evidence is concentrated rather than uniform.
+In the separate matched BUSI rerun, the shared-augmentation arms without and
+with prompt rewriting achieved Dice values of $84.55\pm2.03\%$ and
+$85.71\pm0.57\%$, respectively. Rewriting minus no rewriting was $+1.17$ Dice
+pp (95\% hierarchical bootstrap CI $-1.58$ to $+4.17$) and $+1.45$ IoU pp
+(95\% CI $-1.55$ to $+4.79$; Supplementary Table S15). Both intervals included
+zero. This targeted one-dataset control therefore did not show a clear accuracy
+advantage for rewriting and does not decompose the five-dataset final transition.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{strict_factorial_evidence.pdf}
-\caption{Accuracy-centered follow-up ordered component ablation on the fixed V3 data and evaluation protocol.
-(A) Public-5 macro Dice for all six configurations; points are three-seed means
+\caption{Accuracy across five retained ordered configurations under common data partitions and evaluation procedures.
+(A) Five-dataset macro-average Dice for all five configurations; points are three-seed means
 and bars are sample standard deviations. (B) Paired three-seed Dice differences
 between \methodname{} and the Base pathway for each public dataset and their
-equal-dataset macro; bars are sample standard deviations. (C) Dice differences
-between \methodname{} and the shared-plan no-rewrite control. Dataset bars and
-the macro diamond are 95\% paired-case bootstrap intervals after three-seed
-case averaging. The Public-5 macro difference from Base is positive,
-whereas the rewrite-only contrast is centered near zero.}
+equal-dataset macro; bars are sample standard deviations. The complete-minus-Base
+contrast is positive across the five-dataset macro. The final configuration
+transition jointly introduces shared augmentation and prompt rewriting and is not
+a component-specific effect.}
 \label{fig:strict_factorial}
 \end{figure}
 \FloatBarrier
 
-\subsubsection{Matched rewrite and semantic-control evidence}
-\def\BmcTableSelection{2}
-\input{paper/latex/bmc_work_public5/bmc_tables.tex}
-
-Across three seeds, exact-plan rewriting changes Public-5 macro Dice by
-$-0.09$ pp (95\% dataset-stratified bootstrap CI $-0.30$ to $0.10$ pp) and macro IoU
-by $-0.13$ pp (95\% CI $-0.39$ to $0.10$ pp). Dataset-level Dice differences
-range from $+0.19$ pp on BUSI to $-0.30$ pp on ClinicDB. BRISC and COVID-19 have
-Holm-adjusted Wilcoxon support for small negative rank shifts; the paired-case
-bootstrap interval excludes zero for BRISC but not COVID-19. The macro interval
-spans zero. Taken together, the exact control provides no evidence that prompt
-rewriting improves average segmentation accuracy and identifies a small adverse
-BRISC shift under the executed policy.
-
-Trigger frequency helps interpret these differences but does not explain them
-alone. COVID-19 has the highest realized prompt-change rate
-($45.75\pm0.06\%$) yet its rewrite effect is slightly negative. BUSI has a lower
-change rate ($20.27\pm0.10\%$) and a small positive point estimate. Trigger
-frequency alone therefore does not predict the accuracy contrast; prompt
-specificity, visual semantics, and optimization interactions remain plausible
-moderators.
+\subsubsection{Prompt-sensitivity controls}
 
 \def\BmcTableSelection{3}
 \input{paper/latex/bmc_work_public5/bmc_tables.tex}
 
-The semantic controls further separate prompt use from rewrite benefit. True
-minus shuffled Dice ranges from $+0.77$ pp on BUS-BRA and $+1.88$ pp on
+The semantic controls evaluate whether predictions depend on the supplied prompt.
+True minus shuffled Dice ranges from $+0.77$ pp on BUS-BRA and $+1.88$ pp on
 ClinicDB to $+39.05$ pp on BUSI. Holm-adjusted Wilcoxon tests support a
 true--shuffled difference on all five public datasets, and the paired-case
 bootstrap intervals are positive throughout; ClinicDB has the smallest interval
@@ -557,7 +542,7 @@ grounding, because the public captions contain target-derived attributes.
 
 Presence/class matching substantially attenuates but does not eliminate this
 effect. True text exceeds the stratified derangement by $+5.63$ Dice pp in the
-equal-dataset Public-5 macro (95\% CI $+4.71$ to $+6.67$), compared with
+five-dataset macro-average (95\% CI $+4.71$ to $+6.67$), compared with
 $+14.66$ pp under unstratified shuffling. Four of five dataset bootstrap
 intervals are positive; Holm-adjusted rank support remains for BUSI, BRISC, and
 COVID-19, whereas BUS-BRA is neutral. Restricting the analysis to the 3,413
@@ -571,15 +556,16 @@ association with target-derived prompt identity (Supplementary Table S13).
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{protocol_v3_semantic_control_audit.pdf}
-\caption{Fixed-checkpoint true-versus-shuffled prompt audit. One non-empty case
+\caption{True-versus-shuffled prompt sensitivity under fixed model parameters. One non-empty case
 nearest the 75th percentile of the three-seed per-case Dice difference is shown
 for each dataset that passes the Holm-adjusted rank screen. Predictions are
 three-seed majority votes. The left-hand selection delta is the mean paired
 per-case difference across seeds and therefore need not equal the difference
 between the displayed majority-vote Dice values. Each row uses one shared context crop determined by
 the union of the ground truth and both predictions. Green denotes true positive,
-red false positive, and blue false negative. Selection was deterministic; exact
-prompts, case identifiers, and uncropped paths are archived in the selection CSV.}
+red false positive, and blue false negative. Selection was deterministic; the
+exact prompts, case identifiers, and uncropped paths are provided in the
+supplementary selection record.}
 \label{fig:semantic_control_audit}
 \end{figure}
 
@@ -589,7 +575,9 @@ prompts, case identifiers, and uncropped paths are archived in the selection CSV
 \def\BmcTableSelection{5}
 \input{paper/latex/bmc_work_public5/bmc_tables.tex}
 
-The broad model table is contextual. \methodname{} has a higher mean Dice than
+The compact main-text table reports per-dataset Dice and the equal-dataset
+macro; the complete Dice and IoU matrix is retained in Supplementary Table S14.
+The model comparison is contextual. \methodname{} has a higher mean Dice than
 reproduced MedCLIPSeg on ClinicDB ($+0.11$ pp), BUS-BRA ($+1.77$ pp), BRISC
 ($+5.82$ pp), and COVID-19 ($+1.46$ pp), and a lower mean on BUSI ($-0.35$ pp).
 Relative to the strongest image-only mean selected within each dataset,
@@ -603,13 +591,8 @@ and removed all overlap among the 2,130 recoverable subject tokens. In this
 separate sensitivity checkpoint set, mean Dice was $83.99\pm0.07\%$ for the
 \methodname{} configuration, compared with $84.18\pm0.13\%$ for its
 configuration-matched original-split rerun, a change of $-0.19$ pp. The
-corresponding no-rewrite and U-Net++ changes were $+0.00$ and $+0.14$ pp. Within
-the grouped-validation checkpoint set, rewriting is $-0.29$ Dice pp below
-no-rewrite (paired-case 95\% CI $-0.55$ to $-0.03$); the equal-subject effect is
-$-0.40$ pp with a subject-cluster interval of $-0.58$ to $-0.02$ and Wilcoxon
-$p<.001$. Thus, the known recoverable-subject
-overlap has little effect on the comparison with U-Net++, while the grouped
-sensitivity reinforces rather than reverses the absence of a rewrite benefit. However,
+corresponding U-Net++ change was $+0.14$ pp. Thus, the known recoverable-subject
+overlap had little effect on either configuration's mean Dice. However,
 rows without recoverable subject tokens cannot be certified as patient grouped
 (Supplementary Table S10).
 
@@ -619,10 +602,10 @@ $82.94\pm0.55\%$ and $79.70\pm0.48\%$, a difference of $+3.24$ pp, whereas
 the overall difference is $+8.68$ pp. Empty specificity is $100.00\%$ for \methodname{}
 and $64.10\pm17.76\%$ for U-KAN. Empty-mask cases therefore amplify, but do
 not fully account for, the BUSI difference. BRISC has the only other mixed
-test split (753 non-empty and 139 empty masks); the complete subgroup audit is
+test split (753 non-empty and 139 empty masks); the complete subgroup analysis is
 reported rather than using empty cases as implicit evidence of lesion quality.
 
-The canonical boundary results in Supplementary Tables S1--S5 follow the same
+The boundary and empty-mask results in Supplementary Tables S1--S5 follow the same
 dataset-dependent pattern. Because one-sided empty cases have infinite distance,
 finite HD95 and ASSD are interpreted only with the failure rate.
 
@@ -630,13 +613,13 @@ finite HD95 and ASSD are interpreted only with the failure rate.
 
 \methodname{} instantiates 159.78 million parameters and requires
 $15.03\pm0.82$ ms per image. The training-time policy adds no inference
-parameters, and \norewrite{} has the same inference graph. These measurements describe
+parameters. These measurements describe
 implementation cost rather than an architecture-controlled speed comparison.
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{protocol_v3_qualitative_audit.pdf}
-\caption{Frozen-rule qualitative audit. BUSI and COVID-19 cases are nearest the
+\caption{Prespecified qualitative error analysis. BUSI and COVID-19 cases are nearest the
 pre-specified 90th percentile of the three-seed \methodname{} minus image-only Dice
 difference; ClinicDB and BUS-BRA cases are nearest the 10th percentile.
 Predictions are pixel-wise majority votes. The left-hand selection delta is the
@@ -644,7 +627,7 @@ mean paired per-case difference across seeds and therefore need not equal the
 difference between the displayed majority-vote Dice values. Green is true positive, red false
 positive, and blue false negative. Within each row, all columns use one context
 crop determined by the union of the ground truth and both predictions. The
-deterministic case and prompt record is provided in the results archive;
+deterministic case and prompt record is provided in the supplementary data archive;
 examples are not additional tests.}
 \label{fig:qualitative_audit}
 \end{figure}
@@ -658,9 +641,9 @@ expose false-positive or false-negative failure modes.
 \section{Discussion}
 The principal empirical result is higher accuracy for the complete configuration
 than for the base multimodal pathway: $+1.46$ Dice pp (95\% CI $+0.95$ to
-$+1.99$) and $+1.74$ IoU pp (95\% CI $+1.13$ to $+2.34$) in the Public-5
-ordered ablation. Because the contrast was selected retrospectively and the
-shared policy was a follow-up amendment on the fixed V3 manifests and evaluator,
+$+1.99$) and $+1.74$ IoU pp (95\% CI $+1.13$ to $+2.34$) in the ordered
+configuration analysis. Because the contrast was selected retrospectively and
+the shared policy was introduced after the initial augmentation specification,
 it supports an association on this benchmark panel rather than a prospectively
 confirmed universal effect. \methodname{} also has the highest equal-dataset
 macro Dice and IoU among the reproduced models, but this does not mean that it
@@ -671,50 +654,55 @@ per-dataset results is therefore necessary: the macro captures consistency
 across the benchmark panel, while the dataset table exposes modality-specific
 failure and competitive margins.
 
-The component study localizes this gain. BioMedCLIP and ATConv individually
-change the Public-5 macro by only $+0.26$ and $+0.22$ Dice pp relative to the
-base pathway; using both gives $+0.62$ pp. The shared plan without rewriting
-reaches $+1.55$ pp, while the complete configuration reaches $+1.46$ pp. The
-post hoc Base-plus-plan control independently reaches $+1.42$ pp, while the
-complete-model residual over that control is $+0.04$ pp (95\% CI $-0.40$ to
-$+0.41$). The shared policy therefore explains nearly all of the observed macro
-point improvement; the data do not establish an additional aggregate accuracy
-benefit from the complete BioMedCLIP--ATConv--rewrite stack beyond that policy.
-The runtime audit confirms that ATConv was not globally disabled: two projector
+In the ordered configuration analysis, the BioMedCLIP-only and ATConv-only configurations
+differ from the Base pathway by $+0.26$ and $+0.22$ Dice pp, respectively; the
+configuration containing both differs by $+0.62$ pp, and the complete configuration
+differs by $+1.46$ pp. The largest adjacent displayed difference is $+0.84$ pp
+from BioMedCLIP+ATConv to the complete configuration. This final transition
+jointly introduces shared augmentation and prompt rewriting. These values are
+conditional configuration differences, not an additive causal decomposition.
+In particular, the ordered comparison does not include the shared policy or
+rewriting separately with Base or the adapter-only configurations and therefore
+cannot estimate either standalone contribution or complete interactions. The
+strongest supported statement is that the complete configuration exceeds Base
+on the fixed benchmark panel.
+The forward-pass verification confirms that ATConv was not globally disabled: two projector
 operators execute and produce non-zero outputs. It also confirms that the other
 two registered candidates are dormant, so these results support only the
-effective two-projector adapter and not an ATConv4 claim.
+effective two-projector adapter and do not show that all four registered ATConv
+modules were active.
 
 Prompt reliability remains an interpretive control rather than the primary
-performance claim. A shared plan guarantees image--mask alignment; the language
+performance claim. Coupled image--mask transformations preserve geometric alignment; the language
 map addresses prompt validity under a subset of spatial transforms; and semantic
-controls test whether the checkpoint depends on case-matched text. The exact-plan
-control is essential because comparison with an unaugmented baseline cannot
-distinguish language consistency from ordinary regularization. Likewise,
+controls test whether the trained model depends on case-matched text. The
+separately retrained BUSI control varies prompt rewriting while holding the
+current shared image--mask augmentation plans and other recorded settings fixed.
+Its Dice difference of $+1.17$ pp has a 95\% hierarchical interval from
+$-1.58$ to $+4.17$ pp. The interval includes zero, so this comparison does not
+show a clear accuracy advantage for rewriting in BUSI; its one-dataset scope
+also cannot explain the joint transition in the five-dataset matrix. Likewise,
 segmentation accuracy without shuffled or empty prompts cannot establish reliable
 text use.
 
 The semantic-control pattern constrains interpretation. Large true--shuffled
 gaps on all five public sets show that prompt identity affects the prediction.
-After matching target presence and diagnostic class, the Public-5 gap falls from
+After matching target presence and diagnostic class, the five-dataset macro-average gap falls from
 $+14.66$ to $+5.63$ Dice pp. This attenuation identifies coarse class/presence
 confounding in the unstratified control, while the remaining effect is
 concentrated in BUSI and COVID-19 and is nearly absent on BUS-BRA. The residual
 therefore supports sensitivity to privileged case-specific prompt content, not
 a general claim of language grounding.
-The constant-text training control also differs from the complete model by
-$+1.90$ Dice pp in the Public-5 macro, but only BUSI and COVID-19 have
-dataset-level intervals excluding zero. Target-derived captions therefore make
-this a concentrated privileged synthetic referring effect rather than
-clinical-report understanding.
-
 The result is consistent with the broader paired-augmentation literature rather
 than a priority claim. Augment the Pairs rewrites predefined caption keywords
 during horizontal flips, while RBTCA builds a region-grounded modality-aware
 representation before augmentation \cite{augmentpairs,rbtca}. Our added evidence
-is chiefly diagnostic: a deterministic exact-plan no-rewrite comparison shows
-that semantic correction need not improve overlap accuracy even when the shared
-augmentation policy does.
+is chiefly diagnostic: the ordered configuration comparison measures the complete
+system against earlier configurations, while the prompt controls characterize
+dependence on privileged case-matched text. The matched BUSI control adds a
+dataset-specific rewriting contrast under a fixed shared policy, but it does not
+estimate an across-dataset rewriting effect or the effect of shared augmentation
+itself.
 
 The prompt-design evidence from DescriptorMedSAM and the explicit spatial
 reasoning in SSA reinforce that location language can be useful when it is both
@@ -723,38 +711,37 @@ further shows that text can be integrated through a unified generative objective
 rather than a conditional decoder \cite{ntpmriseg}. Their published values are
 not inserted into our quantitative tables because their datasets, prompt
 construction, splits, architectures, and evaluation recipes are not identical to
-Protocol V3. Accordingly, they contextualize the design space but do not serve as
-same-protocol evidence for or against \methodname{}.
+those used in this study. Accordingly, they contextualize the design space but
+do not provide directly comparable evidence for or against \methodname{}.
 
 The BRISC result requires particular care because duplicate sanitation changes
 the effective sample count. The sanitation rule is fixed before training and
 applied to all compared methods.
 
 \subsection{Limitations and next evidence}
-First, the V3 hash identifies fixed data and evaluation choices, not the complete
-training policy. The richer R11 shared plan changes the original dataset routing
-and adds affine, translation, and zoom, so the 90-cell matrix is a frozen
-follow-up ablation rather than a strict execution of the original July 10
-augmentation specification. Existing run-configuration and code hashes preserve
-the identity of the executed batch, but the recorded Git commit omits several
-orchestration/evaluation files and the currently available release copies do not
-reproduce the aggregate execution-code digest. Exact clean-clone reconstruction
-of the 90-cell source snapshot is therefore not demonstrated. The original
-completion digest also omitted command-line fields such as batch size and worker
-count; archived command logs are needed to recover them. Second, four ATConv
-modules are present in checkpoint metadata,
-but only the two projector modules enter the released forward graph. The reported
-parameter count includes the two dormant neck modules, and no ATConv4 claim is
-made. Third, the exact three-seed rewrite control shows small heterogeneous
-effects and a macro bootstrap interval spanning zero. BRISC has a small negative
-paired-case interval, and the grouped COVID-19 sensitivity is also negative;
-neither analysis supports an accuracy-benefit claim for rewriting. Fourth, the
-current framework audits reliability at dataset and checkpoint level but does
+First, the data partitions and evaluation choices were held constant, but the
+shared augmentation policy was introduced after the initial augmentation
+specification and therefore represents a retrospective follow-up analysis. The
+policy changes the original dataset-specific augmentation rules and adds affine
+transformation, translation, and zoom. The archived source package omits several
+orchestration and evaluation files, so exact reconstruction of the software used
+for the aggregate experiments cannot be guaranteed. The summary metadata also
+omit batch size and worker count, although both are preserved in supplementary
+execution records. Second, four ATConv modules are registered in the saved model,
+but only the two projector modules participate in the implemented forward pass. The reported
+parameter count includes the two dormant neck modules; we therefore do not
+attribute performance to four active ATConv operators. Third, shared augmentation
+and prompt rewriting are introduced together in the final ordered configuration.
+The targeted matched control varies prompt rewriting under the current shared
+policy, but it is limited to BUSI and three seed pairs, and its hierarchical
+interval includes zero. It neither estimates an across-dataset rewriting effect
+nor isolates shared augmentation or interactions with the adapters. Fourth, the
+current framework evaluates prompt sensitivity at dataset and model level but does
 not contain a learned per-case confidence gate or automatic image-only fallback.
 Fifth, continuous translation and zoom in the reported \methodname{} results do not recompute coarse
 location labels. The completed three-seed \locrecompute{} diagnostic decreases
-BUSI performance and is neutral on ClinicDB, but it is mask derived and does not
-share exact realized transform draws with the main configuration; it cannot
+BUSI performance and is neutral on ClinicDB, but it is mask derived and was not
+paired to the same sampled transformations as the main configuration; it cannot
 establish the effect of a clinically supplied continuous-language update. Sixth,
 the public prompts contain attributes extracted from the target masks or labels.
 This controlled referring benchmark is useful for testing equivariance, but it
@@ -764,49 +751,61 @@ stratified derangement controls only coarse presence and diagnostic
 class derived from released identifiers/prompts; it does not match morphology,
 location, wording template, or other target-derived attributes and therefore
 cannot isolate clinical language grounding. None of the prompts were authored
-prospectively by clinicians. Seventh, the
-component study is complete but is an ordered ablation rather than a
-full crossing of every augmentation-policy interaction. Eighth, although six image-only architectures are evaluated with
+prospectively by clinicians. Seventh, the five-configuration analysis is complete
+for its ordered sequence but is not a full crossing of the adapters, augmentation policy, and
+rewriting. It supports conditional configuration contrasts only. The separately
+matched BUSI control lies outside this 75-run matrix and does not convert the
+ordered sequence into a factorial design or support across-dataset causal
+attribution.
+Eighth, although six image-only architectures are evaluated with
 complete three-seed coverage, architectural recipes are not forced to share input
 size, loss, or augmentation; the comparison is controlled at the data and
 evaluation levels rather than as an identical-training ablation. The broad model
 table is therefore contextual, with rankings separated by modality. Ninth, the
 five public datasets differ in modality, sample count, prompt diversity, and
 spatial-language prevalence, so an aggregate average would obscure meaningful
-heterogeneity. Tenth, the public benchmark manifests do not generally expose
+heterogeneity. Tenth, the released public benchmark metadata do not generally expose
 patient or acquisition-sequence identifiers. The fixed test folders are
 image-disjoint, and the recoverable COVID-19 subject IDs do not cross into test,
 but patient-level independence cannot be established for every dataset from the
 released metadata. For COVID-19, the grouped train--validation sensitivity
 removes all overlap among 2,130 recoverable subject tokens and changes
 \methodname{} Dice by only $-0.19$ pp, but 2,951 rows without recoverable tokens
-remain case-level groups. The reported-checkpoint subject-cluster sensitivity
+remain case-level groups. The subject-cluster sensitivity based on the reported models
 preserves the direction of the large U-Net++ and shuffled-prompt contrasts,
-while the small rewrite contrast remains uncertain; comparable
-clustered inference is not possible for the other public datasets from the
+but comparable clustered inference is not possible for the other public datasets from the
 released metadata. ClinicDB sequence independence also cannot be verified because
 sequence identifiers are absent.
 
-The current manuscript therefore limits its primary claim to a fixed-data-and-evaluation
-benchmark association led by the shared training policy. Prospective clinician-authored text and independent
+The current manuscript therefore limits its primary claim to a
+configuration-level benchmark association across the reported ordered
+sequence, without assigning the gain causally to an individual component.
+Prospective clinician-authored text and independent
 cross-domain testing remain future validation rather than prerequisites for the
 reported benchmark comparison.
 Complete boundary-metric tables, model complexity, and qualitative failure
 panels are provided in the supplement and main manuscript.
 
 \section{Conclusions}
-This study provides a 90-cell, three-seed audit of shared augmentation and
-privileged prompts in multimodal medical image segmentation. The complete
-configuration achieves Public-5 macro Dice of $87.87\%$ and IoU of $80.97\%$ and
+This study provides a retrospective, three-seed comparison of five ordered
+configurations of shared augmentation and privileged prompts in multimodal
+medical image segmentation. The complete configuration achieves a five-dataset
+macro-average Dice of $87.87\%$ and IoU of $80.97\%$ and
 differs from the horizontal-flip Base reference by $+1.46$ Dice pp (95\% CI $+0.95$ to
-$+1.99$) and $+1.74$ IoU pp (95\% CI $+1.13$ to $+2.34$). The shared-plan
-no-rewrite row is numerically best, and the complete configuration differs from
-the post hoc Base-plus-plan control by only $+0.04$ Dice pp (95\% CI $-0.40$ to
-$+0.41$). The supported accuracy claim is therefore attached primarily to the
-shared follow-up training policy, not to rewriting or to an ATConv4 mechanism.
+$+1.99$) and $+1.74$ IoU pp (95\% CI $+1.13$ to $+2.34$). The largest adjacent
+displayed difference is $+0.84$ Dice pp between BioMedCLIP+ATConv and the complete
+configuration. Because that transition jointly introduces shared augmentation and
+prompt rewriting, it does not isolate either standalone effect. In a separate
+matched BUSI rerun, rewriting minus no rewriting was $+1.17$ Dice pp (95\% CI
+$-1.58$ to $+4.17$); the interval included zero, so this one-dataset control did
+not show a clear accuracy advantage for rewriting and does not decompose the
+five-dataset transition. The supported
+accuracy claim is therefore a configuration-level benchmark association, not a
+causal component decomposition, and it does not imply that all four registered
+ATConv modules were active.
 Case-specific target-derived text affects aggregate predictions after coarse
 presence/class matching, but the effect is markedly attenuated and does not
-establish clinical-report understanding. The protocol boundary, effective
-two-projector ATConv graph, negative rewrite evidence, and privileged-prompt
-control are part of the result, not implementation details to be hidden from
-interpretation.
+establish clinical-report understanding. The distinction between the fixed
+data/evaluation procedures and the later training-policy amendment, the effective
+two-projector ATConv graph, the joint final transition, and the
+privileged-prompt control are integral to interpretation of the results.

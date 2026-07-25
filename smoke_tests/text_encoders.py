@@ -14,6 +14,17 @@ from protocol_v3.core import canonical_hash, file_sha256
 
 
 CACHE_SCHEMA_VERSION = "text_embedding_cache_v3"
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_MANIFESTS = tuple(
+    ROOT / "smoke_tests/protocol_v3/manifests" / name
+    for name in (
+        "medclipseg_busi_full.csv",
+        "medclipseg_clinicdb_full.csv",
+        "medclipseg_busbra_full.csv",
+        "medclipseg_brisc_full.csv",
+        "medclipseg_covid19_full.csv",
+    )
+)
 
 
 def lcaug_text_variants(text: str, *, use_v2: bool = True) -> set[str]:
@@ -207,7 +218,7 @@ def build_hf_cache(args):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--manifest", nargs="+", default=["<PROJECT_ROOT>/smoke_tests/dataset_manifest.csv"])
+    parser.add_argument("--manifest", nargs="+", default=[str(path) for path in DEFAULT_MANIFESTS])
     parser.add_argument("--encoder", default="emilyalsentzer/Bio_ClinicalBERT")
     parser.add_argument("--output", required=True)
     parser.add_argument("--max-length", type=int, default=10)

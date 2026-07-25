@@ -30,7 +30,7 @@ METRICS = ("dice", "iou")
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--root", type=Path, default=Path("<PROJECT_ROOT>"))
+    parser.add_argument("--root", type=Path, default=PROJECT_ROOT)
     parser.add_argument("--bootstrap-reps", type=int, default=10000)
     parser.add_argument("--bootstrap-seed", type=int, default=12345)
     return parser.parse_args()
@@ -354,3 +354,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+PROJECT_ROOT = Path(__file__).resolve().parents[2]

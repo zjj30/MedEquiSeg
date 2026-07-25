@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run Protocol V3 training, prompt controls, prediction, and evaluation."""
+"""Run the five retained Public-5 configurations and prompt controls."""
 
 from __future__ import annotations
 
@@ -10,6 +10,7 @@ import os
 import queue
 import re
 import subprocess
+import sys
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
@@ -18,40 +19,21 @@ from protocol_v3.core import canonical_hash, file_sha256, load_protocol_lock, pr
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PYTHON = "<ENV_ROOT>/bin/python"
+PYTHON = os.environ.get("MEDEQUISEG_PYTHON", sys.executable)
 MODEL = "CausalCLIPSegRN50DiceBCE"
-PILOT_RUNS = ("V3_R0", "V3_R3", "V3_R6", "V3_R7", "V3_R8", "V3_R8NR")
-CONFIRMATORY_RUNS = ("V3_R0", "V3_R7", "V3_R8", "V3_R8NR")
+PILOT_RUNS = (
+    "V3_ABL_BASE",
+    "V3_ABL_BIOMED",
+    "V3_ABL_ATCONV",
+    "V3_ABL_BIOMED_ATCONV",
+    "V3_ABL_EQUIPROMPT",
+)
+CONFIRMATORY_RUNS = PILOT_RUNS
 V3_RUNS = {
-    "V3_R0": {"recipe": "default", "augmentation": "lcaug_v2_hflip_dataset"},
-    "V3_R3": {"recipe": "biomed_lcaug", "augmentation": "lcaug_v2_hflip_dataset"},
-    "V3_R6": {"recipe": "default_atconv4", "augmentation": "lcaug_v2_hflip_dataset"},
-    "V3_R7": {"recipe": "biomed_lcaug_atconv4", "augmentation": "lcaug_v2_hflip_dataset"},
-    "V3_R8": {"recipe": "biomed_lcaug_v2_atconv4", "augmentation": "lcaug_v2_medclipseg_dataset"},
-    "V3_R8NR": {
-        "recipe": "biomed_lcaug_v2_atconv4",
-        "augmentation": "lcaug_v2_medclipseg_no_text_rewrite_dataset",
-    },
-    "V3_ABL_BASE": {
-        "recipe": "default",
-        "augmentation": "lcaug_v2_hflip_dataset",
-    },
-    "V3_ABL_BIOMED": {
-        "recipe": "biomed_lcaug",
-        "augmentation": "lcaug_v2_hflip_dataset",
-    },
-    "V3_ABL_ATCONV": {
-        "recipe": "default_atconv4",
-        "augmentation": "lcaug_v2_hflip_dataset",
-    },
-    "V3_ABL_BIOMED_ATCONV": {
-        "recipe": "biomed_lcaug_atconv4",
-        "augmentation": "lcaug_v2_hflip_dataset",
-    },
-    "V3_ABL_SHARED_NR": {
-        "recipe": "biomed_lcaug_v2_atconv4",
-        "augmentation": "lcaug_v2_dynamic_shared_plan_no_text_rewrite_dataset",
-    },
+    "V3_ABL_BASE": {"recipe": "default", "augmentation": "lcaug_v2_hflip_dataset"},
+    "V3_ABL_BIOMED": {"recipe": "biomed_lcaug", "augmentation": "lcaug_v2_hflip_dataset"},
+    "V3_ABL_ATCONV": {"recipe": "default_atconv4", "augmentation": "lcaug_v2_hflip_dataset"},
+    "V3_ABL_BIOMED_ATCONV": {"recipe": "biomed_lcaug_atconv4", "augmentation": "lcaug_v2_hflip_dataset"},
     "V3_ABL_EQUIPROMPT": {
         "recipe": "biomed_lcaug_v2_atconv4",
         "augmentation": "lcaug_v2_dynamic_shared_plan_dataset",

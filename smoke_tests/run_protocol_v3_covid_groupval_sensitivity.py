@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run R11 and R11NR on the COVID-19 grouped-validation sensitivity split."""
+"""Run MedEquiSeg on the COVID-19 grouped train--validation sensitivity split."""
 
 from __future__ import annotations
 
@@ -11,14 +11,11 @@ RUNS = {
         "recipe": "biomed_lcaug_v2_atconv4",
         "augmentation": "lcaug_v2_dynamic_shared_plan_dataset",
     },
-    "V3_R11NR_COVID_GROUPVAL": {
-        "recipe": "biomed_lcaug_v2_atconv4",
-        "augmentation": "lcaug_v2_dynamic_shared_plan_no_text_rewrite_dataset",
-    },
 }
 
 
 def main() -> None:
+    runner.__doc__ = __doc__
     runner.V3_RUNS.update(RUNS)
     run_ids = tuple(RUNS)
     runner.PILOT_RUNS = run_ids
