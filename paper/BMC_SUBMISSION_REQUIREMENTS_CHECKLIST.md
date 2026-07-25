@@ -26,7 +26,7 @@ journal submission form.
 | Software availability fields | PASS | Project name/home page, archived version, operating system, language, requirements location, license, and restrictions are stated. |
 | Competing interests | PASS | All authors declare no competing interests or relevant relationships. |
 | Funding source and grant numbers | PASS | MAI2023C005 and 2024ZDJS137 are listed. |
-| Funder role | AUTHOR CONFIRMATION REQUIRED | CLAIM item 44 requires the funders' role. Add a no-role statement only after the authors confirm it. |
+| Funder role | PASS | The authors confirmed that the funders provided financial support and had no role in the study design or the decision to submit the manuscript for publication. |
 | Authors' contributions | PASS | Initial-based individualized contributions are present; annotation work is described as review/organization of provided labels, not creation of new reference masks. |
 | Acknowledgements | PASS | Not applicable; funding is not duplicated. |
 | Generative-AI disclosure | PASS | Moved out of Methods into Declarations and assigns responsibility to the authors. |
@@ -36,6 +36,6 @@ journal submission form.
 | Tables | PASS | Tables are editable LaTeX, sequentially numbered, and use table notes rather than embedded images. |
 | References | PASS | Numbered Vancouver style is enabled; CLAIM 2024 is cited. |
 | Reporting guideline | PASS | CLAIM 2024 is cited and an item-level checklist is included in `paper/CLAIM_2024_checklist.md`. |
-| Originality / exclusive submission | AUTHOR CONFIRMATION REQUIRED | The submission metadata flags remain false until all authors confirm. |
-| All-author approval | AUTHOR CONFIRMATION REQUIRED | Obtain explicit approval of the final PDF and author order before submission. |
+| Originality / exclusive submission | PASS | The authors confirmed that the work is original and is not under consideration elsewhere. |
+| All-author approval | PASS | All authors confirmed and approved the final manuscript and its submission. |
 | Persistent DOI archive | RECOMMENDED | GitHub v1.1.0 is versioned; depositing the final release in Zenodo and adding its DOI would strengthen long-term availability. |
