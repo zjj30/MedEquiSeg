@@ -1,4 +1,4 @@
-\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}
+\documentclass[pdflatex,sn-vancouver-num,referee,lineno]{sn-jnl}
 
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
@@ -69,8 +69,6 @@ not enter ATConv itself.}
 \label{fig:supp-operator-details}
 \end{figure}
 
-\clearpage
-
 \section*{Boundary and empty-mask metrics}
 All entries were recomputed after predictions were restored to the native
 reference-mask grid with the common evaluation procedure. A both-empty case receives perfect overlap and zero
@@ -81,7 +79,6 @@ without the corresponding failure rate. NSD uses a two-pixel tolerance.
 
 \input{paper/latex/bmc_work_public5/bmc_boundary_tables.tex}
 
-\clearpage
 \section*{COVID-19 subject-cluster sensitivity}
 This post hoc sensitivity analysis holds the reported model parameters fixed. It
 accounts for repeated test images from 474 recoverable subjects, but it does not
@@ -97,15 +94,13 @@ realized rather than analytically expected trigger frequencies.
 
 \input{paper/latex/bmc_work_public5/bmc_realized_trigger_table.tex}
 
-\clearpage
 \section*{Mask-presence sensitivity}
-This analysis separates lesion-containing cases from empty-ground-truth cases
+This analysis separates lesion-containing cases from empty-reference-mask cases
 so that correct empty predictions do not implicitly stand in for lesion-boundary
 quality.
 
 \input{paper/latex/bmc_work_public5/bmc_mask_presence_table.tex}
 
-\clearpage
 \section*{Full ordered configuration results}
 The main manuscript reports the compact five-dataset macro-average. The full
 dataset-level matrix is retained here to show that the macro difference is not
@@ -116,7 +111,6 @@ conditional configuration contrasts rather than independent component effects.
 
 \input{paper/latex/bmc_work_public5/bmc_factorial_ablation_detail_table.tex}
 
-\clearpage
 \section*{COVID-19 grouped train--validation sensitivity}
 The fixed public test set is unchanged in this analysis. Recoverable subject
 tokens are assigned to only one training or validation split; rows without a
@@ -126,7 +120,6 @@ not evidence that every image in the source release has a known patient identity
 \input{paper/latex/bmc_work_public5/bmc_covid_groupval_table.tex}
 \FloatBarrier
 
-\clearpage
 \section*{Reproducibility and implementation verification}
 This verification distinguishes the fixed data and evaluation procedures from
 the later shared-augmentation experiment and examines the effective ATConv
@@ -145,7 +138,6 @@ a distribution-matched analysis, not a paired mechanism comparison.
 \input{paper/latex/bmc_work_public5/bmc_tables.tex}
 \FloatBarrier
 
-\clearpage
 \section*{Presence/class-stratified prompt derangement}
 This post hoc sensitivity analysis reuses the 15 trained complete models
 without retraining. For each public dataset, the complete
@@ -159,16 +151,18 @@ BUSI normal studies whose within-stratum strings are identical. Statistics first
 average the three model values for each case, then use paired 10,000-repeat
 bootstrap intervals and Holm-adjusted Wilcoxon tests. The analysis remains a
 privileged-prompt diagnostic because the strata and prompts encode released
-target-derived information.
+target-derived information. Exactly one deterministic donor assignment per
+dataset was precomputed and reused across the three checkpoints. The intervals
+are conditional on these assignments and checkpoints; they do not represent
+uncertainty across alternative valid derangements or identify a causal share for
+the matched attributes.
 
 \input{paper/latex/bmc_work_public5/bmc_stratified_derangement_table.tex}
 \FloatBarrier
 
-\clearpage
 \input{paper/latex/bmc_work_public5/bmc_full_model_comparison_table.tex}
 \FloatBarrier
 
-\clearpage
 \section*{Targeted matched prompt-rewrite control}
 To estimate prompt rewriting under a fixed shared augmentation policy, two BUSI
 arms were newly trained for 100 epochs with seeds 123, 456, and 789. Within each
@@ -180,6 +174,16 @@ does not estimate an across-dataset rewriting effect or the effect of shared
 augmentation itself.
 
 \input{paper/results/medequiseg_no_rewrite_matched_20260725/matched_no_rewrite_busi_table.tex}
+\FloatBarrier
+
+\section*{Complete-minus-Base statistical sensitivity}
+This secondary analysis reuses the existing complete-configuration and Base
+predictions. It resamples paired test cases and the three paired training-seed
+indices hierarchically and repeats the equal-dataset macro-average after
+excluding empty reference masks. It does not retrain any model or add independent
+training seeds.
+
+\input{paper/results/medequiseg_complete_base_sensitivity_20260725/complete_base_sensitivity_table.tex}
 \FloatBarrier
 
 \end{document}

@@ -1,4 +1,4 @@
-# Protocol V3 Environment Record
+# Public-5 Environment Record
 
 Recorded: 2026-07-15
 
@@ -7,7 +7,7 @@ Versions below were read directly from those environments on the experiment
 server. CUDA values are the versions reported by PyTorch; all benchmark GPUs
 were NVIDIA GeForce RTX 4090 devices with driver 580.119.02.
 
-## R11 and principal image-baseline environment
+## Principal MedEquiSeg and image-baseline environment
 
 Launcher path placeholder: `<PROJECT_ROOT>/../envs/rmtfd/bin/python`
 
@@ -74,6 +74,6 @@ Launcher path placeholder: `<PROJECT_ROOT>/../envs/umamba_py310/bin/python`
   redistribute third-party model weights or datasets.
 - Public dataset download locations and model citations are given in the
   manuscript.
-- BUSI-HF images, masks, per-case manifests, and source paths are excluded from
-  the public archive. Only non-identifying aggregate results are releasable
-  under the current authorization.
+- Any cohort not listed among the five public benchmarks, together with its
+  images, masks, paths, manifests, checkpoints, logs, and results, is excluded
+  from the public archive.

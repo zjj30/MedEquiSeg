@@ -2,6 +2,8 @@ submission:
   date: ""
   journal: "BMC Medical Imaging"
   repository_url: "https://github.com/zjj30/MedEquiSeg"
+  archived_software_version: "v1.1.0"
+  archived_software_url: "https://github.com/zjj30/MedEquiSeg/tree/v1.1.0"
   repository_is_permanent: false
   originality_confirmed: false
   not_under_consideration_elsewhere: false
@@ -95,6 +97,7 @@ declarations:
   consent_for_publication: "Not applicable. The manuscript contains no identifiable participant information."
   competing_interests: "All authors declare that they have no competing interests or relevant financial or non-financial relationships to disclose."
   funding: "This work was supported by the Joint Fund for Medical Artificial Intelligence (MAI2023C005) and the Guangdong Key Disciplines Project (2024ZDJS137)."
-  contributions: "Xianjun Ye designed the experimental methodology and collected and curated the datasets. Ruxue Xing assisted with model training, revised the manuscript, and organized the references. Mengmeng Zhang and Ye Zhang annotated and curated the data. Yongsheng Luo contributed to model refinement and manuscript review and editing. Yu Kang supervised the overall research direction and critically revised the manuscript. Jianjun Zhu conducted the experiments, led model training, and drafted the manuscript. All authors read and approved the final manuscript."
+  funder_role_statement_confirmed: false
+  contributions: "Xianjun Ye designed the experimental methodology and collected and curated the datasets. Ruxue Xing assisted with model training, revised the manuscript, and organized the references. Mengmeng Zhang and Ye Zhang reviewed the provided annotations and organized the data; they did not create or adjudicate new reference masks. Yongsheng Luo contributed to model refinement and manuscript review and editing. Yu Kang supervised the overall research direction and critically revised the manuscript. Jianjun Zhu conducted the experiments, led model training, and drafted the manuscript. All authors read and approved the final manuscript."
   acknowledgements: "Not applicable."
   ai_use: "OpenAI Codex was used for code-assisted reproducibility checks and English language editing during manuscript preparation. The authors reviewed and take responsibility for the experimental code, numerical results, citations, and final text. No generative model was treated as an author."

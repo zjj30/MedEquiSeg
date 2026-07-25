@@ -106,6 +106,9 @@ privileged-prompt reliability analysis.
 
 \section{Methods}
 \label{sec:protocol}
+Reporting follows the CLAIM 2024 checklist where applicable \cite{claim2024};
+an item-level checklist accompanies the submission.
+
 \subsection{Dataset and prompt provenance}
 Table~\ref{tab:bspc_dataset_audit} reports the prespecified image-level
 partitions. The image and
@@ -113,19 +116,31 @@ mask sources are BUSI \cite{busi}, CVC-ClinicDB \cite{cvc}, BUS-BRA
 \cite{busbra}, BRISC \cite{brisc}, and QaTa-COV19 \cite{qatacov19}. Their paired
 prompts are distributed by the MedCLIPSeg repository \cite{medclipseg}. For
 lesion cases, MedCLIPSeg extracts class, coarse location, component count, shape,
-and tone from the ground-truth mask or label and fills language-model-generated
+and tone from the dataset-provided reference mask or class label and fills language-model-generated
 templates. Thus these are target-derived synthetic referring captions, not
 prospective clinical reports. This benchmark construction is shared by the
 image+text methods in Table~\ref{tab:bspc_v3_models}, but it gives them
 target-derived information unavailable to image-only methods and limits both
 clinical interpretation and cross-modality comparison.
 
+\subsection{Reference standards}
+The reference standard for each segmentation case is the binary mask distributed
+with the corresponding source dataset and retained by the public MedCLIPSeg
+partition. No reference mask was created, edited, or adjudicated for this study.
+The authors verified image--mask pairing, file integrity, split assignment, and
+the prespecified duplicate-resolution rule, but did not relabel test cases. The
+original dataset publications are the source for annotation procedures and
+annotator qualifications; details not reported there were unavailable to this
+secondary analysis. These masks were selected because they are the released
+benchmark references used for like-for-like model evaluation, while possible
+annotation error and between-annotator variability remain limitations.
+
 \def\BmcTableSelection{1}
 \input{paper/latex/bmc_work_public5/bmc_tables.tex}
 
-\subsection{Prompt-evidence scope and real-text validation}
+\subsection{Prompt-evidence scope and real-text testing}
 The public MedCLIPSeg mask/label-derived captions are restricted to mechanism
-analysis. They do not constitute real-text validation. Deployment-oriented
+analysis. They do not constitute real-text testing. Deployment-oriented
 evidence, which is not available in the present study, would require blinded
 clinician-authored or clinician-verified prompts generated from images without
 access to masks. Such a study must freeze the vocabulary and annotation
@@ -147,9 +162,10 @@ Table~S7.
 \subsection{Data partitioning and evaluation protocol}
 Dataset partitions were fixed across seeds. Seeds 123, 456, and 789 change
 parameter initialization, minibatch order, and augmentation sampling; they do
-not resplit the data. Validation selects the best checkpoint, and the test split
+not resplit the data. The model-optimization partition named Val in the released
+folders is termed the validation split here; it selects the best checkpoint. The held-out test split
 is accessed only by the final prediction and evaluation scripts. Predictions are
-restored to the native ground-truth resolution before scoring.
+restored to the native reference-mask resolution before scoring.
 
 Dataset partitions, split roles, mask-processing rules, random seeds, prediction
 threshold, and metric implementation were held constant across the reported
@@ -433,7 +449,12 @@ endpoint is true versus shuffled Dice; fixed and empty controls are descriptive.
 The presence/class-stratified derangement is a post hoc sensitivity analysis of
 the true--shuffled contrast, not a replacement primary endpoint. It uses the
 same case-first three-seed reduction, 10,000 paired bootstrap replicates, and
-five-dataset Holm family as the other semantic comparisons.
+five-dataset Holm family as the other semantic comparisons. Exactly one
+precomputed deterministic within-stratum donor assignment per dataset was
+evaluated and reused across the three checkpoints. Its intervals are therefore
+conditional on those assignments and checkpoints; they do not include
+randomization uncertainty over other valid derangements and cannot quantify a
+causal contribution of the matched attributes.
 Cross-model and cross-modality comparisons in Table~\ref{tab:bspc_v3_models}
 are contextual rather than confirmatory because architectures and input
 information differ.
@@ -463,12 +484,11 @@ hierarchical bootstrap replicates that resample paired test cases and training
 seeds. The corresponding case-mean Wilcoxon test is recorded for completeness,
 but interpretation emphasizes the hierarchical interval because it incorporates
 the observed variability across the three newly trained seed pairs.
-
-\paragraph{Use of generative artificial intelligence.}
-OpenAI Codex was used to assist source-code verification and English-language
-revision. All outputs were reviewed and validated by the authors, who take full
-responsibility for the experimental code, numerical results, citations, and
-manuscript text.
+As secondary robustness checks using existing predictions only, we also
+resampled paired test cases and the three training-seed pairs hierarchically and
+repeated the equal-dataset complete-minus-Base contrast after excluding empty
+reference masks. These analyses do not retrain a model or turn the three seeds
+into independent cases (Supplementary Table S16).
 
 \section{Results}
 \label{sec:results}
@@ -502,6 +522,10 @@ only the ClinicDB interval includes zero. These are conditional contrasts betwee
 complete configurations. Because shared augmentation and prompt rewriting appear together only in the
 final row and were not crossed with every BioMedCLIP--ATConv combination, the
 matrix does not identify either standalone effect or complete component interactions.
+In the secondary seed-and-case hierarchical bootstrap, the corresponding
+macro-average intervals were $+0.76$ to $+2.29$ Dice pp and $+1.02$ to $+2.55$
+IoU pp. Excluding the 152 empty reference masks changed the point differences
+only to $+1.53$ Dice pp and $+1.84$ IoU pp (Supplementary Table S16).
 
 In the separate matched BUSI rerun, the shared-augmentation arms without and
 with prompt rewriting achieved Dice values of $84.55\pm2.03\%$ and
@@ -540,8 +564,8 @@ bootstrap intervals are positive throughout; ClinicDB has the smallest interval
 identity rather than clinical-report understanding or specifically spatial
 grounding, because the public captions contain target-derived attributes.
 
-Presence/class matching substantially attenuates but does not eliminate this
-effect. True text exceeds the stratified derangement by $+5.63$ Dice pp in the
+Under the single precomputed presence/class-stratified assignment, the gap is
+attenuated but not eliminated. True text exceeds the stratified derangement by $+5.63$ Dice pp in the
 five-dataset macro-average (95\% CI $+4.71$ to $+6.67$), compared with
 $+14.66$ pp under unstratified shuffling. Four of five dataset bootstrap
 intervals are positive; Holm-adjusted rank support remains for BUSI, BRISC, and
@@ -549,9 +573,11 @@ COVID-19, whereas BUS-BRA is neutral. Restricting the analysis to the 3,413
 cases whose text string actually changes gives $+5.87$ pp (95\% CI $+4.87$ to
 $+7.03$). For the 474 recoverable COVID-19 subjects, equal-subject averaging
 gives $+22.42$ pp with a subject-cluster interval of $+21.12$ to $+23.80$.
-These post hoc results show that coarse class/presence mismatch explains a large
-share of the original shuffled gap while leaving a heterogeneous residual
-association with target-derived prompt identity (Supplementary Table S13).
+This attenuation is consistent with coarse class/presence confounding in the
+unstratified control while leaving a heterogeneous residual association with
+target-derived prompt identity. It does not identify the causal share explained
+by the matched attributes, and its intervals are conditional on the one fixed
+assignment per dataset (Supplementary Table S13).
 
 \begin{figure}[!htbp]
 \centering
@@ -562,7 +588,7 @@ for each dataset that passes the Holm-adjusted rank screen. Predictions are
 three-seed majority votes. The left-hand selection delta is the mean paired
 per-case difference across seeds and therefore need not equal the difference
 between the displayed majority-vote Dice values. Each row uses one shared context crop determined by
-the union of the ground truth and both predictions. Green denotes true positive,
+the union of the reference mask and both predictions. Green denotes true positive,
 red false positive, and blue false negative. Selection was deterministic; the
 exact prompts, case identifiers, and uncropped paths are provided in the
 supplementary selection record.}
@@ -626,7 +652,7 @@ Predictions are pixel-wise majority votes. The left-hand selection delta is the
 mean paired per-case difference across seeds and therefore need not equal the
 difference between the displayed majority-vote Dice values. Green is true positive, red false
 positive, and blue false negative. Within each row, all columns use one context
-crop determined by the union of the ground truth and both predictions. The
+crop determined by the union of the reference mask and both predictions. The
 deterministic case and prompt record is provided in the supplementary data archive;
 examples are not additional tests.}
 \label{fig:qualitative_audit}
@@ -687,9 +713,11 @@ text use.
 
 The semantic-control pattern constrains interpretation. Large true--shuffled
 gaps on all five public sets show that prompt identity affects the prediction.
-After matching target presence and diagnostic class, the five-dataset macro-average gap falls from
-$+14.66$ to $+5.63$ Dice pp. This attenuation identifies coarse class/presence
-confounding in the unstratified control, while the remaining effect is
+Under the one fixed assignment that matches target presence and diagnostic class,
+the five-dataset macro-average gap falls from $+14.66$ to $+5.63$ Dice pp. This
+attenuation is consistent with coarse class/presence confounding in the
+unstratified control but does not estimate its causal contribution or variation
+across other valid derangements. The remaining association is
 concentrated in BUSI and COVID-19 and is nearly absent on BUS-BRA. The residual
 therefore supports sensitivity to privileged case-specific prompt content, not
 a general claim of language grounding.
@@ -723,9 +751,10 @@ First, the data partitions and evaluation choices were held constant, but the
 shared augmentation policy was introduced after the initial augmentation
 specification and therefore represents a retrospective follow-up analysis. The
 policy changes the original dataset-specific augmentation rules and adds affine
-transformation, translation, and zoom. The archived source package omits several
-orchestration and evaluation files, so exact reconstruction of the software used
-for the aggregate experiments cannot be guaranteed. The summary metadata also
+transformation, translation, and zoom. The current audited source release cannot
+be matched bit for bit to the recorded aggregate-run code digest because the
+corresponding historical source snapshot is unavailable; exact reconstruction of
+that software state therefore cannot be guaranteed. The summary metadata also
 omit batch size and worker count, although both are preserved in supplementary
 execution records. Second, four ATConv modules are registered in the saved model,
 but only the two projector modules participate in the implemented forward pass. The reported
@@ -750,7 +779,10 @@ utility or a fair deployment advantage over image-only models. The post hoc
 stratified derangement controls only coarse presence and diagnostic
 class derived from released identifiers/prompts; it does not match morphology,
 location, wording template, or other target-derived attributes and therefore
-cannot isolate clinical language grounding. None of the prompts were authored
+cannot isolate clinical language grounding. Only one deterministic assignment
+per dataset was evaluated, so its intervals are conditional on that assignment
+and the available checkpoints; uncertainty across alternative valid assignments
+is unknown. None of the prompts were authored
 prospectively by clinicians. Seventh, the five-configuration analysis is complete
 for its ordered sequence but is not a full crossing of the adapters, augmentation policy, and
 rewriting. It supports conditional configuration contrasts only. The separately
@@ -781,7 +813,7 @@ The current manuscript therefore limits its primary claim to a
 configuration-level benchmark association across the reported ordered
 sequence, without assigning the gain causally to an individual component.
 Prospective clinician-authored text and independent
-cross-domain testing remain future validation rather than prerequisites for the
+cross-domain testing remain future work rather than prerequisites for the
 reported benchmark comparison.
 Complete boundary-metric tables, model complexity, and qualitative failure
 panels are provided in the supplement and main manuscript.

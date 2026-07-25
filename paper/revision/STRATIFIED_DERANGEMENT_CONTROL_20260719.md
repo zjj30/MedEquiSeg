@@ -49,14 +49,20 @@ Changed-only Public-5 Dice is `+5.87 pp` (95% CI `+4.87` to
 ## Interpretation
 
 The Public-5 effect attenuates from `+14.66 pp` under unstratified shuffling to
-`+5.63 pp` after coarse presence/class matching. Class and template mismatch
-therefore explain a substantial share of the original gap. A heterogeneous
-residual remains, concentrated in BUSI and COVID-19, while BUS-BRA is neutral.
+`+5.63 pp` under the one fixed coarse presence/class-stratified assignment per
+dataset. This pattern is consistent with coarse class/presence confounding in
+the unstratified comparison, but it does not estimate a causal share attributable
+to the matched attributes. A heterogeneous residual remains, concentrated in
+BUSI and COVID-19, while BUS-BRA is neutral.
 
 This is evidence of sensitivity to privileged case-specific prompt content. It
 is not evidence of clinical-report understanding: prompts and strata still carry
 released target-derived information, and the control does not match morphology,
 location, wording template, or every other prompt attribute.
+The same precomputed assignment is reused across the three checkpoints. Reported
+intervals are therefore conditional on those assignments and checkpoints and do
+not include randomization uncertainty across other valid within-stratum
+derangements.
 
 ## Reproducibility Evidence
 
@@ -66,4 +72,3 @@ location, wording template, or every other prompt attribute.
 - Analysis code SHA256: `5c18f19644e6ce29982cde54f1cf576d62414c2474f3b39d939f45d5f9ca8738`
 - Analysis metadata: `paper/results/protocol_v3_stratified_derangement_20260719/analysis_meta.json`
 - LaTeX table: `paper/latex/bmc_work/bmc_stratified_derangement_table.tex`
-

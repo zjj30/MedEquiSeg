@@ -13,9 +13,14 @@ The five public datasets are available from their cited sources. The research
 materials available at \url{https://github.com/zjj30/MedEquiSeg} include the
 released model implementation, dataset-partition files with case-level text
 prompts, model configurations, three-seed result tables, statistical outputs,
-figures, and manuscript source. The release does not contain all orchestration
-and evaluation files required for exact reconstruction of the original software
-state, as described in the Limitations and Supplementary Table S11. Medical
+figures, and manuscript source. The archived software version is v1.1.0
+(\url{https://github.com/zjj30/MedEquiSeg/tree/v1.1.0}); it targets Linux, is
+implemented in Python, records its package requirements and computing
+environment in the repository, and is licensed under Apache-2.0 without
+additional restrictions imposed by the authors. The release is the current
+audited implementation, but a bit-for-bit historical source snapshot matching
+the aggregate-run code digest is unavailable, as described in the Limitations
+and Supplementary Table S11. Medical
 images, masks, third-party checkpoints, and raw training logs are not
 redistributed.
 
@@ -29,15 +34,27 @@ Intelligence, Grant Number MAI2023C005, and the Guangdong Key Disciplines Projec
 Grant 2024ZDJS137.
 
 \subsection*{Authors' contributions}
-Xianjun Ye designed the experimental methodology and collected and curated the datasets.
-Ruxue Xing assisted with model training, revised the manuscript, and organized the
-references. Mengmeng Zhang and Ye Zhang annotated and curated the data. Yongsheng Luo
-contributed to model refinement and manuscript review and editing. Yu Kang supervised the
-overall research direction and critically revised the manuscript. Jianjun Zhu conducted the
-experiments, led model training, and drafted the manuscript. All authors read and approved
+XY designed the experimental methodology and collected and curated the datasets.
+RX assisted with model training, revised the manuscript, and organized the
+references. MZ and YZ reviewed the provided annotations and organized the data;
+they did not create or adjudicate new reference masks. YL contributed to model
+refinement and manuscript review and editing. YK supervised the overall research
+direction and critically revised the manuscript. JZ conducted the experiments,
+led model training, and drafted the manuscript. All authors read and approved
 the final manuscript.
 
 \subsection*{Acknowledgements}
-Research reported in this publication is supported by Joint Fund for Medical Artificial
-Intelligence, Grant Number MAI2023C005, and the Guangdong Key Disciplines Project under
-Grant 2024ZDJS137.
+Not applicable.
+
+\subsection*{Use of generative artificial intelligence in manuscript preparation}
+OpenAI Codex was used for code-assisted reproducibility checks and English-language
+editing. All outputs were reviewed by the authors, who take responsibility for
+the experimental code, numerical results, citations, and final text. No
+generative model was treated as an author.
+
+\subsection*{Abbreviations}
+ASSD, average symmetric surface distance; ATConv, attentive convolution; BCE,
+binary cross-entropy; CARAFE, content-aware reassembly of features; CI,
+confidence interval; CLIP, contrastive language--image pretraining; HD95, 95th
+percentile Hausdorff distance; IoU, intersection over union; NSD, normalized
+surface Dice.

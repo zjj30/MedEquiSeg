@@ -33,6 +33,14 @@ two-projector forward graph. Prompt controls evaluate sensitivity to
 target-derived text; they do not establish clinical-report understanding or
 deployment readiness.
 
+The presence/class-stratified prompt analysis evaluates one precomputed
+deterministic donor assignment per dataset. Its attenuation of the unstratified
+gap is consistent with coarse class/presence confounding but does not identify a
+causal share; its intervals are conditional on those assignments and the three
+checkpoints. A no-retraining complete-minus-Base sensitivity analysis also
+reports seed-and-case hierarchical intervals and non-empty-reference-mask
+results.
+
 ## Repository contents
 
 - `smoke_tests/`: retained protocol, augmentation, training, prediction, and
@@ -41,6 +49,7 @@ deployment readiness.
   complexity, and statistical outputs used by the manuscript.
 - `paper/analysis/`: deterministic analysis, audit, figure, and release builders.
 - `paper/revision/`: active stratified-derangement and forward-activation audits.
+- `paper/CLAIM_2024_checklist.md`: item-level reporting-guideline audit.
 - `paper/latex/bmc_work_public5/`: BMC Medical Imaging LaTeX source.
 - `output/pdf/`: compiled manuscript and supplement.
 - `release_manifest.csv`: byte counts and SHA-256 values for every release file.

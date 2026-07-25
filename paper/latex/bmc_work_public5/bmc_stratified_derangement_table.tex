@@ -2,12 +2,15 @@
 % Do not edit numerical cells manually.
 \begin{table}[htbp]
 \centering
-\caption{Post hoc fixed-model prompt control that permutes the complete prompt
-multiset within target-presence and diagnostic-class strata. Changed/N is the number
+\caption{One fixed presence/class-stratified prompt assignment. The complete prompt
+multiset is permuted within target-presence and diagnostic-class strata. Changed/N is the number
 of cases receiving a different text string. Dice values are percentages
 (mean$\pm$sample standard deviation across three trained models); deltas are
 case-first true-minus-control effects with 95\% bootstrap confidence intervals.
-Holm $p$ is the adjusted paired Wilcoxon value across the five datasets.}
+Holm $p$ is the adjusted paired Wilcoxon value across the five datasets. One
+deterministic assignment per dataset was reused across checkpoints; intervals
+are conditional on those assignments and do not include randomization over
+alternative derangements.}
 \label{tab:stratified_derangement}
 \scriptsize
 \setlength{\tabcolsep}{3.0pt}

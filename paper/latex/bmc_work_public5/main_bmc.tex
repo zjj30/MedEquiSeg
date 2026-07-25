@@ -1,7 +1,7 @@
 % Springer Nature journal template, December 2024, Vancouver numbered style.
 % Target journal: BMC Medical Imaging.
 % Public-benchmark-only submission version.
-\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}
+\documentclass[pdflatex,sn-vancouver-num,referee,lineno]{sn-jnl}
 
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
@@ -44,7 +44,7 @@
 
 \textbf{Results:} \methodname{} achieved a five-dataset macro-average Dice of $87.87\%$ and IoU of $80.97\%$. Versus the horizontal-flip Base reference, Dice was higher by $1.46$ points (95\% dataset-stratified bootstrap interval $0.95$ to $1.99$) and IoU by $1.74$ points (95\% interval $1.13$ to $2.34$). The largest adjacent Dice difference was $+0.84$ points between BioMedCLIP plus ATConv and the complete configuration; this transition jointly added shared augmentation and rewriting and did not identify either standalone effect. In the matched BUSI rerun, rewriting minus no rewriting was $+1.17$ Dice points (95\% hierarchical bootstrap interval $-1.58$ to $+4.17$). True text exceeded presence/class-stratified derangement by $+5.63$ Dice points (95\% interval $+4.71$ to $+6.67$), versus $+14.66$ under unstratified shuffling.
 
-\textbf{Conclusions:} The complete configuration was higher than Base in the ordered analysis, but the sequence does not isolate standalone causal effects. The BUSI rewriting interval included zero, providing no clear accuracy advantage in that dataset and no decomposition of the five-dataset transition. Presence/class matching explains part of the shuffled-prompt gap, but the residual remains privileged because prompts contain mask- or label-derived attributes. These results characterize benchmark performance and prompt sensitivity, not clinical-report understanding or deployment generalization. Code and supporting materials are available at \url{https://github.com/zjj30/MedEquiSeg}.}
+\textbf{Conclusions:} The complete configuration was higher than Base in the ordered analysis, but the sequence does not isolate standalone causal effects. The BUSI rewriting interval included zero, providing no clear accuracy advantage in that dataset and no decomposition of the five-dataset transition. The shuffled-prompt gap was attenuated under one fixed presence/class-stratified assignment, a pattern consistent with coarse class/presence confounding; its residual remains conditional on target-derived prompts and that assignment. These results characterize benchmark performance and prompt sensitivity, not clinical-report understanding or deployment generalization. Code and supporting materials are available at \url{https://github.com/zjj30/MedEquiSeg}.}
 
 \keywords{medical image segmentation, multimodal learning, paired augmentation, vision-language models, privileged prompts, prompt reliability}
 

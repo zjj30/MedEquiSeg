@@ -2,6 +2,8 @@
 % conservative table optimization.
 \begin{table}[p]
 \centering
+\begin{singlespace}
+\renewcommand{\arraystretch}{0.89}
 \caption{Complete per-dataset Dice and IoU comparison on five public benchmarks.}
 \label{tab:supp_full_model_comparison}
 \scriptsize
@@ -36,7 +38,7 @@ U-KAN & Dice & $\mathbf{77.10\pm3.33}$ & $91.40\pm0.34$ & $88.56\pm0.75$ \\
 \bottomrule
 \end{tabular}
 
-\vspace{5pt}
+\vspace{0pt}
 \begin{tabular}{@{}llcc@{}}
 \toprule
 Method & Metric & BRISC & COVID-19 \\
@@ -66,9 +68,9 @@ U-KAN & Dice & $85.45\pm0.32$ & $\underline{79.38\pm0.21}$ \\
  & IoU & $78.33\pm0.35$ & $\underline{69.91\pm0.30}$ \\
 \bottomrule
 \end{tabular}
-\vspace{2pt}
+\vspace{0pt}
 \begin{minipage}{0.98\linewidth}
-\footnotesize\raggedright
+\scriptsize\raggedright
 \textit{Notes:} Values are percentages reported as mean$\pm$sample standard
 deviation over three seeds. Bold and underline rank methods only within the
 image+text or image-only panel. Cross-panel differences are descriptive because
@@ -76,4 +78,5 @@ the public image+text methods receive target-derived synthetic captions
 unavailable to image-only methods. The five \methodname{} entries use the models
 from the main ordered configuration analysis.\par
 \end{minipage}
+\end{singlespace}
 \end{table}

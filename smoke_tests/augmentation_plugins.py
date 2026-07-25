@@ -573,7 +573,6 @@ def apply_lcaug_v2_dynamic_shared_plan_no_text_rewrite_dataset(
 
 LCAUG_V2_MULTI_GEOMETRY_DATASETS = {
     "busi",
-    "busi_hf",
     "medclipseg_busi",
     "medclipseg_busbra",
     "medclipseg_brisc",

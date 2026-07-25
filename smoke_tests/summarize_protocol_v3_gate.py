@@ -171,7 +171,7 @@ def main() -> None:
         "",
     ]
     if route == "method_paper":
-        decision.append("Proceed with the preregistered three-seed method confirmation. BUSI-HF remains internal supplementary evidence.")
+        decision.append("Proceed with the preregistered three-seed Public-5 method confirmation.")
     elif route == "semantic_reliability_audit":
         decision.append("Do not claim LCAug rewrite as a new causal mechanism. Complete the three-seed true/shuffled/fixed/empty reliability study.")
     else:

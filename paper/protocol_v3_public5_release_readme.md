@@ -1,4 +1,4 @@
-# Protocol V3 Public-5 Audited Source-and-Results Package
+# Public-5 Audited Source-and-Results Package
 
 This package contains the public, non-identifying artifacts needed to audit the
 Public-5 version of the MedEquiSeg manuscript. It is a source-and-results
@@ -10,9 +10,9 @@ or an exact snapshot of the source tree that executed every training run.
 The released manuscript uses only BUSI, ClinicDB, BUS-BRA, BRISC, and COVID-19.
 Its principal evidence is a retrospective ordered configuration study with five
 retained configurations, five datasets, and three seeds (75 training cells),
-together with four frozen-checkpoint prompt controls per cell. The shared R11
-sampler is a separately frozen training-policy amendment on the fixed Protocol
-V3 data and evaluation specification. Because that training policy appears only
+together with four frozen-checkpoint prompt controls per cell. The shared
+augmentation sampler is a separately recorded training-policy amendment on the
+fixed data and evaluation specification. Because that training policy appears only
 in the complete configuration, the ordered matrix supports conditional
 configuration contrasts rather than a standalone augmentation-policy main
 effect or complete component interactions. A separately trained, matched
@@ -35,7 +35,7 @@ described as the exact executed training snapshot.
 
 ## Included
 
-- Protocol V3 lock, registry, and sanitized manifests with case-level text
+- Protocol lock, registry, and sanitized manifests with case-level text
   prompts for the five public sets.
 - Retained augmentation, training, prediction, evaluation, and statistical code.
 - Three-seed overlap, boundary, semantic-control, complexity, and qualitative results.
@@ -64,7 +64,7 @@ described as the exact executed training snapshot.
 
 ## Repository identifier
 
-The permanent public code repository is
+The public code repository is
 <https://github.com/zjj30/MedEquiSeg>. Publishing this source-and-results
 package does not release medical image data or any non-public cohort artifact.
 

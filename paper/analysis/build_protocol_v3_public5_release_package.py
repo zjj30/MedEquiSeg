@@ -44,11 +44,14 @@ EXACT_PATHS = (
     "paper/protocol_v3_environment_record.md",
     "paper/protocol_v3_split_provenance_audit_20260715.md",
     "paper/reference_metadata_audit_20260715.md",
+    "paper/BMC_SUBMISSION_REQUIREMENTS_CHECKLIST.md",
+    "paper/CLAIM_2024_checklist.md",
     "paper/submission_metadata_public5_template.yaml",
     "paper/analysis/audit_protocol_v3_public_grouping.py",
     "paper/analysis/benchmark_medclipseg_complexity.py",
     "paper/analysis/build_protocol_v3_public5_release_package.py",
     "paper/analysis/generate_complexity_table.py",
+    "paper/analysis/generate_complete_base_sensitivity_statistics.py",
     "paper/analysis/generate_medequiseg_base_contrast_statistics.py",
     "paper/analysis/generate_medequiseg_factorial_manuscript_assets.py",
     "paper/analysis/generate_protocol_v3_qualitative_overlay.py",
@@ -162,6 +165,7 @@ GLOB_PATHS = (
     "paper/results/protocol_v3_stratified_derangement_20260719/control_maps/*.csv",
     "paper/results/protocol_v3_stratified_derangement_20260719/control_maps/*.json",
     "paper/results/medequiseg_no_rewrite_matched_20260725/*",
+    "paper/results/medequiseg_complete_base_sensitivity_20260725/*",
 )
 
 FORBIDDEN_PATH_PARTS = (
@@ -191,6 +195,8 @@ FORBIDDEN_TEXT_PATTERNS = (
     "six " + "configurations",
     "90 " + "training cells",
     "90-" + "cell ordered",
+    "BUSI-HF",
+    "busi_hf",
 )
 SECRET_PATTERN = re.compile(r"(?<![A-Za-z0-9])sk-[A-Za-z0-9_-]{16,}")
 
