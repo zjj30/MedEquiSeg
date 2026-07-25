@@ -17,7 +17,7 @@ import torch
 from PIL import Image
 from torch.utils.data import DataLoader
 
-from protocol_v3.core import file_sha256, load_manifest_splits, protocol_sha256
+from protocol_v3.core import file_sha256, load_manifest_splits, load_protocol_lock, protocol_sha256
 from text_encoders import load_text_embedding_cache
 from train_baselines import ManifestDataset, build_model, forward_model, seed_all
 
@@ -260,6 +260,9 @@ def main() -> None:
                     {
                         "dataset": row["dataset"],
                         "case_id": row["case_id"],
+                        "patient_id": row.get("patient_id", ""),
+                        "group_id": row.get("group_id", ""),
+                        "group_type": row.get("group_type", ""),
                         "prediction_path": str(prediction_path.resolve()),
                         "mask_path": row["mask_path"],
                         "mask_mode": row["mask_mode"],
@@ -278,7 +281,7 @@ def main() -> None:
         writer.writeheader()
         writer.writerows(rows)
     run_meta = {
-        "protocol_id": "MEDSEG_TEXT_V3_20260710",
+        "protocol_id": load_protocol_lock(args.protocol_lock)["protocol_id"],
         "protocol_hash": protocol_hash,
         "git_commit": git_head(),
         "manifest": str(args.manifest.resolve()),

@@ -68,10 +68,9 @@ def _resolve_project_path(raw: str | Path, *, base: Path = ROOT) -> Path:
 def load_protocol_lock(path: str | Path = DEFAULT_PROTOCOL_LOCK) -> dict[str, Any]:
     lock_path = Path(path)
     payload = yaml.safe_load(lock_path.read_text(encoding="utf-8")) or {}
-    if payload.get("protocol_id") != PROTOCOL_ID:
-        raise ValueError(
-            f"Protocol id mismatch in {lock_path}: {payload.get('protocol_id')!r} != {PROTOCOL_ID!r}"
-        )
+    protocol_id = str(payload.get("protocol_id") or "").strip()
+    if not protocol_id:
+        raise ValueError(f"Protocol lock has no protocol_id: {lock_path}")
     return payload
 
 
@@ -144,6 +143,8 @@ def validate_manifest_rows(
         "image_sha256": {},
         "patient_id": {},
     }
+    if "group_id" in fields_set:
+        seen_by_kind["group_id"] = {}
     duplicates: list[str] = []
     for index, row in enumerate(rows, start=2):
         split = normalize_split(row.get("split", ""))

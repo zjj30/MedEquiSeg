@@ -1,0 +1,3 @@
+dataset,group_type,rows,groups,train_images,val_images,test_images,train_groups,val_groups,test_groups,train_val_overlap,train_test_overlap,val_test_overlap,output_sha256
+ClinicDB,video_sequence,612,29,490,61,61,23,3,3,0,0,0,ee23c1cc77c2ae0a23ac43d5e4b3725ee99fb4d0800d3fd74aaba2a24453f57e
+BUS-BRA,patient,1875,1064,1311,282,282,744,160,160,0,0,0,878534051c076680e8ffbbd3163ed48be0d42c2067cfbe88b4fc6b507deac490

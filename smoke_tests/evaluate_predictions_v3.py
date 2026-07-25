@@ -115,6 +115,9 @@ def main() -> None:
             {
                 "dataset": row["dataset"],
                 "case_id": row["case_id"],
+                "patient_id": row.get("patient_id", ""),
+                "group_id": row.get("group_id", ""),
+                "group_type": row.get("group_type", ""),
                 **values,
                 "prediction_path": row["prediction_path"],
                 "mask_path": row["mask_path"],

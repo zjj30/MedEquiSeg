@@ -42,6 +42,7 @@ V3_RUNS = {
 PROMPT_CONTROLS = ("true", "shuffled", "fixed", "empty")
 CODE_FILES = (
     "smoke_tests/run_protocol_v3.py",
+    "smoke_tests/build_group_disjoint_public5_manifests.py",
     "smoke_tests/train_baselines.py",
     "smoke_tests/augmentation_plugins.py",
     "smoke_tests/lcaug_v2_direction.py",

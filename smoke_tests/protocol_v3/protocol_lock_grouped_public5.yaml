@@ -1,0 +1,69 @@
+protocol_id: MEDEQUISEG_GROUPED_PUBLIC5_V1_20260725
+claim_tier: corrected_group_disjoint_primary
+dataset_registry: smoke_tests/protocol_v3/dataset_registry_grouped_public5.yaml
+seeds: [123, 456, 789]
+split_seed: 123
+training_epochs: 100
+selection_split: val
+final_split: test
+prediction_threshold: 0.5
+metrics:
+  - dice
+  - iou
+  - nsd
+  - hd95
+  - assd
+nsd_tolerance_px: 2.0
+empty_case_policy:
+  both_empty:
+    overlap: 1.0
+    distance: 0.0
+  one_empty:
+    overlap: 0.0
+    distance: inf
+statistics:
+  bootstrap_repetitions: 10000
+  bootstrap_seed: 12345
+  case_seed_reduction: mean
+  multiplicity_correction: holm
+  resampling_unit_by_dataset:
+    medclipseg_busi: case_id
+    medclipseg_clinicdb: group_id
+    medclipseg_busbra: group_id
+    medclipseg_brisc: case_id
+    medclipseg_covid19: patient_id
+datasets:
+  medclipseg_busi:
+    manifest: smoke_tests/protocol_v3/manifests/medclipseg_busi_full.csv
+    prompt_source: official_medclipseg
+    grouping_unit: image
+  medclipseg_clinicdb:
+    manifest: smoke_tests/protocol_v3/manifests/medclipseg_clinicdb_grouped.csv
+    prompt_source: official_medclipseg
+    grouping_unit: video_sequence
+    group_field: group_id
+  medclipseg_busbra:
+    manifest: smoke_tests/protocol_v3/manifests/medclipseg_busbra_grouped.csv
+    prompt_source: official_medclipseg
+    grouping_unit: patient
+    group_field: group_id
+  medclipseg_brisc:
+    manifest: smoke_tests/protocol_v3/manifests/medclipseg_brisc_full.csv
+    prompt_source: official_medclipseg
+    grouping_unit: image
+  medclipseg_covid19:
+    manifest: smoke_tests/protocol_v3/manifests/medclipseg_covid19_full.csv
+    prompt_source: official_medclipseg
+    grouping_unit: subject
+    group_field: patient_id
+promotion_gate:
+  minimum_dataset_wins: 3
+  minimum_dice_gain: 0.003
+  maximum_dataset_drop: 0.003
+  require_r8_over_no_rewrite: false
+  semantic_control_minimum_datasets: 3
+legacy_artifacts:
+  track_a: legacy_exploratory
+  r7_pre_v3: legacy_exploratory
+  r8_pre_v3: legacy_exploratory
+  shared_plan_no_rewrite: excluded_invalid_configuration
